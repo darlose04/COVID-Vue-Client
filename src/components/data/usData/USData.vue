@@ -15,6 +15,15 @@ export default {
     Disclaimer,
     StateList,
   },
+  data() {
+    return {
+      cases: [],
+      deaths: [],
+      dailyReport: [],
+      stateName: "",
+      loading: true,
+    };
+  },
 };
 </script>
 
