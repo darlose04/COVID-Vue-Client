@@ -1,14 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import USData from "../components/data/usData/USData";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home,
-  // },
+  {
+    path: "/",
+    name: "USData",
+    component: USData,
+  },
   {
     path: "/about",
     name: "About",
