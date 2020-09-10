@@ -1,11 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <StateList
-      v-bind:cases="cases"
-      v-bind:deaths="deaths"
-      v-bind:dailyReport="dailyReport"
-    />
+    <StateList v-bind:dailyReport="dailyReport" />
   </div>
 </template>
 
