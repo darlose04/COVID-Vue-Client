@@ -1,11 +1,11 @@
 <template>
-  <header class="header">
-    <div id="nav">
+  <header>
+    <div id="navbar" class="navbar">
       <h1 class="logo">
         <i class="fas fa-viruses"></i>
       </h1>
-      <router-link to="/">United States</router-link> |
-      <router-link to="/global">Global</router-link> |
+      <router-link to="/">United States</router-link>
+      <router-link to="/global">Global</router-link>
       <router-link to="/about">About</router-link>
     </div>
   </header>
@@ -16,5 +16,23 @@ export default {
   name: "Header",
 };
 </script>
-.header [ background: #333; ]
-<style scoped></style>
+
+<style scoped>
+header {
+  background: #333;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  width: 1400px;
+  height: 70px;
+  margin: auto;
+}
+
+.navbar .logo {
+  margin-left: 15px;
+}
+</style>
