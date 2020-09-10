@@ -27,9 +27,4 @@ export default {
 ul {
   list-style: none;
 }
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
 </style>
