@@ -24,12 +24,10 @@ export default {
       totalHospitalized: 0,
       totalTested: 0,
       totalRecovered: 0,
+      numWithCommas: function(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      },
     };
-  },
-  methods: {
-    numWithCommas: function(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
   created() {
     this.dailyReport.map((state) => {
