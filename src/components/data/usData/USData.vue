@@ -9,6 +9,10 @@
 import Disclaimer from "../../layout/Disclaimer";
 import StateList from "./StateList";
 
+import axios from "axios";
+
+const baseUrl = "https://www.cov-api.com/api/usa";
+
 export default {
   name: "USData",
   components: {
@@ -23,6 +27,21 @@ export default {
       stateName: "",
       loading: true,
     };
+  },
+  methods: {},
+  created() {
+    axios
+      .get(`${baseUrl}/coronacases`)
+      .then((res) => (this.cases = res.data))
+      .catch((err) => console.log(err));
+    axios
+      .get(`${baseUrl}/coronadeaths`)
+      .then((res) => (this.cases = res.data))
+      .catch((err) => console.log(err));
+    axios
+      .get(`${baseUrl}/dailyreport`)
+      .then((res) => (this.cases = res.data))
+      .catch((err) => console.log(err));
   },
 };
 </script>
