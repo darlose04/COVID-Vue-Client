@@ -3,8 +3,13 @@
     <Totals v-bind:dailyReport="dailyReport" />
     <div class="state-list">
       <h2>States / Territories</h2>
-      <ul>
-        <li></li>
+      <ul v-for="state in dailyReport" v-bind:key="state.index">
+        <li>
+          <h3>{{ state.Province_State }}</h3>
+          <p>Cases: {{ state.Confirmed }}</p>
+          <p>Deaths: {{ state.Deaths }}</p>
+          <p>Recovered: {{ state.Recovered }}</p>
+        </li>
       </ul>
     </div>
   </div>
@@ -19,6 +24,14 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
+  data() {
+    return {
+      numCases: 0,
+      numDeaths: 0,
+      numRecovered: 0,
+    };
+  },
+  methods: {},
 };
 </script>
 
