@@ -1,6 +1,9 @@
 <template>
   <div class="list-data">
-    <Totals v-bind:dailyReport="dailyReport" />
+    <Totals
+      v-bind:dailyReport="dailyReport"
+      v-bind:numWithCommas="numWithCommas"
+    />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
@@ -17,6 +20,7 @@
 
 <script>
 import Totals from "./Totals";
+// import numWithCommas from "../../../numWithCommas";
 
 export default {
   name: "StateList",
@@ -24,11 +28,6 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
-  methods: {
-    numWithCommas: function(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
-  },
 };
 </script>
 

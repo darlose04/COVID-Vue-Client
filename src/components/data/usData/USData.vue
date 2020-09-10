@@ -28,7 +28,6 @@ export default {
       loading: true,
     };
   },
-  methods: {},
   created() {
     axios
       .get(`${baseUrl}/coronacases`)

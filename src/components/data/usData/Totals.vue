@@ -2,12 +2,12 @@
   <div class="totals">
     <h2 class="US-Totals">U.S. Totals</h2>
     <ul>
-      <li>Confirmed: {{ numWithCommas(this.totalCases) }}</li>
-      <li>Deaths: {{ numWithCommas(this.totalDeaths) }}</li>
-      <li>Active: {{ numWithCommas(this.totalActive) }}</li>
-      <li>Hospitalized: {{ numWithCommas(this.totalHospitalized) }}</li>
-      <li>Tested: {{ numWithCommas(this.totalTested) }}</li>
-      <li>Recovered: {{ numWithCommas(this.totalRecovered) }}</li>
+      <li>Confirmed: {{ this.totalCases }}</li>
+      <li>Deaths: {{ this.totalDeaths }}</li>
+      <li>Active: {{ this.totalActive }}</li>
+      <li>Hospitalized: {{ this.totalHospitalized }}</li>
+      <li>Tested: {{ this.totalTested }}</li>
+      <li>Recovered: {{ this.totalRecovered }}</li>
     </ul>
   </div>
 </template>
@@ -26,11 +26,10 @@ export default {
       totalRecovered: 0,
     };
   },
-  methods: {
-    numWithCommas: function(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
+  computed: {
+
   },
+  methods: {},
   created() {
     this.dailyReport.map((state) => {
       this.totalCases += state.Confirmed;
