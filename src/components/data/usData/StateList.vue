@@ -24,14 +24,11 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
-  data() {
-    return {
-      numCases: 0,
-      numDeaths: 0,
-      numRecovered: 0,
-    };
+  methods: {
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
-  methods: {},
 };
 </script>
 
