@@ -4,9 +4,11 @@
       <h1 class="logo">
         <i class="fas fa-viruses"></i>
       </h1>
-      <router-link to="/">United States</router-link>
-      <router-link to="/global">Global</router-link>
-      <router-link to="/about">About</router-link>
+      <nav>
+        <router-link to="/">United States</router-link>
+        <router-link to="/global">Global</router-link>
+        <router-link to="/about">About</router-link>
+      </nav>
     </div>
   </header>
 </template>
@@ -34,5 +36,16 @@ header {
 
 .navbar .logo {
   margin-left: 15px;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  border-bottom: red 2px solid;
 }
 </style>
