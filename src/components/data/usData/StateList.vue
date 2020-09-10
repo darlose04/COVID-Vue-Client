@@ -1,6 +1,6 @@
 <template>
   <div class="list-data">
-    <Totals />
+    <Totals v-bind:dailyReport="dailyReport" />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul>
