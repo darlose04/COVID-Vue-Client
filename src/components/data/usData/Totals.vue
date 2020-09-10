@@ -2,12 +2,12 @@
   <div class="totals">
     <h2 class="US-Totals">U.S. Totals</h2>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Confirmed: {{ this.totalCases }}</li>
+      <li>Deaths: {{ this.totalDeaths }}</li>
+      <li>Active: {{ this.totalActive }}</li>
+      <li>Hospitalized: {{ this.totalHospitalized }}</li>
+      <li>Tested: {{ this.totalTested }}</li>
+      <li>Recovered: {{ this.totalRecovered }}</li>
     </ul>
   </div>
 </template>
@@ -15,6 +15,28 @@
 <script>
 export default {
   name: "Totals",
+  props: ["dailyReport"],
+  data() {
+    return {
+      totalCases: 0,
+      totalDeaths: 0,
+      totalActive: 0,
+      totalHospitalized: 0,
+      totalTested: 0,
+      totalRecovered: 0,
+    };
+  },
+  methods: {},
+  created() {
+    this.dailyReport.map((state) => {
+      this.totalCases += state.Confirmed;
+      this.totalDeaths += state.Deaths;
+      this.totalActive += state.Active;
+      this.totalHospitalized += state.People_Hospitalized;
+      this.totalTested += state.People_Tested;
+      this.totalRecovered += state.Recovered;
+    });
+  },
 };
 </script>
 
