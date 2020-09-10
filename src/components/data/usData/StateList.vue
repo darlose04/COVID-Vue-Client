@@ -1,14 +1,25 @@
 <template>
   <div class="list-data">
-    <Totals v-bind:dailyReport="dailyReport" />
+    <div class="totals">
+      <h2 class="US-Totals">U.S. Totals</h2>
+      <ul>
+        <li>Confirmed: {{ numWithCommas(this.totalCases) }}</li>
+        <li>Deaths: {{ numWithCommas(this.totalDeaths) }}</li>
+        <li>Active: {{ numWithCommas(this.totalActive) }}</li>
+        <li>Hospitalized: {{ numWithCommas(this.totalHospitalized) }}</li>
+        <li>Tested: {{ numWithCommas(this.totalTested) }}</li>
+        <li>Recovered: {{ numWithCommas(this.totalRecovered) }}</li>
+      </ul>
+    </div>
+    <!-- <Totals v-bind:dailyReport="dailyReport" /> -->
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
         <li>
           <h3>{{ state.Province_State }}</h3>
-          <p>Cases: {{ state.Confirmed }}</p>
-          <p>Deaths: {{ state.Deaths }}</p>
-          <p>Recovered: {{ state.Recovered }}</p>
+          <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
+          <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
+          <p>Recovered: {{ numWithCommas(state.Recovered) }}</p>
         </li>
       </ul>
     </div>
@@ -16,14 +27,39 @@
 </template>
 
 <script>
-import Totals from "./Totals";
+// import Totals from "./Totals";
 
 export default {
   name: "StateList",
   components: {
-    Totals,
+    // Totals,
   },
   props: ["dailyReport"],
+  data() {
+    return {
+      totalCases: 0,
+      totalDeaths: 0,
+      totalActive: 0,
+      totalHospitalized: 0,
+      totalTested: 0,
+      totalRecovered: 0,
+    };
+  },
+  methods: {
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+  },
+  created() {
+    this.dailyReport.map((state) => {
+      this.totalCases += state.Confirmed;
+      this.totalDeaths += state.Deaths;
+      this.totalActive += state.Active;
+      this.totalHospitalized += state.People_Hospitalized;
+      this.totalTested += state.People_Tested;
+      this.totalRecovered += state.Recovered;
+    });
+  },
 };
 </script>
 
@@ -32,6 +68,22 @@ export default {
   margin-left: 1rem;
   padding: 1rem 1rem;
   max-height: 1000px;
+}
+
+.totals {
+  margin-bottom: 1rem;
+  border-bottom: 1px dotted black;
+  height: 170px;
+}
+
+.totals h2 {
+  border-bottom: 2px solid black;
+  margin-bottom: 0.5rem;
+}
+
+.US-Totals:hover {
+  cursor: pointer;
+  color: red;
 }
 
 .state-list {
