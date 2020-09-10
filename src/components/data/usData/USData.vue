@@ -28,7 +28,7 @@ export default {
       loading: true,
     };
   },
-  created() {
+  beforeCreate() {
     axios
       .get(`${baseUrl}/coronacases`)
       .then((res) => (this.cases = res.data))

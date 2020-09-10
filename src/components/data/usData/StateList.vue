@@ -1,17 +1,14 @@
 <template>
   <div class="list-data">
-    <Totals
-      v-bind:dailyReport="dailyReport"
-      v-bind:numWithCommas="numWithCommas"
-    />
+    <Totals v-bind:dailyReport="dailyReport" />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
         <li>
           <h3>{{ state.Province_State }}</h3>
-          <p>Cases: {{ state.Confirmed }}</p>
-          <p>Deaths: {{ state.Deaths }}</p>
-          <p>Recovered: {{ state.Recovered }}</p>
+          <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
+          <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
+          <p>Recovered: {{ numWithCommas(state.Recovered) }}</p>
         </li>
       </ul>
     </div>
@@ -20,7 +17,6 @@
 
 <script>
 import Totals from "./Totals";
-// import numWithCommas from "../../../numWithCommas";
 
 export default {
   name: "StateList",
@@ -28,6 +24,11 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
+  methods: {
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+  },
 };
 </script>
 
