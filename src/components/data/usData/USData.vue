@@ -1,7 +1,6 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <h1>This is the page for displaying US Data</h1>
     <StateList />
   </div>
 </template>
