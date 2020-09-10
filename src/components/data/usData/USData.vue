@@ -36,11 +36,11 @@ export default {
       .catch((err) => console.log(err));
     axios
       .get(`${baseUrl}/coronadeaths`)
-      .then((res) => (this.cases = res.data))
+      .then((res) => (this.deaths = res.data))
       .catch((err) => console.log(err));
     axios
       .get(`${baseUrl}/dailyreport`)
-      .then((res) => (this.cases = res.data))
+      .then((res) => (this.dailyReport = res.data))
       .catch((err) => console.log(err));
   },
 };
