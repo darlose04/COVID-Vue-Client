@@ -24,26 +24,6 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
-  data() {
-    return {
-      totalCases: 0,
-      totalDeaths: 0,
-      totalActive: 0,
-      totalHospitalized: 0,
-      totalTested: 0,
-      totalRecovered: 0,
-    };
-  },
-  created() {
-    this.dailyReport.map((state) => {
-      this.totalCases += state.Confirmed;
-      this.totalDeaths += state.Deaths;
-      this.totalActive += state.Active;
-      this.totalHospitalized += state.People_Hospitalized;
-      this.totalTested += state.People_Tested;
-      this.totalRecovered += state.Recovered;
-    });
-  },
 };
 </script>
 
