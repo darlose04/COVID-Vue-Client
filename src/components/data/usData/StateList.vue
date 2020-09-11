@@ -1,25 +1,14 @@
 <template>
   <div class="list-data">
-    <div class="totals">
-      <h2 class="US-Totals">U.S. Totals</h2>
-      <ul>
-        <li>Confirmed: {{ numWithCommas(this.totalCases) }}</li>
-        <li>Deaths: {{ numWithCommas(this.totalDeaths) }}</li>
-        <li>Active: {{ numWithCommas(this.totalActive) }}</li>
-        <li>Hospitalized: {{ numWithCommas(this.totalHospitalized) }}</li>
-        <li>Tested: {{ numWithCommas(this.totalTested) }}</li>
-        <li>Recovered: {{ numWithCommas(this.totalRecovered) }}</li>
-      </ul>
-    </div>
-    <!-- <Totals v-bind:dailyReport="dailyReport" /> -->
+    <Totals v-bind:dailyReport="dailyReport" />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
         <li>
           <h3>{{ state.Province_State }}</h3>
-          <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
-          <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
-          <p>Recovered: {{ numWithCommas(state.Recovered) }}</p>
+          <p>Cases: {{ state.Confirmed }}</p>
+          <p>Deaths: {{ state.Deaths }}</p>
+          <p>Recovered: {{ state.Recovered }}</p>
         </li>
       </ul>
     </div>
@@ -27,12 +16,12 @@
 </template>
 
 <script>
-// import Totals from "./Totals";
+import Totals from "./Totals";
 
 export default {
   name: "StateList",
   components: {
-    // Totals,
+    Totals,
   },
   props: ["dailyReport"],
   data() {
@@ -44,11 +33,6 @@ export default {
       totalTested: 0,
       totalRecovered: 0,
     };
-  },
-  methods: {
-    numWithCommas: function(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
   },
   created() {
     this.dailyReport.map((state) => {
