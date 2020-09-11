@@ -8,7 +8,12 @@
           <h3>{{ state.Province_State }}</h3>
           <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
           <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
-          <p>Recovered: {{ state.Recovered }}</p>
+          <div v-if="state.Recovered">
+            <p>Recovered: {{ numWithCommas(state.Recovered) }}</p>
+          </div>
+          <div v-else>
+            <p>Recovered: {{ state.Recovered }}</p>
+          </div>
         </li>
       </ul>
     </div>
