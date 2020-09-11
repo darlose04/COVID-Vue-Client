@@ -1,7 +1,11 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="loading">
+    <div
+      v-if="
+        cases.length === 0 && deaths.length === 0 && dailyReport.length === 0
+      "
+    >
       <Spinner />
     </div>
     <div v-else>
@@ -36,15 +40,6 @@ export default {
     };
   },
   methods: {
-    // checkData() {
-    //   if (
-    //     this.cases.length > 0 &&
-    //     this.deaths.length > 0 &&
-    //     this.dailyReport.length > 0
-    //   ) {
-    //     this.loading = false;
-    //   }
-    // },
     fetchData() {
       axios
         .get(`${baseUrl}/coronacases`)
@@ -58,12 +53,10 @@ export default {
         .get(`${baseUrl}/dailyreport`)
         .then((res) => (this.dailyReport = res.data))
         .catch((err) => console.log(err));
-      this.loading = false;
     },
   },
   created() {
     this.fetchData();
-    // this.checkData();
   },
 };
 </script>
