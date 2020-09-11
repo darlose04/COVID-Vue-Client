@@ -2,12 +2,12 @@
   <div class="totals">
     <h2 class="US-Totals">U.S. Totals</h2>
     <ul>
-      <li>Confirmed: {{ this.totalCases }}</li>
-      <li>Deaths: {{ this.totalDeaths }}</li>
-      <li>Active: {{ this.totalActive }}</li>
-      <li>Hospitalized: {{ this.totalHospitalized }}</li>
-      <li>Tested: {{ this.totalTested }}</li>
-      <li>Recovered: {{ this.totalRecovered }}</li>
+      <li>Confirmed: {{ numWithCommas(getTotalData.totalCases) }}</li>
+      <li>Deaths: {{ numWithCommas(getTotalData.totalDeaths) }}</li>
+      <li>Active: {{ numWithCommas(getTotalData.totalActive) }}</li>
+      <li>Hospitalized: {{ numWithCommas(getTotalData.totalHospitalized) }}</li>
+      <li>Tested: {{ numWithCommas(getTotalData.totalTested) }}</li>
+      <li>Recovered: {{ numWithCommas(getTotalData.totalRecovered) }}</li>
     </ul>
   </div>
 </template>
@@ -16,25 +16,48 @@
 export default {
   name: "Totals",
   props: ["dailyReport"],
-  data() {
-    return {
-      totalCases: 0,
-      totalDeaths: 0,
-      totalActive: 0,
-      totalHospitalized: 0,
-      totalTested: 0,
-      totalRecovered: 0,
-    };
+  // data() {
+  //   return {
+  //     totalCases: 0,
+  //     totalDeaths: 0,
+  //     totalActive: 0,
+  //     totalHospitalized: 0,
+  //     totalTested: 0,
+  //     totalRecovered: 0,
+  //   };
+  // },
+  methods: {
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
-  created() {
-    this.dailyReport.map((state) => {
-      this.totalCases += state.Confirmed;
-      this.totalDeaths += state.Deaths;
-      this.totalActive += state.Active;
-      this.totalHospitalized += state.People_Hospitalized;
-      this.totalTested += state.People_Tested;
-      this.totalRecovered += state.Recovered;
-    });
+  computed: {
+    getTotalData: function() {
+      let totalCases = 0;
+      let totalDeaths = 0;
+      let totalActive = 0;
+      let totalHospitalized = 0;
+      let totalTested = 0;
+      let totalRecovered = 0;
+
+      this.dailyReport.map((state) => {
+        totalCases += state.Confirmed;
+        totalDeaths += state.Deaths;
+        totalActive += state.Active;
+        totalHospitalized += state.People_Hospitalized;
+        totalTested += state.People_Tested;
+        totalRecovered += state.Recovered;
+      });
+
+      return {
+        totalCases,
+        totalDeaths,
+        totalActive,
+        totalHospitalized,
+        totalTested,
+        totalRecovered,
+      };
+    },
   },
 };
 </script>
