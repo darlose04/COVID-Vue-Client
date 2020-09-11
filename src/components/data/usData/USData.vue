@@ -1,12 +1,18 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <StateList v-bind:dailyReport="dailyReport" />
+    <div v-if="loading">
+      <Spinner />
+    </div>
+    <div v-else>
+      <StateList v-bind:dailyReport="dailyReport" />
+    </div>
   </div>
 </template>
 
 <script>
 import Disclaimer from "../../layout/Disclaimer";
+import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
 
 import axios from "axios";
@@ -17,6 +23,7 @@ export default {
   name: "USData",
   components: {
     Disclaimer,
+    Spinner,
     StateList,
   },
   data() {
@@ -28,19 +35,35 @@ export default {
       loading: true,
     };
   },
-  beforeCreate() {
-    axios
-      .get(`${baseUrl}/coronacases`)
-      .then((res) => (this.cases = res.data))
-      .catch((err) => console.log(err));
-    axios
-      .get(`${baseUrl}/coronadeaths`)
-      .then((res) => (this.deaths = res.data))
-      .catch((err) => console.log(err));
-    axios
-      .get(`${baseUrl}/dailyreport`)
-      .then((res) => (this.dailyReport = res.data))
-      .catch((err) => console.log(err));
+  methods: {
+    // checkData() {
+    //   if (
+    //     this.cases.length > 0 &&
+    //     this.deaths.length > 0 &&
+    //     this.dailyReport.length > 0
+    //   ) {
+    //     this.loading = false;
+    //   }
+    // },
+    fetchData() {
+      axios
+        .get(`${baseUrl}/coronacases`)
+        .then((res) => (this.cases = res.data))
+        .catch((err) => console.log(err));
+      axios
+        .get(`${baseUrl}/coronadeaths`)
+        .then((res) => (this.deaths = res.data))
+        .catch((err) => console.log(err));
+      axios
+        .get(`${baseUrl}/dailyreport`)
+        .then((res) => (this.dailyReport = res.data))
+        .catch((err) => console.log(err));
+      this.loading = false;
+    },
+  },
+  created() {
+    this.fetchData();
+    // this.checkData();
   },
 };
 </script>
