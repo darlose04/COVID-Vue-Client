@@ -6,8 +6,8 @@
       <ul v-for="state in dailyReport" v-bind:key="state.index">
         <li>
           <h3>{{ state.Province_State }}</h3>
-          <p>Cases: {{ state.Confirmed }}</p>
-          <p>Deaths: {{ state.Deaths }}</p>
+          <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
+          <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
           <p>Recovered: {{ state.Recovered }}</p>
         </li>
       </ul>
@@ -24,6 +24,11 @@ export default {
     Totals,
   },
   props: ["dailyReport"],
+  methods: {
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+  },
 };
 </script>
 
