@@ -24,36 +24,6 @@ export default {
       stateCountyDeaths: [],
     };
   },
-  // methods: {
-  //   getCountyStats: function(stateName, cases, deaths) {
-  //     console.log(stateName);
-  //     console.log(cases);
-  //     console.log(deaths);
-
-  //     let dateArray = [];
-  //     dateArray.push(Object.keys(cases[0]));
-  //     let dates = dateArray[0].slice(7, dateArray[0].length);
-  //     let recentDate = dates[dates.length - 1];
-  //     console.log(recentDate);
-  //     // for (let i = 0; i < cases.length; i++) {
-  //     //   let stateObj = {
-  //     //     id: cases[i].UID,
-  //     //     county: cases[i].City,
-  //     //     cases: cases[i][recentDate],
-  //     //     deaths: deaths[i][recentDate],
-  //     //   };
-
-  //     //   // console.log(stateObj);
-  //     //   // this.stateObjects.push(stateObj);
-  //     // }
-  //   },
-  // },
-  // mounted() {
-  //   this.getCountyStats(this.stateName, this.cases, this.deaths);
-  // },
-  // updated() {
-  //   this.getCountyStats(this.stateName, this.cases, this.deaths);
-  // },
   methods: {
     getCountyData() {
       this.stateCountyCases = [];
