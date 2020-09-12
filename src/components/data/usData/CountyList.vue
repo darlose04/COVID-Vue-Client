@@ -63,13 +63,14 @@ export default {
       }
       console.log("State Object:");
       console.log(this.stateObjects);
+      return this.stateObjects;
     },
   },
   created() {
     this.getCountyData();
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
-  updated() {
+  beforeUpdate() {
     this.getCountyData();
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
