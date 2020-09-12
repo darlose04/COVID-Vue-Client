@@ -8,7 +8,21 @@
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
         <li>
-          <h3>{{ state.Province_State }}</h3>
+          <div
+            v-if="
+              state.Province_State === 'American Samoa' ||
+                state.Province_State === 'Diamond Princess' ||
+                state.Province_State === 'Grand Princess' ||
+                state.Province_State === 'Guam' ||
+                state.Province_State === 'Northern Mariana Islands' ||
+                state.Province_State === 'Virgin Islands'
+            "
+          >
+            <h3>{{ state.Province_State }}</h3>
+          </div>
+          <div v-else>
+            <h3 v-on:click="changeStateName">{{ state.Province_State }}</h3>
+          </div>
           <p>Cases: {{ numWithCommas(state.Confirmed) }}</p>
           <p>Deaths: {{ numWithCommas(state.Deaths) }}</p>
           <div v-if="state.Recovered">
