@@ -62,6 +62,7 @@ export default {
         this.stateName = "";
       } else {
         this.stateName = event.target.innerText;
+        // console.log(this.stateName);
       }
     },
   },
