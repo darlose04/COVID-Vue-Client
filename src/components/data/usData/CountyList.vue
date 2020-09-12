@@ -22,28 +22,32 @@ export default {
       stateObjects: [],
     };
   },
-  computed: {
-    getCountyStats: function() {
-      // let stateObjects = [];
+  methods: {
+    getCountyStats: function(stateName, cases, deaths) {
+      this.stateObjects = [];
       const dateArray = [];
-      dateArray.push(Object.keys(this.cases[0]));
+      dateArray.push(Object.keys(cases[0]));
       const dates = dateArray[0].slice(7, dateArray[0].length);
 
       const recentDate = dates[dates.length - 1];
 
-      for (let i = 0; i < this.cases.length; i++) {
+      for (let i = 0; i < cases.length; i++) {
         let stateObj = {
-          id: this.cases[i].UID,
-          county: this.cases[i].City,
-          cases: this.cases[i][recentDate],
-          deaths: this.deaths[i][recentDate],
+          id: cases[i].UID,
+          county: cases[i].City,
+          cases: cases[i][recentDate],
+          deaths: deaths[i][recentDate],
         };
 
         this.stateObjects.push(stateObj);
+        // this.stateObjects.concat(stateObj);
       }
-
-      return this.stateObjects;
+      console.log(this.stateObjects);
+      // return this.stateObjects;
     },
+  },
+  mounted() {
+    this.getCountyStats(this.stateName, this.cases, this.deaths);
   },
 };
 </script>
