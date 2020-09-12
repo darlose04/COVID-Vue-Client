@@ -26,21 +26,49 @@ export default {
   },
   methods: {
     getCountyData() {
+      this.stateObjects = [];
       this.stateCountyCases = [];
+      this.stateCountyDeaths = [];
+
       this.cases.map((obj) => {
         if (obj.State === this.stateName) {
           // console.log(obj);
           this.stateCountyCases.push(obj);
         }
       });
-      console.log(this.stateCountyCases);
+      this.deaths.map((obj) => {
+        if (obj.State === this.stateName) {
+          this.stateCountyDeaths.push(obj);
+        }
+      });
+    },
+    addCountyData(cases, deaths) {
+      let dateArray = [];
+      dateArray.push(Object.keys(cases[0]));
+      let dates = dateArray[0].slice(7, dateArray[0].length);
+      let recentDate = dates[dates.length - 1];
+
+      // console.log(this.stateCountyDeaths);
+      for (let i = 0; i < cases.length; i++) {
+        let stateObj = {
+          id: cases[i].UID,
+          county: cases[i].City,
+          cases: cases[i][recentDate],
+          deaths: deaths[i][recentDate],
+        };
+
+        this.stateObjects.push(stateObj);
+        console.log(stateObj);
+      }
     },
   },
   created() {
     this.getCountyData();
+    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
   updated() {
     this.getCountyData();
+    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };
 </script>
