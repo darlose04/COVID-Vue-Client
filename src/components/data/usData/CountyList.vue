@@ -24,29 +24,20 @@ export default {
   },
   methods: {
     getCountyStats: function(stateName, cases, deaths) {
-      this.stateObjects = [];
-      const dateArray = [];
+      console.log(stateName);
+      console.log(cases);
+      console.log(deaths);
+
+      let dateArray = [];
       dateArray.push(Object.keys(cases[0]));
-      const dates = dateArray[0].slice(7, dateArray[0].length);
-
-      const recentDate = dates[dates.length - 1];
-
-      for (let i = 0; i < cases.length; i++) {
-        let stateObj = {
-          id: cases[i].UID,
-          county: cases[i].City,
-          cases: cases[i][recentDate],
-          deaths: deaths[i][recentDate],
-        };
-
-        this.stateObjects.push(stateObj);
-        // this.stateObjects.concat(stateObj);
-      }
-      console.log(this.stateObjects);
-      // return this.stateObjects;
+      let dates = dateArray[0].slice(7, dateArray[0].length);
+      console.log(dates);
     },
   },
   mounted() {
+    this.getCountyStats(this.stateName, this.cases, this.deaths);
+  },
+  updated() {
     this.getCountyStats(this.stateName, this.cases, this.deaths);
   },
 };
