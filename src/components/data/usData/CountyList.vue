@@ -64,11 +64,11 @@ export default {
   },
   created() {
     this.getCountyData();
-    // this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
   updated() {
     this.getCountyData();
-    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    // this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };
 </script>
