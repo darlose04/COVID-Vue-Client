@@ -62,8 +62,8 @@ export default {
       dailyReport: [],
       stateName: "",
       loading: true,
-      stateCountyCases: [],
-      stateCountyDeaths: [],
+      // stateCountyCases: [],
+      // stateCountyDeaths: [],
     };
   },
   methods: {
@@ -89,27 +89,9 @@ export default {
       }
       console.log(this.stateName);
     },
-    getStateCountyData() {
-      this.cases.map((obj) => {
-        if (obj.State === this.stateName) {
-          this.stateCountyCases.push(obj);
-        }
-      });
-      this.deaths.map((obj) => {
-        if (obj.State === this.stateName) {
-          this.stateCountyDeaths.push(obj);
-        }
-      });
-    },
   },
   created() {
     this.fetchData();
-  },
-  mounted() {
-    this.getStateCountyData();
-  },
-  updated() {
-    this.getStateCountyData();
   },
 };
 </script>
