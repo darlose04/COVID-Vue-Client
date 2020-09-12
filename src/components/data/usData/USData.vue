@@ -18,7 +18,11 @@
           <LineCharts />
         </div>
 
-        <CountyList />
+        <CountyList
+          v-bind:stateName="stateName"
+          v-bind:cases="cases"
+          v-bind:deaths="deaths"
+        />
       </div>
     </div>
   </div>
