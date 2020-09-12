@@ -40,6 +40,7 @@ export default {
           this.stateCountyDeaths.push(obj);
         }
       });
+      console.log("State County Cases Array:");
       console.log(this.stateCountyCases);
     },
     addCountyData(cases, deaths) {
@@ -60,6 +61,8 @@ export default {
 
         this.stateObjects.push(stateObj);
       }
+      console.log("State Object:");
+      console.log(this.stateObjects);
     },
   },
   created() {
@@ -68,7 +71,7 @@ export default {
   },
   updated() {
     this.getCountyData();
-    // this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };
 </script>
