@@ -31,7 +31,19 @@ export default {
       let dateArray = [];
       dateArray.push(Object.keys(cases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
-      console.log(dates);
+      let recentDate = dates[dates.length - 1];
+
+      for (let i = 0; i < cases.length; i++) {
+        let stateObj = {
+          id: cases[i].UID,
+          county: cases[i].City,
+          cases: cases[i][recentDate],
+          deaths: deaths[i][recentDate],
+        };
+
+        console.log(stateObj);
+        // this.stateObjects.push(stateObj);
+      }
     },
   },
   mounted() {
