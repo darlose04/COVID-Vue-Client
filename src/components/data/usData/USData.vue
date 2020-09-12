@@ -9,12 +9,17 @@
       <Spinner />
     </div>
     <div v-else>
-      <StateList
-        v-bind:changeStateName="changeStateName"
-        v-bind:dailyReport="dailyReport"
-      />
-      <LineCharts />
-      <CountyList />
+      <div class="data">
+        <StateList
+          v-bind:changeStateName="changeStateName"
+          v-bind:dailyReport="dailyReport"
+        />
+        <div class="charts">
+          <LineCharts />
+        </div>
+
+        <CountyList />
+      </div>
     </div>
   </div>
 </template>
@@ -90,5 +95,15 @@ export default {
   grid-gap: 1rem;
   height: 2000px;
   margin-bottom: 4rem;
+}
+
+.charts {
+  padding: 1rem 0rem;
+  grid-column: 2 / span 3;
+  max-height: 1000px;
+}
+
+.data:last-child {
+  grid-column: 5 / span 1;
 }
 </style>
