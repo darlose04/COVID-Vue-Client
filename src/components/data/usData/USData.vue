@@ -9,7 +9,10 @@
       <Spinner />
     </div>
     <div v-else>
-      <StateList v-bind:dailyReport="dailyReport" />
+      <StateList
+        v-bind:changeStateName="changeStateName"
+        v-bind:dailyReport="dailyReport"
+      />
     </div>
   </div>
 </template>
@@ -53,6 +56,13 @@ export default {
         .get(`${baseUrl}/dailyreport`)
         .then((res) => (this.dailyReport = res.data))
         .catch((err) => console.log(err));
+    },
+    changeStateName(event) {
+      if (event.target.innerText === "U.S. Totals") {
+        this.stateName = "";
+      } else {
+        this.stateName = event.target.innerText;
+      }
     },
   },
   created() {
