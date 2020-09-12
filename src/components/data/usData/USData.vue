@@ -17,12 +17,19 @@
         <div class="charts">
           <LineCharts />
         </div>
-
-        <CountyList
-          v-bind:stateName="stateName"
-          v-bind:cases="cases"
-          v-bind:deaths="deaths"
-        />
+        <div v-if="stateName !== ''">
+          <CountyList
+            v-bind:stateName="stateName"
+            v-bind:cases="cases"
+            v-bind:deaths="deaths"
+          />
+        </div>
+        <div v-else>
+          <h3>
+            Click on a state name to the left to display statistics related to
+            that state's counties.
+          </h3>
+        </div>
       </div>
     </div>
   </div>
