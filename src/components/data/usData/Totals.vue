@@ -1,6 +1,8 @@
 <template>
   <div class="totals">
-    <h2 class="US-Totals">U.S. Totals</h2>
+    <h2 v-on:click="changeStateName" class="US-Totals">
+      U.S. Totals
+    </h2>
     <ul>
       <li>Confirmed: {{ numWithCommas(getTotalData.totalCases) }}</li>
       <li>Deaths: {{ numWithCommas(getTotalData.totalDeaths) }}</li>
