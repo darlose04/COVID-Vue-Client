@@ -13,6 +13,8 @@
         v-bind:changeStateName="changeStateName"
         v-bind:dailyReport="dailyReport"
       />
+      <LineCharts />
+      <CountyList />
     </div>
   </div>
 </template>
@@ -21,6 +23,8 @@
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
+import LineCharts from "../LineCharts";
+import CountyList from "./CountyList";
 
 import axios from "axios";
 
@@ -32,6 +36,8 @@ export default {
     Disclaimer,
     Spinner,
     StateList,
+    LineCharts,
+    CountyList,
   },
   data() {
     return {
