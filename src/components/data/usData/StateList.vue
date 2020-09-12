@@ -1,6 +1,9 @@
 <template>
   <div class="list-data">
-    <Totals v-bind:dailyReport="dailyReport" />
+    <Totals
+      v-bind:changeStateName="changeStateName"
+      v-bind:dailyReport="dailyReport"
+    />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in dailyReport" v-bind:key="state.index">
@@ -28,7 +31,7 @@ export default {
   components: {
     Totals,
   },
-  props: ["dailyReport"],
+  props: ["dailyReport", "changeStateName"],
   methods: {
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
