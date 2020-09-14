@@ -30,9 +30,11 @@ export default {
   props: {
     cases: {
       type: Array,
+      required: true,
     },
     deaths: {
       type: Array,
+      required: true,
     },
   },
   data() {
