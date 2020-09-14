@@ -6,12 +6,6 @@
       v-bind:color="casesColor"
       v-bind:label="casesLabel"
     />
-    <ChartInfo
-      v-bind:chartLabel="chartLabel"
-      v-bind:infoArray="deathsArray"
-      v-bind:color="deathsColor"
-      v-bind:label="deathsLabel"
-    />
   </div>
 </template>
 
@@ -78,10 +72,10 @@ export default {
     },
   },
   mounted() {
-    // this.getChartLabels();
-    // // this.getChartData();
-    // this.getCasesData();
-    // this.getDeathsData();
+    this.getChartLabels();
+    // this.getChartData();
+    this.getCasesData();
+    this.getDeathsData();
     this.showData();
   },
 };

@@ -68,7 +68,20 @@ export default {
     };
   },
   methods: {
-    fetchData() {},
+    fetchData() {
+      axios
+        .get(`${baseUrl}/coronacases`)
+        .then((res) => (this.cases = res.data))
+        .catch((err) => console.log("Error fetching cases: " + err));
+      axios
+        .get(`${baseUrl}/coronadeaths`)
+        .then((res) => (this.deaths = res.data))
+        .catch((err) => console.log("Error fetching deaths: " + err));
+      axios
+        .get(`${baseUrl}/dailyreport`)
+        .then((res) => (this.dailyReport = res.data))
+        .catch((err) => console.log("Error fetching daily reports: " + err));
+    },
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
@@ -76,27 +89,9 @@ export default {
         this.stateName = event.target.innerText;
       }
     },
-    showDataFetched() {
-      console.log("This is happening in the USData component");
-      console.log("Cases:");
-      console.log(this.cases);
-      console.log("Deaths:");
-      console.log(this.deaths);
-    },
   },
   mounted() {
-    axios
-      .get(`${baseUrl}/coronacases`)
-      .then((res) => (this.cases = res.data))
-      .catch((err) => console.log("Error fetching cases: " + err));
-    axios
-      .get(`${baseUrl}/coronadeaths`)
-      .then((res) => (this.deaths = res.data))
-      .catch((err) => console.log("Error fetching deaths: " + err));
-    axios
-      .get(`${baseUrl}/dailyreport`)
-      .then((res) => (this.dailyReport = res.data))
-      .catch((err) => console.log("Error fetching daily reports: " + err));
+    this.fetchData();
   },
 };
 </script>

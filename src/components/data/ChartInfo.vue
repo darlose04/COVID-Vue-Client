@@ -40,26 +40,8 @@ export default {
       },
     };
   },
-  methods: {
-    displayCases() {
-      if (this.label === "Total U.S. Cases") {
-        console.log("This is the total cases array:");
-        console.log(this.infoArray);
-      }
-    },
-    displayDeaths() {
-      if (this.label === "Total U.S. Deaths") {
-        console.log("This is the total deaths array:");
-        console.log(this.infoArray);
-      }
-    },
-  },
-  created() {},
   mounted() {
     this.renderChart(this.chartData, this.options);
-    this.displayCases();
-    this.displayDeaths();
   },
 };
 </script>
-<ChartInfo v-bind:chartLabel="chartLabel" v-bind:infoArray="infoArray" />
