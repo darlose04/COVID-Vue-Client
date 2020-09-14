@@ -1,26 +1,17 @@
 <template>
   <div class="line-chart">
-    <div
-      v-if="
-        chartLabel.length === 0 &&
-          casesArray.length === 0 &&
-          deathsArray.length === 0
-      "
-    ></div>
-    <div v-else>
-      <ChartInfo
-        v-bind:chartLabel="chartLabel"
-        v-bind:infoArray="casesArray"
-        v-bind:color="casesColor"
-        v-bind:label="casesLabel"
-      />
-      <ChartInfo
-        v-bind:chartLabel="chartLabel"
-        v-bind:infoArray="deathsArray"
-        v-bind:color="deathsColor"
-        v-bind:label="deathsLabel"
-      />
-    </div>
+    <ChartInfo
+      v-bind:chartLabel="chartLabel"
+      v-bind:infoArray="casesArray"
+      v-bind:color="casesColor"
+      v-bind:label="casesLabel"
+    />
+    <ChartInfo
+      v-bind:chartLabel="chartLabel"
+      v-bind:infoArray="deathsArray"
+      v-bind:color="deathsColor"
+      v-bind:label="deathsLabel"
+    />
   </div>
 </template>
 
@@ -78,12 +69,20 @@ export default {
         this.deathsArray.push(numInfo);
       });
     },
+    showData() {
+      console.log("This is happening in the LineCharts component");
+      console.log("Cases Array:");
+      console.log(this.cases);
+      console.log("Deaths Array:");
+      console.log(this.deaths);
+    },
   },
   mounted() {
-    this.getChartLabels();
-    // this.getChartData();
-    this.getCasesData();
-    this.getDeathsData();
+    // this.getChartLabels();
+    // // this.getChartData();
+    // this.getCasesData();
+    // this.getDeathsData();
+    this.showData();
   },
 };
 </script>
