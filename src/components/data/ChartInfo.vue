@@ -4,7 +4,6 @@ import { Line } from "vue-chartjs";
 export default {
   name: "ChartInfo",
   extends: Line,
-  props: ["chartLabel", "infoArray", "color", "label"],
   props: {
     chartLabel: {
       type: Array,
