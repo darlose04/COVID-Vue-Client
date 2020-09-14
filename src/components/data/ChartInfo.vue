@@ -41,12 +41,20 @@ export default {
     };
   },
   methods: {
-    displayData() {
-      console.log(this.chartLabel);
+    displayCases() {
+      if (this.label === "Total U.S. Cases") {
+        console.log(this.infoArray);
+      }
+    },
+    displayDeaths() {
+      if (this.label === "Total U.S. Deaths") {
+        console.log(this.infoArray);
+      }
     },
   },
   created() {
-    this.displayData();
+    this.displayCases();
+    this.displayDeaths();
   },
   mounted() {
     this.renderChart(this.chartData, this.options);

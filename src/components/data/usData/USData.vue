@@ -94,16 +94,21 @@ export default {
         .then((res) => (this.dailyReport = res.data))
         .catch((err) => console.log(err));
     },
+    consoleCases() {
+      console.log(this.cases);
+    },
+    consoleDeaths() {
+      console.log(this.deaths);
+    },
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
       } else {
         this.stateName = event.target.innerText;
       }
-      console.log(this.stateName);
     },
   },
-  created() {
+  mounted() {
     this.fetchData();
   },
 };

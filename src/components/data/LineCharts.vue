@@ -1,11 +1,14 @@
 <template>
   <div class="line-chart">
-    <ChartInfo
-      v-bind:chartLabel="chartLabel"
-      v-bind:infoArray="infoArray"
-      v-bind:color="color"
-      v-bind:label="label"
-    />
+    <div v-if="chartLabel.length === 0 && infoArray.length === 0"></div>
+    <div v-else>
+      <ChartInfo
+        v-bind:chartLabel="chartLabel"
+        v-bind:infoArray="infoArray"
+        v-bind:color="color"
+        v-bind:label="label"
+      />
+    </div>
   </div>
 </template>
 
