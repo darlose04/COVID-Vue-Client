@@ -15,7 +15,11 @@
           v-bind:dailyReport="dailyReport"
         />
         <div class="charts">
-          <LineCharts />
+          <LineCharts
+            v-bind:cases="cases"
+            v-bind:deaths="deaths"
+            v-bind:stateName="stateName"
+          />
         </div>
         <div v-if="stateName !== ''">
           <CountyList
