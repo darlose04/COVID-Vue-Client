@@ -1,11 +1,21 @@
 <template>
   <div class="line-chart">
-    <ChartInfo
-      v-bind:chartLabel="chartLabel"
-      v-bind:infoArray="casesArray"
-      v-bind:color="casesColor"
-      v-bind:label="casesLabel"
-    />
+    <div v-if="casesArray.length > 0">
+      <ChartInfo
+        v-bind:chartLabel="chartLabel"
+        v-bind:infoArray="casesArray"
+        v-bind:color="casesColor"
+        v-bind:label="casesLabel"
+      />
+    </div>
+    <div v-if="deathsArray.length > 0">
+      <ChartInfo
+        v-bind:chartLabel="chartLabel"
+        v-bind:infoArray="deathsArray"
+        v-bind:color="deathsColor"
+        v-bind:label="deathsLabel"
+      />
+    </div>
   </div>
 </template>
 
@@ -34,17 +44,8 @@ export default {
       const dateArray = [];
       dateArray.push(Object.keys(this.cases[0]));
       this.chartLabel = dateArray[0].slice(7, dateArray[0].length);
-      console.log(this.chartLabel);
+      // console.log(this.chartLabel);
     },
-    // getChartData() {
-    //   this.chartLabel.map((date) => {
-    //     let numInfo = 0;
-    //     this.info.map((item) => {
-    //       numInfo += item[`${date}`];
-    //     });
-    //     this.infoArray.push(numInfo);
-    //   });
-    // },
     getCasesData() {
       this.chartLabel.map((date) => {
         let numInfo = 0;
@@ -71,12 +72,12 @@ export default {
       console.log(this.deaths);
     },
   },
-  mounted() {
+  beforeMount() {
     this.getChartLabels();
     // this.getChartData();
     this.getCasesData();
     this.getDeathsData();
-    this.showData();
+    // this.showData();
   },
 };
 </script>
