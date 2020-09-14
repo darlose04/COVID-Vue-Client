@@ -15,7 +15,16 @@
           v-bind:dailyReport="dailyReport"
         />
         <div class="charts">
-          <LineCharts v-bind:info="cases" />
+          <LineCharts
+            v-bind:info="cases"
+            v-bind:color="casesColor"
+            v-bind:label="casesLabel"
+          />
+          <LineCharts
+            v-bind:info="deaths"
+            v-bind:color="deathsColor"
+            v-bind:label="deathsLabel"
+          />
         </div>
         <div v-if="stateName !== ''">
           <CountyList
@@ -62,6 +71,10 @@ export default {
       dailyReport: [],
       stateName: "",
       loading: true,
+      casesColor: "rgba(16,30,229,1)",
+      deathsColor: "rgba(198,9,9,1)",
+      casesLabel: "Total U.S. Cases",
+      deathsLabel: "Total U.S. Deaths",
       // stateCountyCases: [],
       // stateCountyDeaths: [],
     };

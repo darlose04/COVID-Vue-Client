@@ -4,28 +4,28 @@ import { Line } from "vue-chartjs";
 export default {
   name: "ChartInfo",
   extends: Line,
-  props: ["chartLabel", "infoArray"],
+  props: ["chartLabel", "infoArray", "color", "label"],
   data() {
     return {
       chartData: {
         labels: this.chartLabel,
         datasets: [
           {
-            label: "Total U.S. Cases",
+            label: this.label,
             data: this.infoArray,
             fill: false,
             lineTension: 0.1,
-            borderColor: "rgba(16,30,229,1)",
-            backgroundColor: "rgba(16,30,229,1)",
+            borderColor: this.color,
+            backgroundColor: this.color,
             borderCapStyle: "butt",
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: "miter",
-            pointBorderColor: "rgba(16,30,229,1)",
+            pointBorderColor: this.color,
             pointBackgroundColor: "#fff",
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(16,30,229,1)",
+            pointHoverBackgroundColor: this.color,
             pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
             pointRadius: 1,

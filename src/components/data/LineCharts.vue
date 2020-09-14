@@ -1,6 +1,11 @@
 <template>
   <div class="line-chart">
-    <ChartInfo v-bind:chartLabel="chartLabel" v-bind:infoArray="infoArray" />
+    <ChartInfo
+      v-bind:chartLabel="chartLabel"
+      v-bind:infoArray="infoArray"
+      v-bind:color="color"
+      v-bind:label="label"
+    />
   </div>
 </template>
 
@@ -12,7 +17,7 @@ export default {
   components: {
     ChartInfo,
   },
-  props: ["info"],
+  props: ["info", "color", "label"],
   data() {
     return {
       chartLabel: [],
