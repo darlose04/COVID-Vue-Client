@@ -1,15 +1,17 @@
 <template>
   <div class="line-chart">
-    <h1>This is where the charts will go</h1>
+    <ChartInfo v-bind:chartLabel="chartLabel" v-bind:infoArray="infoArray" />
   </div>
 </template>
 
 <script>
-import { Line } from "vue-chartjs";
+import ChartInfo from "./ChartInfo";
 
 export default {
   name: "LineCharts",
-  extends: Line,
+  components: {
+    ChartInfo,
+  },
   props: ["info"],
   data() {
     return {
@@ -37,8 +39,5 @@ export default {
     this.getChartLabels();
     this.getChartData();
   },
-  mounted() {},
 };
 </script>
-
-<style scoped></style>
