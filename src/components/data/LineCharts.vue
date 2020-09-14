@@ -79,7 +79,7 @@ export default {
       });
     },
   },
-  created() {
+  mounted() {
     this.getChartLabels();
     // this.getChartData();
     this.getCasesData();
