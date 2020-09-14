@@ -7,15 +7,19 @@ export default {
   props: {
     chartLabel: {
       type: Array,
+      required: true,
     },
     infoArray: {
       type: Array,
+      required: true,
     },
     color: {
       type: String,
+      required: true,
     },
     label: {
       type: String,
+      required: true,
     },
   },
   data() {
