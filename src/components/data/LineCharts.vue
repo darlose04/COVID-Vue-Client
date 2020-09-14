@@ -64,13 +64,6 @@ export default {
         this.deathsArray.push(numInfo);
       });
     },
-    showData() {
-      console.log("This is happening in the LineCharts component");
-      console.log("Cases Array:");
-      console.log(this.cases);
-      console.log("Deaths Array:");
-      console.log(this.deaths);
-    },
   },
   beforeMount() {
     this.getChartLabels();
