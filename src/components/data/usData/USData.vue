@@ -62,9 +62,6 @@ export default {
       dailyReport: [],
       stateName: "",
       loading: true,
-
-      // stateCountyCases: [],
-      // stateCountyDeaths: [],
     };
   },
   methods: {
@@ -90,7 +87,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     this.fetchData();
   },
 };
