@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       chartLabel: [],
+      infoArray: [],
     };
   },
   methods: {
@@ -22,7 +23,15 @@ export default {
       dateArray.push(Object.keys(this.info[0]));
       this.chartLabel = dateArray[0].slice(7, dateArray[0].length);
     },
-    getChartData() {},
+    getChartData() {
+      this.chartLabel.map((date) => {
+        let numInfo = 0;
+        this.info.map((item) => {
+          numInfo += item[`${date}`];
+        });
+        this.infoArray.push(numInfo);
+      });
+    },
   },
   created() {
     this.getChartLabels();
