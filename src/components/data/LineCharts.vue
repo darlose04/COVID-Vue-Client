@@ -27,9 +27,17 @@ export default {
   components: {
     ChartInfo,
   },
-  props: ["cases", "deaths"],
+  props: {
+    cases: {
+      type: Array,
+    },
+    deaths: {
+      type: Array,
+    },
+  },
   data() {
     return {
+      dateArray: [],
       chartLabel: [],
       casesArray: [],
       deathsArray: [],
@@ -41,10 +49,8 @@ export default {
   },
   methods: {
     getChartLabels() {
-      const dateArray = [];
-      dateArray.push(Object.keys(this.cases[0]));
-      this.chartLabel = dateArray[0].slice(7, dateArray[0].length);
-      // console.log(this.chartLabel);
+      this.dateArray.push(Object.keys(this.cases[0]));
+      this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
     },
     getCasesData() {
       this.chartLabel.map((date) => {
@@ -65,12 +71,10 @@ export default {
       });
     },
   },
-  beforeMount() {
+  created() {
     this.getChartLabels();
-    // this.getChartData();
     this.getCasesData();
     this.getDeathsData();
-    // this.showData();
   },
 };
 </script>

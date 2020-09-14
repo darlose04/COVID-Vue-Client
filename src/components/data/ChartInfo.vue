@@ -5,6 +5,20 @@ export default {
   name: "ChartInfo",
   extends: Line,
   props: ["chartLabel", "infoArray", "color", "label"],
+  props: {
+    chartLabel: {
+      type: Array,
+    },
+    infoArray: {
+      type: Array,
+    },
+    color: {
+      type: String,
+    },
+    label: {
+      type: String,
+    },
+  },
   data() {
     return {
       chartData: {
