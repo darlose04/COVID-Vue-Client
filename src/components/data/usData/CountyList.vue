@@ -61,9 +61,6 @@ export default {
 
         this.stateObjects.push(stateObj);
       }
-      // console.log("State Object:");
-      // console.log(this.stateObjects);
-      console.log("just");
       return this.stateObjects;
     },
   },
