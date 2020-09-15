@@ -14,12 +14,16 @@
 </template>
 
 <script>
+// import Spinner from "../../layout/Spinner";
 import axios from "axios";
 
 const baseUrl = "https://www.cov-api.com/api/usa";
 
 export default {
   name: "CountyList",
+  components: {
+    // Spinner,
+  },
   props: ["stateName"],
   data() {
     return {
@@ -35,14 +39,12 @@ export default {
       );
       // console.log(caseRequest.data);
       this.stateCountyCases = caseRequest.data;
-      console.log(this.stateCountyCases);
     },
     async getStateDeaths(state) {
       const deathRequest = await axios.get(
         `${baseUrl}/coronadeaths/states/${state}`
       );
       this.stateCountyDeaths = deathRequest.data;
-      console.log(this.stateCountyDeaths);
     },
     getCountyData() {
       this.stateCountyCases = [];
@@ -86,6 +88,9 @@ export default {
       console.log("Ending addCountyData method");
       return this.stateObjects;
     },
+    runAddCountyData() {
+      this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    },
   },
   created() {
     this.getStateCases(this.stateName);
@@ -94,11 +99,11 @@ export default {
   mounted() {
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
-  // beforeUpdate() {
-  //   this.getStateCases(this.stateName);
-  //   this.getStateDeaths(this.stateName);
-  //   this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
-  // },
+  beforeUpdate() {
+    this.getStateCases(this.stateName);
+    this.getStateDeaths(this.stateName);
+    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+  },
 };
 </script>
 
