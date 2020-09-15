@@ -80,19 +80,19 @@ export default {
     // this.getChartLabels();
     // this.getCasesData();
     // this.getDeathsData();
-    console.log("Created hook:");
+    console.log("Created hook in LineCharts:");
     this.printProps();
   },
   mounted() {
-    console.log("Mounted hook: ");
+    console.log("Mounted hook in LineCharts: ");
     this.printProps();
   },
   beforeUpdate() {
-    console.log("beforeUpdate hook:");
+    console.log("beforeUpdate hook in LineCharts:");
     this.printProps();
   },
   updated() {
-    console.log("Updated hook:");
+    console.log("Updated hook in LineCharts:");
     this.printProps();
   },
 };
