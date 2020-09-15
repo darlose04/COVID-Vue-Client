@@ -65,7 +65,7 @@ export default {
       console.log("Starting addCountyData method");
       console.log("State County Cases Array");
       console.log(this.stateCountyCases);
-      this.stateObjects = [];
+
       let dateArray = [];
       dateArray.push(Object.keys(this.stateCountyCases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
@@ -92,9 +92,18 @@ export default {
       this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
     },
   },
-  created() {
-    this.getStateCases(this.stateName);
-    this.getStateDeaths(this.stateName);
+  async created() {
+    // this.getStateCases(this.stateName);
+    // this.getStateDeaths(this.stateName);
+    const caseRequest = await axios.get(
+      `${baseUrl}/coronacases/states/${this.stateName}`
+    );
+    // console.log(caseRequest.data);
+    this.stateCountyCases = caseRequest.data;
+    const deathRequest = await axios.get(
+      `${baseUrl}/coronadeaths/states/${this.stateName}`
+    );
+    this.stateCountyDeaths = deathRequest.data;
   },
   mounted() {
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
