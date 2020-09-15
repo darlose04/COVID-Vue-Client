@@ -41,11 +41,8 @@ import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
 import LineCharts from "../LineCharts";
 import CountyList from "./CountyList";
-
 import axios from "axios";
-
 const baseUrl = "https://www.cov-api.com/api/usa";
-
 export default {
   name: "USData",
   components: {

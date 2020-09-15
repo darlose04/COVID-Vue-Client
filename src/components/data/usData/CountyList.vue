@@ -28,7 +28,6 @@ export default {
     getCountyData() {
       this.stateCountyCases = [];
       this.stateCountyDeaths = [];
-
       this.cases.map((obj) => {
         if (obj.State === this.stateName) {
           // console.log(obj);
@@ -49,7 +48,6 @@ export default {
       dateArray.push(Object.keys(cases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
       let recentDate = dates[dates.length - 1];
-
       // console.log(this.stateCountyDeaths);
       for (let i = 0; i < cases.length; i++) {
         let stateObj = {
@@ -58,9 +56,10 @@ export default {
           cases: cases[i][recentDate],
           deaths: deaths[i][recentDate],
         };
-
         this.stateObjects.push(stateObj);
       }
+      // console.log("State Object:");
+      // console.log(this.stateObjects);
       return this.stateObjects;
     },
   },
