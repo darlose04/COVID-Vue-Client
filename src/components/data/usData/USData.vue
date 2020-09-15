@@ -83,6 +83,11 @@ export default {
   created() {
     this.fetchData();
   },
+  beforeDestroy() {
+    this.cases = null;
+    this.deaths = null;
+    this.dailyReport = null;
+  },
 };
 </script>
 

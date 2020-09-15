@@ -41,8 +41,8 @@ export default {
     return {
       dateArray: [],
       chartLabel: [],
-      casesArray: this.cases.slice(0),
-      deathsArray: this.deaths.slice(0),
+      casesArray: [],
+      deathsArray: [],
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
       casesLabel: "Total U.S. Cases",
@@ -76,24 +76,7 @@ export default {
       });
     },
   },
-  created() {
-    // this.getChartLabels();
-    // this.getCasesData();
-    // this.getDeathsData();
-    console.log("Created hook in LineCharts:");
-    this.printProps();
-  },
-  mounted() {
-    console.log("Mounted hook in LineCharts: ");
-    this.printProps();
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate hook in LineCharts:");
-    this.printProps();
-  },
-  updated() {
-    console.log("Updated hook in LineCharts:");
-    this.printProps();
-  },
+  created() {},
+  mounted() {},
 };
 </script>
