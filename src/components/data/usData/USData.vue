@@ -1,11 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div
-      v-if="
-        cases.length === 0 && deaths.length === 0 && dailyReport.length === 0
-      "
-    >
+    <div v-if="dailyReport.length === 0">
       <Spinner />
     </div>
     <div v-else>
@@ -79,6 +75,7 @@ export default {
         .then((res) => (this.dailyReport = res.data))
         .catch((err) => console.log("Error fetching daily reports: " + err));
     },
+
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
@@ -86,20 +83,16 @@ export default {
         this.deaths = [];
       } else {
         this.stateName = event.target.innerText;
-        axios
-          .get(`${baseUrl}/coronacases/states/${this.stateName}`)
-          .then((res) => (this.cases = res.data))
-          .catch((err) => console.log("Error fetching cases: " + err));
-        axios
-          .get(`${baseUrl}/coronadeaths/states/${this.stateName}`)
-          .then((res) => (this.deaths = res.data))
-          .catch((err) => console.log("Error fetching cases: " + err));
+        // this.getStateData(this.stateName);
       }
     },
   },
   created() {
     this.fetchData();
   },
+  // beforeUpdate() {
+  //   this.getStateData(this.stateName);
+  // },
 };
 </script>
 
