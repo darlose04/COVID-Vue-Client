@@ -1,11 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div
-      v-if="
-        cases.length === 0 && deaths.length === 0 && dailyReport.length === 0
-      "
-    >
+    <div v-if="cases.length === 0 && deaths.length === 0">
       <Spinner />
     </div>
     <div v-else>

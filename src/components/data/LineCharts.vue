@@ -1,31 +1,31 @@
 <template>
   <div class="line-chart">
     <div v-if="casesArray.length > 0">
-      <ChartInfo
+      <!-- <ChartInfo
         v-bind:chartLabel="chartLabel"
         v-bind:infoArray="casesArray"
         v-bind:color="casesColor"
         v-bind:label="casesLabel"
-      />
+      /> -->
     </div>
     <div v-if="deathsArray.length > 0">
-      <ChartInfo
+      <!-- <ChartInfo
         v-bind:chartLabel="chartLabel"
         v-bind:infoArray="deathsArray"
         v-bind:color="deathsColor"
         v-bind:label="deathsLabel"
-      />
+      /> -->
     </div>
   </div>
 </template>
 
 <script>
-import ChartInfo from "./ChartInfo";
+// import ChartInfo from "./ChartInfo";
 
 export default {
   name: "LineCharts",
   components: {
-    ChartInfo,
+    // ChartInfo,
   },
   props: {
     cases: {
@@ -50,6 +50,9 @@ export default {
     };
   },
   methods: {
+    printProps() {
+      console.log(this.cases);
+    },
     getChartLabels() {
       this.dateArray.push(Object.keys(this.cases[0]));
       this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
@@ -74,9 +77,23 @@ export default {
     },
   },
   created() {
-    this.getChartLabels();
-    this.getCasesData();
-    this.getDeathsData();
+    // this.getChartLabels();
+    // this.getCasesData();
+    // this.getDeathsData();
+    console.log("Created hook:");
+    this.printProps();
+  },
+  mounted() {
+    console.log("Mounted hook: ");
+    this.printProps();
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate hook:");
+    this.printProps();
+  },
+  updated() {
+    console.log("Updated hook:");
+    this.printProps();
   },
 };
 </script>
