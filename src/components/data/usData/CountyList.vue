@@ -20,7 +20,7 @@ const baseUrl = "https://www.cov-api.com/api/usa";
 
 export default {
   name: "CountyList",
-  props: ["stateName", "cases", "deaths"],
+  props: ["stateName"],
   data() {
     return {
       stateObjects: [],
@@ -30,16 +30,16 @@ export default {
   },
   methods: {
     getStateData(state) {
-      if (state !== "") {
-        axios
-          .get(`${baseUrl}/coronacases/states/${state}`)
-          .then((res) => (this.cases = res.data))
-          .catch((err) => console.log("Error fetching cases: " + err));
-        axios
-          .get(`${baseUrl}/coronadeaths/states/${state}`)
-          .then((res) => (this.deaths = res.data))
-          .catch((err) => console.log("Error fetching cases: " + err));
-      }
+      return axios
+        .get(`${baseUrl}/coronacases/states/${state}`)
+        .then((res) => (this.stateCountyCases = res.data))
+        .catch((err) => console.log("Error fetching cases: " + err));
+      // axios
+      //   .get(`${baseUrl}/coronadeaths/states/${state}`)
+      //   .then((res) => (this.stateCountyDeaths = res.data))
+      //   .catch((err) => console.log("Error fetching deaths: " + err));
+      // console.log("this is inside the getStateData method");
+      // console.log(this.stateCountyCases);
     },
     getCountyData() {
       this.stateCountyCases = [];
@@ -55,15 +55,12 @@ export default {
           this.stateCountyDeaths.push(obj);
         }
       });
-
-      console.log("State County Cases Array:");
-      console.log(this.stateCountyCases);
     },
     addCountyData(cases, deaths) {
       this.stateObjects = [];
 
       let dateArray = [];
-      dateArray.push(Object.keys(cases[0]));
+      dateArray.push(Object.keys(this.stateCountyCases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
       let recentDate = dates[dates.length - 1];
 
@@ -79,18 +76,29 @@ export default {
         this.stateObjects.push(stateObj);
       }
 
-      // console.log("State Object:");
-      // console.log(this.stateObjects);
+      console.log("State Object:");
+      console.log(this.stateObjects);
       return this.stateObjects;
     },
   },
   created() {
-    this.getCountyData();
+    this.getStateData(this.stateName);
+    // this.getCountyData();
+    console.log("This is in the created hook:");
+    console.log(this.stateCountyCases);
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
-  beforeUpdate() {
-    this.getCountyData();
+  mounted() {
+    console.log("This is in the mounted hook:");
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    console.log(this.stateCountyCases);
+  },
+  beforeUpdate() {
+    console.log("This is in the beforeUpdate hook:");
+    console.log(this.stateCountyCases);
+    this.getStateData(this.stateName);
+    // this.getCountyData();
+    // this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };
 </script>
