@@ -66,14 +66,14 @@ export default {
   },
   methods: {
     fetchData() {
-      axios
-        .get(`${baseUrl}/coronacases`)
-        .then((res) => (this.cases = res.data))
-        .catch((err) => console.log("Error fetching cases: " + err));
-      axios
-        .get(`${baseUrl}/coronadeaths`)
-        .then((res) => (this.deaths = res.data))
-        .catch((err) => console.log("Error fetching deaths: " + err));
+      // axios
+      //   .get(`${baseUrl}/coronacases`)
+      //   .then((res) => (this.cases = res.data))
+      //   .catch((err) => console.log("Error fetching cases: " + err));
+      // axios
+      //   .get(`${baseUrl}/coronadeaths`)
+      //   .then((res) => (this.deaths = res.data))
+      //   .catch((err) => console.log("Error fetching deaths: " + err));
       axios
         .get(`${baseUrl}/dailyreport`)
         .then((res) => (this.dailyReport = res.data))
@@ -82,8 +82,18 @@ export default {
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
+        this.cases = [];
+        this.deaths = [];
       } else {
         this.stateName = event.target.innerText;
+        axios
+          .get(`${baseUrl}/coronacases/states/${this.stateName}`)
+          .then((res) => (this.cases = res.data))
+          .catch((err) => console.log("Error fetching cases: " + err));
+        axios
+          .get(`${baseUrl}/coronadeaths/states/${this.stateName}`)
+          .then((res) => (this.deaths = res.data))
+          .catch((err) => console.log("Error fetching cases: " + err));
       }
     },
   },
