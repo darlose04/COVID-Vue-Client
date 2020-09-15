@@ -14,6 +14,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
+const baseUrl = "https://www.cov-api.com/api/usa";
+
 export default {
   name: "CountyList",
   props: ["stateName", "cases", "deaths"],
@@ -25,10 +29,21 @@ export default {
     };
   },
   methods: {
+    getStateData(state) {
+      if (state !== "") {
+        axios
+          .get(`${baseUrl}/coronacases/states/${state}`)
+          .then((res) => (this.cases = res.data))
+          .catch((err) => console.log("Error fetching cases: " + err));
+        axios
+          .get(`${baseUrl}/coronadeaths/states/${state}`)
+          .then((res) => (this.deaths = res.data))
+          .catch((err) => console.log("Error fetching cases: " + err));
+      }
+    },
     getCountyData() {
       this.stateCountyCases = [];
       this.stateCountyDeaths = [];
-
       this.cases.map((obj) => {
         if (obj.State === this.stateName) {
           // console.log(obj);
@@ -40,11 +55,13 @@ export default {
           this.stateCountyDeaths.push(obj);
         }
       });
-      // console.log("State County Cases Array:");
-      // console.log(this.stateCountyCases);
+
+      console.log("State County Cases Array:");
+      console.log(this.stateCountyCases);
     },
     addCountyData(cases, deaths) {
       this.stateObjects = [];
+
       let dateArray = [];
       dateArray.push(Object.keys(cases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
@@ -61,6 +78,7 @@ export default {
 
         this.stateObjects.push(stateObj);
       }
+
       // console.log("State Object:");
       // console.log(this.stateObjects);
       return this.stateObjects;
