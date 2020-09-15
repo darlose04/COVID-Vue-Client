@@ -14,17 +14,9 @@
 </template>
 
 <script>
-// import Spinner from "../../layout/Spinner";
-import axios from "axios";
-
-const baseUrl = "https://www.cov-api.com/api/usa";
-
 export default {
   name: "CountyList",
-  components: {
-    // Spinner,
-  },
-  props: ["stateName"],
+  props: ["stateName", "cases", "deaths"],
   data() {
     return {
       stateObjects: [],
@@ -33,25 +25,11 @@ export default {
     };
   },
   methods: {
-    async getStateCases(state) {
-      const caseRequest = await axios.get(
-        `${baseUrl}/coronacases/states/${state}`
-      );
-      // console.log(caseRequest.data);
-      this.stateCountyCases = caseRequest.data;
-    },
-    async getStateDeaths(state) {
-      const deathRequest = await axios.get(
-        `${baseUrl}/coronadeaths/states/${state}`
-      );
-      this.stateCountyDeaths = deathRequest.data;
-    },
     getCountyData() {
       this.stateCountyCases = [];
       this.stateCountyDeaths = [];
       this.cases.map((obj) => {
         if (obj.State === this.stateName) {
-          // console.log(obj);
           this.stateCountyCases.push(obj);
         }
       });
@@ -62,16 +40,11 @@ export default {
       });
     },
     addCountyData(cases, deaths) {
-      console.log("Starting addCountyData method");
-      console.log("State County Cases Array");
-      console.log(this.stateCountyCases);
-
       let dateArray = [];
-      dateArray.push(Object.keys(this.stateCountyCases[0]));
+      dateArray.push(Object.keys(this.cases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
       let recentDate = dates[dates.length - 1];
 
-      // console.log(this.stateCountyDeaths);
       for (let i = 0; i < cases.length; i++) {
         let stateObj = {
           id: cases[i].UID,
@@ -82,35 +55,17 @@ export default {
 
         this.stateObjects.push(stateObj);
       }
-
-      console.log("State Object:");
-      console.log(this.stateObjects);
-      console.log("Ending addCountyData method");
       return this.stateObjects;
     },
-    runAddCountyData() {
-      this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
-    },
   },
-  async created() {
-    // this.getStateCases(this.stateName);
-    // this.getStateDeaths(this.stateName);
-    const caseRequest = await axios.get(
-      `${baseUrl}/coronacases/states/${this.stateName}`
-    );
-    // console.log(caseRequest.data);
-    this.stateCountyCases = caseRequest.data;
-    const deathRequest = await axios.get(
-      `${baseUrl}/coronadeaths/states/${this.stateName}`
-    );
-    this.stateCountyDeaths = deathRequest.data;
+  created() {
+    this.getCountyData();
   },
   mounted() {
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
   beforeUpdate() {
-    this.getStateCases(this.stateName);
-    this.getStateDeaths(this.stateName);
+    this.getCountyData();
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };

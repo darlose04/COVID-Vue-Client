@@ -14,7 +14,11 @@
           <!-- <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" /> -->
         </div>
         <div v-if="stateName !== ''">
-          <CountyList v-bind:stateName="stateName" />
+          <CountyList
+            v-bind:stateName="stateName"
+            :cases="cases"
+            :deaths="deaths"
+          />
         </div>
         <div v-else>
           <h3>
@@ -58,14 +62,14 @@ export default {
   },
   methods: {
     fetchData() {
-      // axios
-      //   .get(`${baseUrl}/coronacases`)
-      //   .then((res) => (this.cases = res.data))
-      //   .catch((err) => console.log("Error fetching cases: " + err));
-      // axios
-      //   .get(`${baseUrl}/coronadeaths`)
-      //   .then((res) => (this.deaths = res.data))
-      //   .catch((err) => console.log("Error fetching deaths: " + err));
+      axios
+        .get(`${baseUrl}/coronacases`)
+        .then((res) => (this.cases = res.data))
+        .catch((err) => console.log("Error fetching cases: " + err));
+      axios
+        .get(`${baseUrl}/coronadeaths`)
+        .then((res) => (this.deaths = res.data))
+        .catch((err) => console.log("Error fetching deaths: " + err));
       axios
         .get(`${baseUrl}/dailyreport`)
         .then((res) => (this.dailyReport = res.data))
