@@ -41,8 +41,8 @@ export default {
     return {
       dateArray: [],
       chartLabel: [],
-      casesArray: [],
-      deathsArray: [],
+      casesArray: this.cases.slice(0),
+      deathsArray: this.deaths.slice(0),
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
       casesLabel: "Total U.S. Cases",
