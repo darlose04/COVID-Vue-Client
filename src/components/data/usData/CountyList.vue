@@ -63,6 +63,7 @@ export default {
       }
       // console.log("State Object:");
       // console.log(this.stateObjects);
+      console.log("just");
       return this.stateObjects;
     },
   },
