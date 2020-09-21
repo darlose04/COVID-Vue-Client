@@ -48,7 +48,6 @@ export default {
       dateArray.push(Object.keys(cases[0]));
       let dates = dateArray[0].slice(7, dateArray[0].length);
       let recentDate = dates[dates.length - 1];
-      // console.log(this.stateCountyDeaths);
       for (let i = 0; i < cases.length; i++) {
         let stateObj = {
           id: cases[i].UID,
@@ -63,13 +62,13 @@ export default {
       return this.stateObjects;
     },
   },
-  created() {
+  mounted() {
     // this.getCountyData();
-    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {
     // this.getCountyData();
-    this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
+    this.addCountyData(this.cases, this.deaths);
   },
 };
 </script>
