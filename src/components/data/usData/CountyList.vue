@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       stateObjects: [],
-      stateCountyCases: [],
-      stateCountyDeaths: [],
+      // stateCountyCases: [],
+      // stateCountyDeaths: [],
     };
   },
   methods: {
@@ -64,11 +64,11 @@ export default {
     },
   },
   created() {
-    this.getCountyData();
+    // this.getCountyData();
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
   beforeUpdate() {
-    this.getCountyData();
+    // this.getCountyData();
     this.addCountyData(this.stateCountyCases, this.stateCountyDeaths);
   },
 };

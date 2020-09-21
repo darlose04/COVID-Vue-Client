@@ -16,8 +16,8 @@
         <div v-if="stateName !== ''">
           <CountyList
             v-bind:stateName="stateName"
-            v-bind:cases="cases"
-            v-bind:deaths="deaths"
+            v-bind:cases="stateCountyCases"
+            v-bind:deaths="stateCountyDeaths"
           />
         </div>
         <div v-else>
@@ -53,6 +53,8 @@ export default {
       cases: [],
       deaths: [],
       dailyReport: [],
+      stateCountyCases: [],
+      stateCountyDeaths: [],
       stateName: "",
       loading: true,
     };
@@ -79,14 +81,28 @@ export default {
         this.stateName = event.target.innerText;
       }
     },
+    getCountyData(state) {
+      this.stateCountyCases = [];
+      this.stateCountyDeaths = [];
+      this.cases.map((obj) => {
+        if (obj.State === state) {
+          // console.log(obj);
+          this.stateCountyCases.push(obj);
+        }
+      });
+      this.deaths.map((obj) => {
+        if (obj.State === state) {
+          this.stateCountyDeaths.push(obj);
+        }
+      });
+    },
   },
   mounted() {
     this.fetchData();
+    this.getCountyData(this.stateName);
   },
-  beforeDestroy() {
-    this.cases = null;
-    this.deaths = null;
-    this.dailyReport = null;
+  beforeUpdate() {
+    this.getCountyData(this.stateName);
   },
 };
 </script>
