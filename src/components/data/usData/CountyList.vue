@@ -20,28 +20,9 @@ export default {
   data() {
     return {
       stateObjects: [],
-      // stateCountyCases: [],
-      // stateCountyDeaths: [],
     };
   },
   methods: {
-    getCountyData() {
-      this.stateCountyCases = [];
-      this.stateCountyDeaths = [];
-      this.cases.map((obj) => {
-        if (obj.State === this.stateName) {
-          // console.log(obj);
-          this.stateCountyCases.push(obj);
-        }
-      });
-      this.deaths.map((obj) => {
-        if (obj.State === this.stateName) {
-          this.stateCountyDeaths.push(obj);
-        }
-      });
-      // console.log("State County Cases Array:");
-      // console.log(this.stateCountyCases);
-    },
     addCountyData(cases, deaths) {
       this.stateObjects = [];
       let dateArray = [];
@@ -57,17 +38,13 @@ export default {
         };
         this.stateObjects.push(stateObj);
       }
-      // console.log("State Object:");
-      // console.log(this.stateObjects);
       return this.stateObjects;
     },
   },
   mounted() {
-    // this.getCountyData();
     this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {
-    // this.getCountyData();
     this.addCountyData(this.cases, this.deaths);
   },
 };
