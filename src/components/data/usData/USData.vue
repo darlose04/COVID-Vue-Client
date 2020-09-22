@@ -100,6 +100,11 @@ export default {
         }
       });
     },
+    getChartLabels() {
+      this.dateArray.push(Object.keys(this.cases[0]));
+      this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
+      console.log(this.chartLabel);
+    },
     removeData() {
       this.cases = [];
       this.deaths = [];
