@@ -73,11 +73,7 @@ export default {
       });
     },
   },
-  created() {
-    this.getChartLabels();
-  },
-  mounted() {
-    this.printProps();
-  },
+  created() {},
+  mounted() {},
 };
 </script>
