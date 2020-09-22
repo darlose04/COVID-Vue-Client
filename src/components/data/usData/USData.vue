@@ -96,6 +96,13 @@ export default {
         }
       });
     },
+    removeData() {
+      this.cases = [];
+      this.deaths = [];
+      this.dailyReport = [];
+      this.stateCountyCases = [];
+      this.stateCountyDeaths = [];
+    },
   },
   mounted() {
     this.fetchData();
@@ -103,6 +110,9 @@ export default {
   },
   beforeUpdate() {
     this.getCountyData(this.stateName);
+  },
+  beforeDestroy() {
+    this.removeData();
   },
 };
 </script>
