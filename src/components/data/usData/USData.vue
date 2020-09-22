@@ -88,7 +88,6 @@ export default {
       this.stateCountyDeaths = [];
       this.cases.map((obj) => {
         if (obj.State === state) {
-          // console.log(obj);
           this.stateCountyCases.push(obj);
         }
       });
