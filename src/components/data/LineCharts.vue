@@ -1,20 +1,22 @@
 <template>
   <div class="line-chart">
-    <div v-if="casesArray.length > 0">
-      <!-- <ChartInfo
+    <div v-if="chartLabel.length > 0">
+      <div v-if="casesArray.length > 0">
+        <!-- <ChartInfo
         v-bind:chartLabel="chartLabel"
         v-bind:infoArray="casesArray"
         v-bind:color="casesColor"
         v-bind:label="casesLabel"
       /> -->
-    </div>
-    <div v-if="deathsArray.length > 0">
-      <!-- <ChartInfo
+      </div>
+      <div v-if="deathsArray.length > 0">
+        <!-- <ChartInfo
         v-bind:chartLabel="chartLabel"
         v-bind:infoArray="deathsArray"
         v-bind:color="deathsColor"
         v-bind:label="deathsLabel"
       /> -->
+      </div>
     </div>
   </div>
 </template>
