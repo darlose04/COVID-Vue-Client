@@ -73,7 +73,11 @@ export default {
       });
     },
   },
-  created() {},
+  created() {
+    this.getChartLabels();
+    this.getCasesData();
+    this.getDeathsData();
+  },
   mounted() {},
 };
 </script>
