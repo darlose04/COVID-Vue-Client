@@ -75,11 +75,10 @@ export default {
       });
     },
   },
-  created() {
+  mounted() {
     this.getChartLabels();
     this.getCasesData();
     this.getDeathsData();
   },
-  mounted() {},
 };
 </script>
