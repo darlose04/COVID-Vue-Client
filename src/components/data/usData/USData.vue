@@ -55,6 +55,10 @@ export default {
       dailyReport: [],
       stateCountyCases: [],
       stateCountyDeaths: [],
+      dateArray: [],
+      chartLabel: [],
+      chartCases: [],
+      chartDeaths: [],
       stateName: "",
       loading: true,
     };
