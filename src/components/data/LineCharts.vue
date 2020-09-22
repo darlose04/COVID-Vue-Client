@@ -2,32 +2,32 @@
   <div class="line-chart">
     <div v-if="chartLabel.length > 0">
       <div v-if="casesArray.length > 0">
-        <!-- <ChartInfo
-        v-bind:chartLabel="chartLabel"
-        v-bind:infoArray="casesArray"
-        v-bind:color="casesColor"
-        v-bind:label="casesLabel"
-      /> -->
+        <ChartInfo
+          v-bind:chartLabel="chartLabel"
+          v-bind:infoArray="casesArray"
+          v-bind:color="casesColor"
+          v-bind:label="casesLabel"
+        />
       </div>
       <div v-if="deathsArray.length > 0">
-        <!-- <ChartInfo
-        v-bind:chartLabel="chartLabel"
-        v-bind:infoArray="deathsArray"
-        v-bind:color="deathsColor"
-        v-bind:label="deathsLabel"
-      /> -->
+        <ChartInfo
+          v-bind:chartLabel="chartLabel"
+          v-bind:infoArray="deathsArray"
+          v-bind:color="deathsColor"
+          v-bind:label="deathsLabel"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import ChartInfo from "./ChartInfo";
+import ChartInfo from "./ChartInfo";
 
 export default {
   name: "LineCharts",
   components: {
-    // ChartInfo,
+    ChartInfo,
   },
   props: {
     cases: {
