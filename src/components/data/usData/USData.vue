@@ -115,9 +115,6 @@ export default {
       this.stateCountyDeaths = [];
     },
   },
-  computed: {
-    getChartLabels() {},
-  },
   mounted() {
     this.fetchData();
   },
