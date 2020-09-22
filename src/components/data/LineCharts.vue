@@ -50,14 +50,9 @@ export default {
     };
   },
   methods: {
-    printProps() {
-      console.log(this.cases);
-    },
     getChartLabels() {
       this.dateArray.push(Object.keys(this.cases[0]));
       this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
-      console.log(this.dateArray);
-      console.log(this.chartLabel);
     },
     getCasesData() {
       this.chartLabel.map((date) => {
@@ -79,12 +74,9 @@ export default {
     },
   },
   created() {
-    console.log("Created hook");
-    // this.printProps();
     this.getChartLabels();
   },
   mounted() {
-    console.log("Mounted hook");
     this.printProps();
   },
 };
