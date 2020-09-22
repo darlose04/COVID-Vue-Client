@@ -55,9 +55,6 @@ export default {
       dailyReport: [],
       stateCountyCases: [],
       stateCountyDeaths: [],
-      chartLabel: [],
-      chartCases: [],
-      chartDeaths: [],
       stateName: "",
       loading: true,
     };
@@ -99,14 +96,6 @@ export default {
         }
       });
     },
-    // getChartLabels() {
-    //   if (this.cases.length > 0 && this.deaths.length > 0) {
-    //     const dateArray = [];
-    //     dateArray.push(Object.keys(this.cases[0]));
-    //     this.chartLabel = dateArray[0].slice(7, dateArray[0].length);
-    //     console.log(this.chartLabel);
-    //   }
-    // },
     removeData() {
       this.cases = [];
       this.deaths = [];
