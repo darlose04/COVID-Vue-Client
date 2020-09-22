@@ -116,6 +116,7 @@ export default {
   mounted() {
     this.fetchData();
     this.getCountyData(this.stateName);
+    this.getChartLabels();
   },
   beforeUpdate() {
     this.getCountyData(this.stateName);
