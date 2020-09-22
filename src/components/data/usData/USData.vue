@@ -55,7 +55,6 @@ export default {
       dailyReport: [],
       stateCountyCases: [],
       stateCountyDeaths: [],
-      dateArray: [],
       chartLabel: [],
       chartCases: [],
       chartDeaths: [],
@@ -100,11 +99,14 @@ export default {
         }
       });
     },
-    getChartLabels() {
-      this.dateArray.push(Object.keys(this.cases[0]));
-      this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
-      console.log(this.chartLabel);
-    },
+    // getChartLabels() {
+    //   if (this.cases.length > 0 && this.deaths.length > 0) {
+    //     const dateArray = [];
+    //     dateArray.push(Object.keys(this.cases[0]));
+    //     this.chartLabel = dateArray[0].slice(7, dateArray[0].length);
+    //     console.log(this.chartLabel);
+    //   }
+    // },
     removeData() {
       this.cases = [];
       this.deaths = [];
@@ -113,10 +115,11 @@ export default {
       this.stateCountyDeaths = [];
     },
   },
+  computed: {
+    getChartLabels() {},
+  },
   mounted() {
     this.fetchData();
-    this.getCountyData(this.stateName);
-    this.getChartLabels();
   },
   beforeUpdate() {
     this.getCountyData(this.stateName);
