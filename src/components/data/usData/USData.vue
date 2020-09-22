@@ -11,7 +11,9 @@
           v-bind:dailyReport="dailyReport"
         />
         <div class="charts">
-          <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
+          <div v-if="cases.length > 3000 && deaths.length > 3000">
+            <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
+          </div>
         </div>
         <div v-if="stateName !== ''">
           <CountyList
