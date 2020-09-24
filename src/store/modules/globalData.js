@@ -20,3 +20,10 @@ const actions = {
 const mutations = {
   setCases: (state, cases) => (state.cases = cases),
 };
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+};
