@@ -4,7 +4,7 @@ import cases from "./modules/globalData";
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+export default new Vuex.Store({
   modules: {
     cases,
   },
