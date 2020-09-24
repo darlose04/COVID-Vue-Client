@@ -6,7 +6,9 @@ const state = {
   dailyReport: [],
 };
 
-const getters = {};
+const getters = {
+  allCases: (state) => state.cases,
+};
 
 const actions = {
   async fetchGlobalCases({ commit }) {
