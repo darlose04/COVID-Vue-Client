@@ -17,7 +17,7 @@ export default {
     this.fetchGlobalCases();
   },
   mounted() {
-    console.log(this.allCases);
+    console.log(this.$store.allCases);
   },
 };
 </script>
