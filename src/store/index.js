@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import Vue from "vue";
-import cases from "./modules/globalData";
+import cases from "./modules/globalCases";
 import deaths from "./modules/globalDeaths";
 
 Vue.use(Vuex);
