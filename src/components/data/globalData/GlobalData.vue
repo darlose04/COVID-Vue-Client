@@ -10,14 +10,21 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "GlobalData",
   methods: {
-    ...mapActions(["fetchGlobalCases", "fetchGlobalDeaths"]),
+    ...mapActions([
+      "fetchGlobalCases",
+      "fetchGlobalDeaths",
+      "fetchGlobalDailyReport",
+    ]),
   },
-  computed: mapGetters(["allCases", "allDeaths"]),
+  computed: mapGetters(["allCases", "allDeaths", "allDailyReport"]),
   created() {
     this.fetchGlobalCases();
     this.fetchGlobalDeaths();
+    this.fetchGlobalDailyReport();
   },
-  mounted() {},
+  mounted() {
+    console.log(this.allDailyReport);
+  },
 };
 </script>
 
