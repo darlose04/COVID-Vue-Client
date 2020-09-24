@@ -17,10 +17,7 @@ export default {
     this.fetchGlobalCases();
     this.fetchGlobalDeaths();
   },
-  mounted() {
-    console.log(this.allCases);
-    console.log(this.allDeaths);
-  },
+  mounted() {},
 };
 </script>
 
