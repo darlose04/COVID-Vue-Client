@@ -15,6 +15,7 @@ export default {
   computed: mapGetters(["allCases", "allDeaths"]),
   created() {
     this.fetchGlobalCases();
+    this.fetchGlobalDeaths();
   },
   mounted() {
     console.log(this.allCases);
