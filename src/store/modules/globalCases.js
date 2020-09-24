@@ -2,7 +2,6 @@ import axios from "axios";
 
 const state = {
   cases: [],
-  deaths: [],
 };
 
 const getters = {
