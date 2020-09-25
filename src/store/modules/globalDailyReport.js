@@ -64,9 +64,6 @@ const actions = {
       countryObjArr.push(countryTotalsObj);
     });
 
-    console.log("CountryObjArr before sort");
-    console.log(countryObjArr);
-
     countryObjArr.sort((a, b) => {
       return a.Country_Region < b.Country_region
         ? -1
@@ -74,9 +71,6 @@ const actions = {
         ? 1
         : 0;
     });
-
-    console.log("CountryObjArr after sort");
-    console.log(countryObjArr);
 
     commit("setCountryTotals", countryObjArr);
   },
