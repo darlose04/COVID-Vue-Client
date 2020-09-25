@@ -14,16 +14,19 @@ export default {
       "fetchGlobalCases",
       "fetchGlobalDeaths",
       "fetchGlobalDailyReport",
+      "getCountryTotals",
     ]),
   },
-  computed: mapGetters(["allCases", "allDeaths", "allDailyReport"]),
+  computed: mapGetters(["allCases", "allDeaths", "allCountryTotals"]),
   created() {
     this.fetchGlobalCases();
     this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
+    this.getCountryTotals();
   },
   mounted() {
-    console.log(this.allDailyReport);
+    // console.log(this.allDailyReport);
+    console.log(this.allCountryTotals);
   },
 };
 </script>
