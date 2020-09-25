@@ -17,7 +17,12 @@ export default {
       "getCountryTotals",
     ]),
   },
-  computed: mapGetters(["allCases", "allDeaths", "allCountryTotals"]),
+  computed: mapGetters([
+    "allCases",
+    "allDeaths",
+    "dailyReport",
+    "countryTotals",
+  ]),
   created() {
     this.fetchGlobalCases();
     this.fetchGlobalDeaths();
@@ -26,7 +31,7 @@ export default {
   },
   mounted() {
     // console.log(this.allDailyReport);
-    console.log(this.allCountryTotals);
+    console.log(this.countryTotals);
   },
 };
 </script>
