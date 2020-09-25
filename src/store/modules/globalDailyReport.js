@@ -6,8 +6,8 @@ const state = {
 };
 
 const getters = {
-  allDailyReport: (state) => state.dailyReport,
-  allCountryTotals: (state) => state.CountryTotals,
+  dailyReport: (state) => state.dailyReport,
+  countryTotals: (state) => state.CountryTotals,
 };
 
 const actions = {
@@ -71,8 +71,8 @@ const actions = {
     commit("setDailyReport", response.data);
   },
 
-  getCountryTotals({ commit }) {
-    let data = state.dailyReport;
+  getCountryTotals({ commit, state }) {
+    let data = [...state.dailyReport];
     let countryArr = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -80,6 +80,7 @@ const actions = {
         countryArr.push(data[i].Country_Region);
       }
     }
+    console.log(countryArr);
 
     let countryStats = [];
 
