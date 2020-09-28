@@ -6,27 +6,21 @@
     </div>
     <div v-else>
       <div class="data">
-        <keep-alive>
-          <StateList
-            v-bind:changeStateName="changeStateName"
-            v-bind:dailyReport="dailyReport"
-          />
-        </keep-alive>
+        <StateList
+          v-bind:changeStateName="changeStateName"
+          v-bind:dailyReport="dailyReport"
+        />
         <div class="charts">
           <div v-if="cases.length > 3000 && deaths.length > 3000">
-            <keep-alive>
-              <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
-            </keep-alive>
+            <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
           </div>
         </div>
         <div v-if="stateName !== ''">
-          <keep-alive>
-            <CountyList
-              v-bind:stateName="stateName"
-              v-bind:cases="stateCountyCases"
-              v-bind:deaths="stateCountyDeaths"
-            />
-          </keep-alive>
+          <CountyList
+            v-bind:stateName="stateName"
+            v-bind:cases="stateCountyCases"
+            v-bind:deaths="stateCountyDeaths"
+          />
         </div>
         <div v-else>
           <h3>
