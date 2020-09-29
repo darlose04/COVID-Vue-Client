@@ -23,15 +23,15 @@ export default {
   },
   methods: {
     ...mapActions([
-      "fetchGlobalCases",
-      "fetchGlobalDeaths",
+      // "fetchGlobalCases",
+      // "fetchGlobalDeaths",
       "fetchGlobalDailyReport",
-      "getCountryTotals",
+      "countryTotals",
     ]),
   },
   computed: mapGetters([
-    "allCases",
-    "allDeaths",
+    // "allCases",
+    // "allDeaths",
     "dailyReport",
     "countryTotals",
   ]),
@@ -39,11 +39,12 @@ export default {
     // this.fetchGlobalCases();
     // this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
-    // this.getCountryTotals();
+    this.countryTotals;
   },
   mounted() {
     // console.log(this.allDailyReport);
-    // console.log(this.countryTotals);
+    console.log("GlobalData Component: ");
+    console.log(this.countryTotals);
   },
 };
 </script>
