@@ -1,6 +1,17 @@
 <template>
   <div class="list-data">
     <GlobalTotals />
+    <div class="country-list">
+      <h2>Countries</h2>
+      <ul>
+        <li>
+          <h3>CountryName</h3>
+          <p>Cases:</p>
+          <p>Deaths:</p>
+          <p>Recovered:</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
