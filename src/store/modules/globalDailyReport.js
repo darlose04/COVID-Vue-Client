@@ -74,12 +74,14 @@ const actions = {
 
     commit("setCountryTotals", countryObjArr);
   },
+
 };
 
 const mutations = {
   setDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
   setCountryTotals: (state, countryTotals) =>
     (state.countryTotals = countryTotals),
+  setGlobalTotals: (state, globalTotals) => (state.globalTotals = globalTotals);
 };
 
 export default {
