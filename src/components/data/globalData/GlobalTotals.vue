@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "GlobalTotals",
 };

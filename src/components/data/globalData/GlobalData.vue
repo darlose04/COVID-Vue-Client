@@ -36,14 +36,14 @@ export default {
     "countryTotals",
   ]),
   created() {
-    this.fetchGlobalCases();
-    this.fetchGlobalDeaths();
-    this.fetchGlobalDailyReport();
-    this.getCountryTotals();
+    // this.fetchGlobalCases();
+    // this.fetchGlobalDeaths();
+    // this.fetchGlobalDailyReport();
+    // this.getCountryTotals();
   },
   mounted() {
     // console.log(this.allDailyReport);
-    console.log(this.countryTotals);
+    // console.log(this.countryTotals);
   },
 };
 </script>
