@@ -16,6 +16,12 @@ export default {
 </script>
 
 <style scoped>
+.list-data {
+  margin-left: 1rem;
+  padding: 1rem 1rem;
+  max-height: 1000px;
+}
+
 .country-list {
   height: 1863px;
   overflow: scroll;
