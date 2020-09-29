@@ -18,6 +18,11 @@ export default {
   methods: {
     ...mapActions("globalDailyReport", ["globalTotals"]),
   },
+  computed: {
+    ...mapGetters({
+      globalTotals: "globalDailyReport/getGlobalTotals",
+    }),
+  },
 };
 </script>
 
