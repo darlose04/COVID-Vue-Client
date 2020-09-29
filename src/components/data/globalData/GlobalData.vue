@@ -1,8 +1,10 @@
 <template>
   <div>
     <Disclaimer />
-    <div>
-      <!-- <Spinner /> -->
+    <div v-if="getDailyReport.length < 3500">
+      <Spinner />
+    </div>
+    <div v-else>
       <CountryList />
     </div>
   </div>
@@ -43,7 +45,7 @@ export default {
   },
   mounted() {
     // console.log("GlobalData Component: ");
-    // console.log(this.getCountryTotals);
+    console.log(this.getDailyReport);
   },
 };
 </script>
