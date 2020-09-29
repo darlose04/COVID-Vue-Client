@@ -76,7 +76,7 @@ const actions = {
 
     commit("setCountryTotals", countryObjArr);
   },
-  globalTotals({ commit, state }) {
+  createGlobalTotals({ commit, state }) {
     let globalData = [...state.dailyReport];
 
     let globalTotals = {
