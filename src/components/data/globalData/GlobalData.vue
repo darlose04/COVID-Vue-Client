@@ -42,8 +42,8 @@ export default {
     this.createCountryTotals();
   },
   mounted() {
-    console.log("GlobalData Component: ");
-    console.log(this.getCountryTotals);
+    // console.log("GlobalData Component: ");
+    // console.log(this.getCountryTotals);
   },
 };
 </script>
