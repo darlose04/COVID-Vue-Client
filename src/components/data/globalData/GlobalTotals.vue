@@ -20,14 +20,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      globalTotals: "globalDailyReport/getGlobalTotals",
+      globalTotals: "getGlobalTotals",
     }),
   },
   created() {
     this.createGlobalTotals();
   },
   mounted() {
-    // console.log(this.getGlobalTotals);
+    console.log(this.globalTotals);
   },
 };
 </script>
