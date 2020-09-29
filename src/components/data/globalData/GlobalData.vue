@@ -26,7 +26,7 @@ export default {
       // "fetchGlobalCases",
       // "fetchGlobalDeaths",
       "fetchGlobalDailyReport",
-      "countryTotals",
+      "createCountryTotals",
     ]),
   },
   computed: mapGetters([
@@ -39,6 +39,7 @@ export default {
     // this.fetchGlobalCases();
     // this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
+    this.createCountryTotals();
   },
   mounted() {
     console.log("GlobalData Component: ");
