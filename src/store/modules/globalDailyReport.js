@@ -21,7 +21,7 @@ const actions = {
     commit("setDailyReport", response.data);
   },
 
-  countryTotals({ commit, state }) {
+  createCountryTotals({ commit, state }) {
     let data = [...state.dailyReport];
     let countryArr = [];
 
