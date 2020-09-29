@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style lang="">
+<style scoped>
 .global-totals {
   margin-bottom: 1rem;
   border-bottom: 1px dotted black;
