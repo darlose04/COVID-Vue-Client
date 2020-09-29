@@ -2,10 +2,10 @@
   <div class="global-totals">
     <h2>Global Totals</h2>
     <ul>
-      <li>Confirmed:</li>
-      <li>Deaths:</li>
-      <li>Active:</li>
-      <li>Recovered:</li>
+      <li>Confirmed: {{ this.globalTotals.totalCases }}</li>
+      <li>Deaths: {{ this.globalTotals.totalDeaths }}</li>
+      <li>Active: {{ this.globalTotals.totalActive }}</li>
+      <li>Recovered: {{ this.globalTotals.totalRecovered }}</li>
     </ul>
   </div>
 </template>
