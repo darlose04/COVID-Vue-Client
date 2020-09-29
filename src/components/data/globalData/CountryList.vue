@@ -3,12 +3,12 @@
     <GlobalTotals />
     <div class="country-list">
       <h2>Countries</h2>
-      <ul>
+      <ul v-for="country in getCountryTotals" v-bind:key="country.index">
         <li>
-          <h3>CountryName</h3>
-          <p>Cases:</p>
-          <p>Deaths:</p>
-          <p>Recovered:</p>
+          <h3>{{ country.Country_Region }}</h3>
+          <p>Cases: {{ country.Confirmed }}</p>
+          <p>Deaths: {{ country.Deaths }}</p>
+          <p>Recovered: {{ country.Recovered }}</p>
         </li>
       </ul>
     </div>
@@ -16,12 +16,23 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import GlobalTotals from "./GlobalTotals";
 
 export default {
   name: "CountryList",
   components: {
     GlobalTotals,
+  },
+  methods: {
+    ...mapActions(["createCountryTotals"]),
+  },
+  computed: mapGetters(["getCountryTotals"]),
+  created() {
+    this.createCountryTotals();
+  },
+  mounted() {
+    console.log(this.getCountryTotals);
   },
 };
 </script>
