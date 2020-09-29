@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="data-wrapper">
     <Disclaimer />
     <div v-if="getDailyReport.length < 3500">
       <Spinner />
     </div>
-    <div v-else>
+    <div class="data" v-else>
       <CountryList />
     </div>
   </div>
@@ -49,4 +49,27 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.data-wrapper {
+  width: 1400px;
+  margin: auto;
+}
+
+.data {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  height: 2000px;
+  margin-bottom: 4rem;
+}
+
+.charts {
+  padding: 1rem 0rem;
+  grid-column: 2 / span 3;
+  max-height: 1000px;
+}
+
+.data:last-child {
+  grid-column: 5 / span 1;
+}
+</style>
