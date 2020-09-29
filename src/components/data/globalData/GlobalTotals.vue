@@ -26,6 +26,9 @@ export default {
   created() {
     this.createGlobalTotals();
   },
+  mounted() {
+    console.log(this.getGlobalTotals);
+  },
 };
 </script>
 

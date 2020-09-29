@@ -38,7 +38,7 @@ export default {
   created() {
     // this.fetchGlobalCases();
     // this.fetchGlobalDeaths();
-    // this.fetchGlobalDailyReport();
+    this.fetchGlobalDailyReport();
     // this.getCountryTotals();
   },
   mounted() {
