@@ -42,7 +42,6 @@ export default {
     this.countryTotals;
   },
   mounted() {
-    // console.log(this.allDailyReport);
     console.log("GlobalData Component: ");
     console.log(this.countryTotals);
   },
