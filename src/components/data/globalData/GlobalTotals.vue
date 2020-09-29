@@ -16,12 +16,15 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "GlobalTotals",
   methods: {
-    ...mapActions("globalDailyReport", ["globalTotals"]),
+    ...mapActions(["createGlobalTotals"]),
   },
   computed: {
     ...mapGetters({
       globalTotals: "globalDailyReport/getGlobalTotals",
     }),
+  },
+  created() {
+    this.createGlobalTotals();
   },
 };
 </script>
