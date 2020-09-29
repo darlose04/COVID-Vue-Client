@@ -3,12 +3,7 @@ import axios from "axios";
 const state = {
   dailyReport: [],
   countryTotals: [],
-  globalTotals: {
-    totalCases: 0,
-    totalDeaths: 0,
-    totalActive: 0,
-    totalRecovered: 0,
-  },
+  globalTotals: {},
 };
 
 const getters = {
@@ -79,6 +74,25 @@ const actions = {
     });
 
     commit("setCountryTotals", countryObjArr);
+  },
+  globalTotals({ commit, state }) {
+    let globalData = [...state.dailyReport];
+
+    let globalTotals = {
+      totalCases: 0,
+      totalDeaths: 0,
+      totalActive: 0,
+      totalRecovered: 0,
+    };
+
+    globalData.map((country) => {
+      (globalTotals.totalCases += country.Confirmed),
+        (globalTotals.totalDeaths += country.Deaths),
+        (globalTotals.totalActive += country.Active),
+        (globalTotals.totalRecovered += country.Recovered);
+    });
+
+    commit("setGlobalTotals", globalTotals);
   },
 };
 
