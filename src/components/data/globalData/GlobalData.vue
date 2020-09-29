@@ -13,14 +13,14 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
-// import Spinner from "../../layout/Spinner";
+import Spinner from "../../layout/Spinner";
 import CountryList from "./CountryList";
 
 export default {
   name: "GlobalData",
   components: {
     Disclaimer,
-    // Spinner,
+    Spinner,
     CountryList,
   },
   methods: {
@@ -45,7 +45,6 @@ export default {
   },
   mounted() {
     // console.log("GlobalData Component: ");
-    console.log(this.getDailyReport);
   },
 };
 </script>
