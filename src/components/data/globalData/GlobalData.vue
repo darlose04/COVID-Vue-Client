@@ -32,18 +32,17 @@ export default {
   computed: mapGetters([
     // "allCases",
     // "allDeaths",
-    "dailyReport",
-    "countryTotals",
+    "getDailyReport",
+    "getCountryTotals",
   ]),
   created() {
     // this.fetchGlobalCases();
     // this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
-    this.countryTotals;
   },
   mounted() {
     console.log("GlobalData Component: ");
-    console.log(this.countryTotals);
+    console.log(this.getCountryTotals);
   },
 };
 </script>
