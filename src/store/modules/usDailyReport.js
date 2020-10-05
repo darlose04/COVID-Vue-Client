@@ -20,7 +20,6 @@ const actions = {
   },
   createUSTotals({ commit, state }) {
     let usData = [...state.usDailyReport];
-    console.log(state.usDailyReport);
 
     let usTotals = {
       totalCases: 0,
