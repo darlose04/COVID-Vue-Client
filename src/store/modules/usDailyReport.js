@@ -7,7 +7,7 @@ const state = {
 };
 
 const getters = {
-  getDailyReport: (state) => state.dailyReport,
+  getUSDailyReport: (state) => state.dailyReport,
 };
 
 const actions = {
@@ -20,7 +20,7 @@ const actions = {
 };
 
 const mutations = {
-  setDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
+  setUSDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
 };
 
 export default {
