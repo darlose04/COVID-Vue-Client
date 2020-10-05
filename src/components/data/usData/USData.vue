@@ -31,7 +31,7 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
 // import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
@@ -54,7 +54,7 @@ export default {
     };
   },
   methods: {
-    // ...mapActions(["fetchUSDailyReport"]),
+    ...mapActions(["fetchUSDailyReport"]),
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
@@ -83,7 +83,7 @@ export default {
     //   this.stateCountyDeaths = [];
     // },
   },
-  // computed: { ...mapGetters({ usDailyReport: "getUSDailyReport" }) },
+  computed: mapGetters(["getUSDailyReport"]),
   created() {
     this.fetchUSDailyReport();
   },
