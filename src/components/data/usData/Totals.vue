@@ -55,6 +55,9 @@ export default {
     //   };
     // },
   },
+  created() {
+    this.createUSTotals();
+  },
 };
 </script>
 
