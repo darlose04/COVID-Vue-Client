@@ -7,7 +7,7 @@ const state = {
 };
 
 const getters = {
-  getUSDailyReport: (state) => state.dailyReport,
+  getUSDailyReport: (state) => state.usDailyReport,
   getUSTotals: (state) => state.usTotals,
 };
 
