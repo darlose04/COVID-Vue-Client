@@ -1,7 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="getDailyReport.length < 3500">
+    <div v-if="getGlobalDailyReport.length < 3500">
       <Spinner />
     </div>
     <div class="data" v-else>
@@ -34,7 +34,7 @@ export default {
   computed: mapGetters([
     // "allCases",
     // "allDeaths",
-    "getDailyReport",
+    "getGlobalDailyReport",
     "getCountryTotals",
   ]),
   created() {
