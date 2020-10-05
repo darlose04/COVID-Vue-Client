@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Totals",
   props: ["changeStateName"],
@@ -34,32 +36,30 @@ export default {
     },
   },
   computed: {
-    getTotalData: function() {
-      let totalCases = 0;
-      let totalDeaths = 0;
-      let totalActive = 0;
-      let totalHospitalized = 0;
-      let totalTested = 0;
-      let totalRecovered = 0;
-
-      this.dailyReport.map((state) => {
-        totalCases += state.Confirmed;
-        totalDeaths += state.Deaths;
-        totalActive += state.Active;
-        totalHospitalized += state.People_Hospitalized;
-        totalTested += state.People_Tested;
-        totalRecovered += state.Recovered;
-      });
-
-      return {
-        totalCases,
-        totalDeaths,
-        totalActive,
-        totalHospitalized,
-        totalTested,
-        totalRecovered,
-      };
-    },
+    // getTotalData: function() {
+    //   let totalCases = 0;
+    //   let totalDeaths = 0;
+    //   let totalActive = 0;
+    //   let totalHospitalized = 0;
+    //   let totalTested = 0;
+    //   let totalRecovered = 0;
+    //   this.dailyReport.map((state) => {
+    //     totalCases += state.Confirmed;
+    //     totalDeaths += state.Deaths;
+    //     totalActive += state.Active;
+    //     totalHospitalized += state.People_Hospitalized;
+    //     totalTested += state.People_Tested;
+    //     totalRecovered += state.Recovered;
+    //   });
+    //   return {
+    //     totalCases,
+    //     totalDeaths,
+    //     totalActive,
+    //     totalHospitalized,
+    //     totalTested,
+    //     totalRecovered,
+    //   };
+    // },
   },
 };
 </script>
