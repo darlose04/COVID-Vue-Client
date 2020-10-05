@@ -35,7 +35,7 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Totals from "./Totals";
 
 export default {
@@ -45,14 +45,14 @@ export default {
   },
   props: ["changeStateName"],
   methods: {
-    // ...mapActions(["fetchUSDailyReport"]),
+    ...mapActions(["fetchUSDailyReport"]),
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
-  // computed: mapGetters(["getUSDailyReport"]),
+  computed: mapGetters(["getUSDailyReport"]),
   created() {
-    // this.fetchUSDailyReport();
+    this.fetchUSDailyReport();
   },
   mounted() {},
 };

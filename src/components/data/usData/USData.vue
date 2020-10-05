@@ -1,10 +1,10 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="">
+    <!-- <div v-if="usDailyReport.length === 0">
       <Spinner />
-    </div>
-    <div v-else>
+    </div> -->
+    <div>
       <div class="data">
         <StateList v-bind:changeStateName="changeStateName" />
         <!-- <div class="charts">
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+// import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
-import Spinner from "../../layout/Spinner";
+// import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
 // import LineCharts from "../LineCharts";
 // import CountyList from "./CountyList";
@@ -42,7 +42,7 @@ export default {
   name: "USData",
   components: {
     Disclaimer,
-    Spinner,
+    // Spinner,
     StateList,
     // LineCharts,
     // CountyList,
@@ -54,7 +54,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchUSDailyReport"]),
+    // ...mapActions(["fetchUSDailyReport"]),
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
@@ -83,7 +83,7 @@ export default {
     //   this.stateCountyDeaths = [];
     // },
   },
-  computed: mapGetters(["getUSDailyReport"]),
+  // computed: { ...mapGetters({ usDailyReport: "getUSDailyReport" }) },
   created() {
     this.fetchUSDailyReport();
   },
