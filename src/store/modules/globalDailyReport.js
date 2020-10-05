@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const state = {
-  dailyReport: [],
+  globalDailyReport: [],
   countryTotals: [],
   globalTotals: {},
 };
 
 const getters = {
-  getDailyReport: (state) => state.dailyReport,
+  getGlobalDailyReport: (state) => state.dailyReport,
   getCountryTotals: (state) => state.countryTotals,
   getGlobalTotals: (state) => state.globalTotals,
 };
@@ -18,7 +18,7 @@ const actions = {
       "https://www.cov-api.com/api/global/dailyreport/"
     );
 
-    commit("setDailyReport", response.data);
+    commit("setGlobalDailyReport", response.data);
   },
 
   createCountryTotals({ commit, state }) {
@@ -98,7 +98,8 @@ const actions = {
 };
 
 const mutations = {
-  setDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
+  setGlobalDailyReport: (state, dailyReport) =>
+    (state.dailyReport = dailyReport),
   setCountryTotals: (state, countryTotals) =>
     (state.countryTotals = countryTotals),
   setGlobalTotals: (state, globalTotals) => (state.globalTotals = globalTotals),
