@@ -15,7 +15,7 @@ const actions = {
     const response = await axios.get(
       "https://www.cov-api.com/api/usa/dailyreport/"
     );
-    commit("setDailyReport", response.data);
+    commit("setUSDailyReport", response.data);
   },
 };
 
