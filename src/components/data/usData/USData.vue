@@ -1,10 +1,10 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <!-- <div v-if="usDailyReport.length === 0">
+    <div v-if="usDailyReport.length === 0">
       <Spinner />
-    </div> -->
-    <div>
+    </div>
+    <div v-else>
       <div class="data">
         <StateList v-bind:changeStateName="changeStateName" />
         <!-- <div class="charts">
