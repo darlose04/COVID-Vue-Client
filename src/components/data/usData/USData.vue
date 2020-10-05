@@ -71,10 +71,6 @@ export default {
         .get(`${baseUrl}/coronadeaths`)
         .then((res) => (this.deaths = res.data))
         .catch((err) => console.log("Error fetching deaths: " + err));
-      axios
-        .get(`${baseUrl}/dailyreport`)
-        .then((res) => (this.dailyReport = res.data))
-        .catch((err) => console.log("Error fetching daily reports: " + err));
     },
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
