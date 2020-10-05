@@ -99,6 +99,9 @@ export default {
     },
   },
   computed: mapGetters(["getUSDailyReport"]),
+  created() {
+    this.fetchUSDailyReport();
+  },
   mounted() {
     this.fetchData();
   },
