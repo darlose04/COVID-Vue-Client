@@ -33,6 +33,9 @@ export default {
       usTotals: "getUSTotals",
     }),
   },
+  created() {
+    this.createUSTotals();
+  },
 };
 </script>
 
