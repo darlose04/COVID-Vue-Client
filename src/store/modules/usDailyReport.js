@@ -30,14 +30,7 @@ const actions = {
       totalRecovered: 0,
     };
 
-    usData.map(
-      (state) => (usTotals.totalCases += state.Confirmed),
-      (usTotals.totalDeaths += state.Deaths),
-      (usTotals.totalActive += state.Active),
-      (usTotals.totalHospitalized += state.People_Hospitalized),
-      (usTotals.totalTested += state.People_Tested),
-      (usTotals.totalRecovered += state.Recovered)
-    );
+    console.log(usData);
 
     commit("setUSTotals", usTotals);
   },
