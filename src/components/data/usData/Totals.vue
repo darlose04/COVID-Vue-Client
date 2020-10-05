@@ -4,14 +4,12 @@
       U.S. Totals
     </h2>
     <ul>
-      <li>Confirmed: {{ numWithCommas(this.usTotals.totalCases) }}</li>
-      <li>Deaths: {{ numWithCommas(this.usTotals.totalDeaths) }}</li>
-      <li>Active: {{ numWithCommas(this.usTotals.totalActive) }}</li>
-      <li>
-        Hospitalized: {{ numWithCommas(this.usTotals.totalHospitalized) }}
-      </li>
-      <li>Tested: {{ numWithCommas(this.usTotals.totalTested) }}</li>
-      <li>Recovered: {{ numWithCommas(this.usTotals.totalRecovered) }}</li>
+      <li>Confirmed: {{ this.usTotals.totalCases }}</li>
+      <li>Deaths: {{ this.usTotals.totalDeaths }}</li>
+      <li>Active: {{ this.usTotals.totalActive }}</li>
+      <li>Hospitalized: {{ this.usTotals.totalHospitalized }}</li>
+      <li>Tested: {{ this.usTotals.totalTested }}</li>
+      <li>Recovered: {{ this.usTotals.totalRecovered }}</li>
     </ul>
   </div>
 </template>
@@ -22,21 +20,11 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Totals",
   props: ["changeStateName"],
-  // data() {
-  //   return {
-  //     totalCases: 0,
-  //     totalDeaths: 0,
-  //     totalActive: 0,
-  //     totalHospitalized: 0,
-  //     totalTested: 0,
-  //     totalRecovered: 0,
-  //   };
-  // },
   methods: {
     ...mapActions(["createUSTotals"]),
-    numWithCommas: function(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
+    // numWithCommas(num) {
+    //   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // },
   },
   computed: {
     ...mapGetters({
