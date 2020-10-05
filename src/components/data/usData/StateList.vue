@@ -45,11 +45,11 @@ export default {
   },
   props: ["changeStateName"],
   methods: {
-    ...mapActions([]),
+    ...mapActions(["fetchUSDailyReport"]),
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
-    computed: mapGetters([]),
+    computed: mapGetters(["getUSDailyReport"]),
   },
 };
 </script>
