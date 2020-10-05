@@ -16,3 +16,7 @@ const actions = {
     commit("setDailyReport", response.data);
   },
 };
+
+const mutations = {
+  setDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
+};
