@@ -59,7 +59,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions([]),
+    ...mapActions(["fetchUSDailyReport"]),
     fetchData() {
       axios
         .get(`${baseUrl}/coronacases`)
@@ -98,7 +98,7 @@ export default {
       this.stateCountyDeaths = [];
     },
   },
-  computed: mapGetters([]),
+  computed: mapGetters(["getUSDailyReport"]),
   created() {
     this.fetchUSDailyReport();
   },
