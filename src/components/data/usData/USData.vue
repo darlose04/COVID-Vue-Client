@@ -1,7 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="cases.length === 0 && deaths.length === 0">
+    <div v-if="">
       <Spinner />
     </div>
     <div v-else>
@@ -37,8 +37,7 @@ import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
 // import LineCharts from "../LineCharts";
 // import CountyList from "./CountyList";
-import axios from "axios";
-const baseUrl = "https://www.cov-api.com/api/usa";
+
 export default {
   name: "USData",
   components: {
@@ -50,26 +49,12 @@ export default {
   },
   data() {
     return {
-      cases: [],
-      deaths: [],
-      stateCountyCases: [],
-      stateCountyDeaths: [],
       stateName: "",
       loading: true,
     };
   },
   methods: {
     ...mapActions(["fetchUSDailyReport"]),
-    fetchData() {
-      axios
-        .get(`${baseUrl}/coronacases`)
-        .then((res) => (this.cases = res.data))
-        .catch((err) => console.log("Error fetching cases: " + err));
-      axios
-        .get(`${baseUrl}/coronadeaths`)
-        .then((res) => (this.deaths = res.data))
-        .catch((err) => console.log("Error fetching deaths: " + err));
-    },
     changeStateName(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
@@ -77,39 +62,39 @@ export default {
         this.stateName = event.target.innerText;
       }
     },
-    getCountyData(state) {
-      this.stateCountyCases = [];
-      this.stateCountyDeaths = [];
-      this.cases.map((obj) => {
-        if (obj.State === state) {
-          this.stateCountyCases.push(obj);
-        }
-      });
-      this.deaths.map((obj) => {
-        if (obj.State === state) {
-          this.stateCountyDeaths.push(obj);
-        }
-      });
-    },
-    removeData() {
-      this.cases = [];
-      this.deaths = [];
-      this.stateCountyCases = [];
-      this.stateCountyDeaths = [];
-    },
+    // getCountyData(state) {
+    //   this.stateCountyCases = [];
+    //   this.stateCountyDeaths = [];
+    //   this.cases.map((obj) => {
+    //     if (obj.State === state) {
+    //       this.stateCountyCases.push(obj);
+    //     }
+    //   });
+    //   this.deaths.map((obj) => {
+    //     if (obj.State === state) {
+    //       this.stateCountyDeaths.push(obj);
+    //     }
+    //   });
+    // },
+    // removeData() {
+    //   this.cases = [];
+    //   this.deaths = [];
+    //   this.stateCountyCases = [];
+    //   this.stateCountyDeaths = [];
+    // },
   },
   computed: mapGetters(["getUSDailyReport"]),
   created() {
     this.fetchUSDailyReport();
   },
   mounted() {
-    this.fetchData();
+    // this.fetchData();
   },
   beforeUpdate() {
     // this.getCountyData(this.stateName);
   },
   beforeDestroy() {
-    this.removeData();
+    // this.removeData();
   },
 };
 </script>
