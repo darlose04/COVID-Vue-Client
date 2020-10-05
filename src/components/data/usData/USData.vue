@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
@@ -58,6 +59,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["fetchUSDailyReport"]),
     fetchData() {
       axios
         .get(`${baseUrl}/coronacases`)
@@ -96,6 +98,7 @@ export default {
       this.stateCountyDeaths = [];
     },
   },
+  computed: mapGetters(["getUSDailyReport"]),
   mounted() {
     this.fetchData();
   },
