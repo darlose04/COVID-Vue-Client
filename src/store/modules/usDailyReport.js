@@ -5,3 +5,14 @@ const state = {
   usTotals: [],
   stateTotals: [],
 };
+
+const getters = {};
+
+const actions = {
+  async fetchUSDailyReport({ commit }) {
+    const response = await axios.get(
+      "https://www.cov-api.com/api/usa/dailyreport/"
+    );
+    commit("setDailyReport", response.data);
+  },
+};
