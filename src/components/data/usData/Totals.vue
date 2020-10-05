@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "Totals",
-  props: ["dailyReport", "changeStateName"],
+  props: ["changeStateName"],
   // data() {
   //   return {
   //     totalCases: 0,
