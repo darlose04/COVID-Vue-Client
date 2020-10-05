@@ -4,12 +4,14 @@
       U.S. Totals
     </h2>
     <ul>
-      <li>Confirmed: {{ numWithCommas(getTotalData.totalCases) }}</li>
-      <li>Deaths: {{ numWithCommas(getTotalData.totalDeaths) }}</li>
-      <li>Active: {{ numWithCommas(getTotalData.totalActive) }}</li>
-      <li>Hospitalized: {{ numWithCommas(getTotalData.totalHospitalized) }}</li>
-      <li>Tested: {{ numWithCommas(getTotalData.totalTested) }}</li>
-      <li>Recovered: {{ numWithCommas(getTotalData.totalRecovered) }}</li>
+      <li>Confirmed: {{ numWithCommas(this.usTotals.totalCases) }}</li>
+      <li>Deaths: {{ numWithCommas(this.usTotals.totalDeaths) }}</li>
+      <li>Active: {{ numWithCommas(this.usTotals.totalActive) }}</li>
+      <li>
+        Hospitalized: {{ numWithCommas(this.usTotals.totalHospitalized) }}
+      </li>
+      <li>Tested: {{ numWithCommas(this.usTotals.totalTested) }}</li>
+      <li>Recovered: {{ numWithCommas(this.usTotals.totalRecovered) }}</li>
     </ul>
   </div>
 </template>
