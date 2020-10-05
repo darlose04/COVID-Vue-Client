@@ -38,6 +38,7 @@ const actions = {
 
 const mutations = {
   setUSDailyReport: (state, dailyReport) => (state.usDailyReport = dailyReport),
+  setUSTotals: (state, usTotals) => (state.usTotals = usTotals),
 };
 
 export default {
