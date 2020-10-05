@@ -3,7 +3,7 @@
     <Totals v-bind:changeStateName="changeStateName" />
     <div class="state-list">
       <h2>States / Territories</h2>
-      <ul v-for="state in usDailyReport" v-bind:key="state.index">
+      <ul v-for="state in this.getUSDailyReport" v-bind:key="state.index">
         <li>
           <div
             v-if="
