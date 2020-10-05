@@ -31,11 +31,15 @@ export default {
   //   };
   // },
   methods: {
+    ...mapActions(["createUSTotals"]),
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
   computed: {
+    ...mapGetters({
+      usTotals: "getUSTotals",
+    }),
     // getTotalData: function() {
     //   let totalCases = 0;
     //   let totalDeaths = 0;
