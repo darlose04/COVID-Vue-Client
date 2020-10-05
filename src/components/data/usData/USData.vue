@@ -10,7 +10,7 @@
           v-bind:changeStateName="changeStateName"
           v-bind:dailyReport="dailyReport"
         />
-        <div class="charts">
+        <!-- <div class="charts">
           <div v-if="cases.length > 3000 && deaths.length > 3000">
             <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
           </div>
@@ -27,7 +27,7 @@
             Click on a state name to the left to display statistics related to
             that state's counties.
           </h3>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -37,8 +37,8 @@
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
-import LineCharts from "../LineCharts";
-import CountyList from "./CountyList";
+// import LineCharts from "../LineCharts";
+// import CountyList from "./CountyList";
 import axios from "axios";
 const baseUrl = "https://www.cov-api.com/api/usa";
 export default {
@@ -47,8 +47,8 @@ export default {
     Disclaimer,
     Spinner,
     StateList,
-    LineCharts,
-    CountyList,
+    // LineCharts,
+    // CountyList,
   },
   data() {
     return {
