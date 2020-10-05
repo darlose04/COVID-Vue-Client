@@ -51,9 +51,7 @@ export default {
   },
   computed: mapGetters(["getUSDailyReport"]),
   created() {},
-  mounted() {
-    console.log(this.getUSDailyReport);
-  },
+  mounted() {},
 };
 </script>
 
