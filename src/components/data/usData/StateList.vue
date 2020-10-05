@@ -1,9 +1,9 @@
 <template>
   <div class="list-data">
-    <Totals v-bind:changeStateName="changeStateName" />
+    <!-- <Totals v-bind:changeStateName="changeStateName" /> -->
     <div class="state-list">
       <h2>States / Territories</h2>
-      <ul v-for="state in dailyReport" v-bind:key="state.index">
+      <ul v-for="state in getUSDailyReport" v-bind:key="state.index">
         <li>
           <div
             v-if="
@@ -36,12 +36,12 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import Totals from "./Totals";
+// import Totals from "./Totals";
 
 export default {
   name: "StateList",
   components: {
-    Totals,
+    // Totals,
   },
   props: ["changeStateName"],
   methods: {
@@ -50,6 +50,9 @@ export default {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     computed: mapGetters(["getUSDailyReport"]),
+  },
+  created() {
+    this.fetchUSDailyReport();
   },
 };
 </script>
