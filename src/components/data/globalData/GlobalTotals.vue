@@ -2,10 +2,10 @@
   <div class="global-totals">
     <h2>Global Totals</h2>
     <ul>
-      <li>Confirmed: {{ this.globalTotals.totalCases }}</li>
-      <li>Deaths: {{ this.globalTotals.totalDeaths }}</li>
-      <li>Active: {{ this.globalTotals.totalActive }}</li>
-      <li>Recovered: {{ this.globalTotals.totalRecovered }}</li>
+      <li>Confirmed: {{ numWithCommas(this.globalTotals.totalCases) }}</li>
+      <li>Deaths: {{ numWithCommas(this.globalTotals.totalDeaths) }}</li>
+      <li>Active: {{ numWithCommas(this.globalTotals.totalActive) }}</li>
+      <li>Recovered: {{ numWithCommas(this.globalTotals.totalRecovered) }}</li>
     </ul>
   </div>
 </template>
@@ -17,6 +17,9 @@ export default {
   name: "GlobalTotals",
   methods: {
     ...mapActions(["createGlobalTotals"]),
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
   computed: {
     ...mapGetters({
