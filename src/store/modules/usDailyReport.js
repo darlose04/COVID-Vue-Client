@@ -37,7 +37,7 @@ const actions = {
 };
 
 const mutations = {
-  setUSDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
+  setUSDailyReport: (state, dailyReport) => (state.usDailyReport = dailyReport),
 };
 
 export default {
