@@ -6,9 +6,14 @@
       <ul v-for="country in getCountryTotals" v-bind:key="country.index">
         <li>
           <h3>{{ country.Country_Region }}</h3>
-          <p>Cases: {{ country.Confirmed }}</p>
-          <p>Deaths: {{ country.Deaths }}</p>
-          <p>Recovered: {{ country.Recovered }}</p>
+          <p>Cases: {{ numWithCommas(country.Confirmed) }}</p>
+          <p>Deaths: {{ numWithCommas(country.Deaths) }}</p>
+          <div v-if="country.Recovered">
+            <p>Recovered: {{ numWithCommas(country.Recovered) }}</p>
+          </div>
+          <div v-else>
+            <p>Recovered: {{ country.Recovered }}</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -26,6 +31,9 @@ export default {
   },
   methods: {
     ...mapActions(["createCountryTotals"]),
+    numWithCommas: function(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
   computed: mapGetters(["getCountryTotals"]),
   created() {
