@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Totals from "./Totals";
 
 export default {
@@ -44,9 +45,11 @@ export default {
   },
   props: ["changeStateName"],
   methods: {
+    ...mapActions([]),
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
+    computed: mapGetters([]),
   },
 };
 </script>
