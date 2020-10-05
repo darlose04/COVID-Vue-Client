@@ -8,6 +8,7 @@ const state = {
 
 const getters = {
   getUSDailyReport: (state) => state.dailyReport,
+  getUSTotals: (state) => state.usTotals,
 };
 
 const actions = {
