@@ -22,3 +22,10 @@ const actions = {
 const mutations = {
   setDailyReport: (state, dailyReport) => (state.dailyReport = dailyReport),
 };
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+};
