@@ -100,7 +100,7 @@ export default {
     this.fetchData();
   },
   beforeUpdate() {
-    this.getCountyData(this.stateName);
+    // this.getCountyData(this.stateName);
   },
   beforeDestroy() {
     this.removeData();
