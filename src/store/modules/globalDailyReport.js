@@ -7,7 +7,7 @@ const state = {
 };
 
 const getters = {
-  getGlobalDailyReport: (state) => state.dailyReport,
+  getGlobalDailyReport: (state) => state.globalDailyReport,
   getCountryTotals: (state) => state.countryTotals,
   getGlobalTotals: (state) => state.globalTotals,
 };
@@ -22,7 +22,7 @@ const actions = {
   },
 
   createCountryTotals({ commit, state }) {
-    let data = [...state.dailyReport];
+    let data = [...state.globalDailyReport];
     let countryArr = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -77,7 +77,7 @@ const actions = {
     commit("setCountryTotals", countryObjArr);
   },
   createGlobalTotals({ commit, state }) {
-    let globalData = [...state.dailyReport];
+    let globalData = [...state.globalDailyReport];
 
     let globalTotals = {
       totalCases: 0,
@@ -99,7 +99,7 @@ const actions = {
 
 const mutations = {
   setGlobalDailyReport: (state, dailyReport) =>
-    (state.dailyReport = dailyReport),
+    (state.globalDailyReport = dailyReport),
   setCountryTotals: (state, countryTotals) =>
     (state.countryTotals = countryTotals),
   setGlobalTotals: (state, globalTotals) => (state.globalTotals = globalTotals),
