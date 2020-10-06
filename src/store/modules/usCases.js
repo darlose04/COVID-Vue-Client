@@ -17,6 +17,19 @@ const actions = {
     );
     commit("setUSCases", response.data);
   },
+
+  createUSCountyCases({ commit, state }, nameOfState) {
+    let cases = [...state.usCases];
+
+    cases.map((county) => {
+      let stateCounties = [];
+      if (county.State === nameOfState) {
+        stateCounties.push(county);
+      }
+    });
+
+    commit("usCountyCases", stateCounties);
+  },
 };
 
 const mutations = {
