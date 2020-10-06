@@ -24,7 +24,10 @@ export default {
   },
   props: ["stateName"],
   methods: {
-    ...mapActions(["createUSCountyCases", "addUSCountyCases"]),
+    ...mapActions([
+      "createUSCountyCases",
+      "createUSCountyObjects" /* "addUSCountyCases" */,
+    ]),
     // addCountyData(cases, deaths) {
     //   this.stateObjects = [];
     //   let dateArray = [];
@@ -46,16 +49,18 @@ export default {
   computed: {
     ...mapGetters({
       countyCases: "getUSCountyCases",
-      countyCaseTotals: "getUSStateCountyTotals",
+      countyCasesObjects: "getUSStateCountyObjects",
+      // countyCaseTotals: "getUSStateCountyTotals",
     }),
   },
   mounted() {
     this.createUSCountyCases(this.stateName);
-    this.addUSCountyCases();
+    this.createUSCountyObjects();
+    // this.addUSCountyCases();
   },
   beforeUpdate() {
     this.createUSCountyCases(this.stateName);
-    this.addUSCountyCases();
+    // this.addUSCountyCases();
   },
 };
 </script>
