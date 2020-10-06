@@ -7,12 +7,12 @@ const getters = {
 };
 
 const actions = {
-  changeStateName({ commit, event }) {
-    if (event.target.innertext === "U.S. Totals") {
+  changeStateName({ commit, nameOfState }) {
+    if (nameOfState === "U.S. Totals") {
       let stateName = "";
       commit("setStateName", stateName);
     } else {
-      let stateName = event.target.innertext;
+      let stateName = nameOfState;
       commit("setStateName", stateName);
     }
   },
