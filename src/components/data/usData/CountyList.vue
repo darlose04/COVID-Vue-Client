@@ -2,50 +2,58 @@
   <div class="county-list">
     <div>
       <h1>{{ this.stateName }}</h1>
-      <ul v-for="county in stateObjects" v-bind:key="county.id">
+      <!-- <ul v-for="county in stateObjects" v-bind:key="county.id">
         <li>
           <h3>{{ county.county }}</h3>
           <p>Cases: {{ county.cases }}</p>
           <p>Deaths: {{ county.deaths }}</p>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "CountyList",
-  props: ["stateName", "cases", "deaths"],
   data() {
     return {
       stateObjects: [],
     };
   },
   methods: {
-    addCountyData(cases, deaths) {
-      this.stateObjects = [];
-      let dateArray = [];
-      dateArray.push(Object.keys(cases[0]));
-      let dates = dateArray[0].slice(7, dateArray[0].length);
-      let recentDate = dates[dates.length - 1];
-      for (let i = 0; i < cases.length; i++) {
-        let stateObj = {
-          id: cases[i].UID,
-          county: cases[i].City,
-          cases: cases[i][recentDate],
-          deaths: deaths[i][recentDate],
-        };
-        this.stateObjects.push(stateObj);
-      }
-      return this.stateObjects;
-    },
+    ...mapActions(["createUSCountyCases"]),
+    // addCountyData(cases, deaths) {
+    //   this.stateObjects = [];
+    //   let dateArray = [];
+    //   dateArray.push(Object.keys(cases[0]));
+    //   let dates = dateArray[0].slice(7, dateArray[0].length);
+    //   let recentDate = dates[dates.length - 1];
+    //   for (let i = 0; i < cases.length; i++) {
+    //     let stateObj = {
+    //       id: cases[i].UID,
+    //       county: cases[i].City,
+    //       cases: cases[i][recentDate],
+    //       deaths: deaths[i][recentDate],
+    //     };
+    //     this.stateObjects.push(stateObj);
+    //   }
+    //   return this.stateObjects;
+    // },
+  },
+  computed: {
+    ...mapGetters({
+      nameOfState: "getStateName",
+      countyCases: "getUSCountyCases",
+    }),
   },
   mounted() {
-    this.addCountyData(this.cases, this.deaths);
+    this.createUSCountyCases(this.nameOfState);
+    // this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {
-    this.addCountyData(this.cases, this.deaths);
+    // this.addCountyData(this.cases, this.deaths);
   },
 };
 </script>
