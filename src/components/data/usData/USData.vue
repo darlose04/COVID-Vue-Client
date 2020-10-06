@@ -12,19 +12,16 @@
             <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
           </div>
         </div>
+        -->
         <div v-if="stateName !== ''">
-          <CountyList
-            v-bind:stateName="stateName"
-            v-bind:cases="stateCountyCases"
-            v-bind:deaths="stateCountyDeaths"
-          />
+          <CountyList />
         </div>
         <div v-else>
           <h3>
             Click on a state name to the left to display statistics related to
             that state's counties.
           </h3>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -36,7 +33,7 @@ import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
 // import LineCharts from "../LineCharts";
-// import CountyList from "./CountyList";
+import CountyList from "./CountyList";
 
 export default {
   name: "USData",
@@ -45,7 +42,7 @@ export default {
     Spinner,
     StateList,
     // LineCharts,
-    // CountyList,
+    CountyList,
   },
   data() {
     return {
