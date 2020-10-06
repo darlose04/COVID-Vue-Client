@@ -1,7 +1,7 @@
 <template>
   <div class="county-list">
     <div>
-      <h1>{{ this.stateName }}</h1>
+      <h1>State Name Goes Here</h1>
       <!-- <ul v-for="county in stateObjects" v-bind:key="county.id">
         <li>
           <h3>{{ county.county }}</h3>
@@ -49,10 +49,11 @@ export default {
     }),
   },
   mounted() {
-    this.createUSCountyCases(this.nameOfState);
+    // this.createUSCountyCases(this.nameOfState);
     // this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {
+    // this.createUSCountyCases(this.nameOfState);
     // this.addCountyData(this.cases, this.deaths);
   },
 };
