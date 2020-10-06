@@ -7,6 +7,7 @@ import usDailyReport from "./modules/usDailyReport";
 import changeStateName from "./modules/changeStateName";
 import usCases from "./modules/usCases";
 import usDeaths from "./modules/usDeaths";
+import usStateCounty from "./modules/usStateCounty";
 
 Vue.use(Vuex);
 
@@ -19,5 +20,6 @@ export default new Vuex.Store({
     changeStateName,
     usCases,
     usDeaths,
+    usStateCounty,
   },
 });
