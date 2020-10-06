@@ -1,7 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="this.usCases.length < 3000">
+    <div v-if="this.usCases.length < 3000 && this.usDeaths.length < 3000">
       <Spinner />
     </div>
     <div v-else>
@@ -54,7 +54,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchUSCases", "fetchUSDailyReport", "changeStateName"]),
+    ...mapActions([
+      "fetchUSCases",
+      "fetchUSDeaths",
+      "fetchUSDailyReport",
+      "changeStateName",
+    ]),
     changeNameOfState(event) {
       console.log(event.target.innerText);
       if (event.target.innerText === "U.S. Totals") {
@@ -79,14 +84,19 @@ export default {
     // },
   },
   computed: {
-    ...mapGetters({ usDailyReport: "getUSDailyReport", usCases: "getUSCases" }),
+    ...mapGetters({
+      usDailyReport: "getUSDailyReport",
+      usCases: "getUSCases",
+      usDeaths: "getUSDeaths",
+    }),
   },
   created() {
     this.fetchUSCases();
+    this.fetchUSDeaths();
     this.fetchUSDailyReport();
   },
   mounted() {
-    console.log(this.usCases);
+    console.log(this.usDeaths);
   },
   beforeUpdate() {
     this.changeStateName(this.stateName);
