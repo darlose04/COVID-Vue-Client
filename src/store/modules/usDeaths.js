@@ -28,7 +28,7 @@ const actions = {
       }
     });
 
-    commit("setCountyDeaths", stateCounties);
+    commit("setUSCountyDeaths", stateCounties);
   },
 };
 
