@@ -27,45 +27,25 @@ export default {
     ...mapActions([
       "createUSCountyCases",
       "createUSCountyDeaths",
-      "createUSCountyObjects" /* "addUSCountyCases" */,
+      "createUSCountyObjects",
     ]),
-    // addCountyData(cases, deaths) {
-    //   this.stateObjects = [];
-    //   let dateArray = [];
-    //   dateArray.push(Object.keys(cases[0]));
-    //   let dates = dateArray[0].slice(7, dateArray[0].length);
-    //   let recentDate = dates[dates.length - 1];
-    //   for (let i = 0; i < cases.length; i++) {
-    //     let stateObj = {
-    //       id: cases[i].UID,
-    //       county: cases[i].City,
-    //       cases: cases[i][recentDate],
-    //       deaths: deaths[i][recentDate],
-    //     };
-    //     this.stateObjects.push(stateObj);
-    //   }
-    //   return this.stateObjects;
-    // },
   },
   computed: {
     ...mapGetters({
       countyCases: "getUSCountyCases",
       countyDeaths: "getUSCountyDeaths",
       countyObjects: "getUSStateCountyObjects",
-      // countyCaseTotals: "getUSStateCountyTotals",
     }),
   },
   mounted() {
     this.createUSCountyCases(this.stateName);
     this.createUSCountyDeaths(this.stateName);
     this.createUSCountyObjects();
-    // this.addUSCountyCases();
   },
   beforeUpdate() {
     this.createUSCountyCases(this.stateName);
     this.createUSCountyDeaths(this.stateName);
     this.createUSCountyObjects();
-    // this.addUSCountyCases();
   },
 };
 </script>
