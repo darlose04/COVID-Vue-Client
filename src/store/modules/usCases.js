@@ -29,8 +29,12 @@ const actions = {
     });
     console.log(stateCounties);
 
-    commit("usCountyCases", stateCounties);
+    commit("setUSCountyCases", stateCounties);
   },
+
+  // addUSCountyCases({ commit, state }) {
+  //   let countyCases
+  // }
 };
 
 const mutations = {
