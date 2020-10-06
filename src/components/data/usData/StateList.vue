@@ -1,6 +1,6 @@
 <template>
   <div class="list-data">
-    <Totals v-bind:changeStateName="changeStateName" />
+    <Totals v-bind:changeNameOfState="changeNameOfState" />
     <div class="state-list">
       <h2>States / Territories</h2>
       <ul v-for="state in this.getUSDailyReport" v-bind:key="state.index">
