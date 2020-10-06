@@ -7,7 +7,7 @@ const getters = {
 };
 
 const actions = {
-  changeStateName({ commit, nameOfState }) {
+  changeStateName({ commit }, nameOfState) {
     if (nameOfState === "U.S. Totals") {
       let stateName = "";
       commit("setStateName", stateName);
