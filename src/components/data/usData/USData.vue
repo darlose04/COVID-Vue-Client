@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <div class="data">
-        <StateList v-bind:changeStateName="changeStateName" />
+        <StateList v-bind:changeNameOfState="changeNameOfState" />
         <!-- <div class="charts">
           <div v-if="cases.length > 3000 && deaths.length > 3000">
             <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
@@ -56,6 +56,7 @@ export default {
   methods: {
     ...mapActions(["fetchUSDailyReport", "changeStateName"]),
     changeNameOfState(event) {
+      console.log(event.target.innerText);
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
       } else {
