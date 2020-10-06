@@ -3,7 +3,7 @@ const state = {
 };
 
 const getters = {
-  getUSStateCountyObjects: (state) => state.getUSStateCountyTotals,
+  getUSStateCountyObjects: (state) => state.usStateCountyObjects,
 };
 
 const actions = {
@@ -33,8 +33,7 @@ const actions = {
 };
 
 const mutations = {
-  setUSStateCountyObjects: (state, objects) =>
-    (state.usStateCountyObjects = objects),
+  setUSStateCountyObjects: (state, obj) => (state.usStateCountyObjects = obj),
 };
 
 export default {
