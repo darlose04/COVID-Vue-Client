@@ -47,7 +47,6 @@ export default {
   data() {
     return {
       stateName: "",
-      loading: true,
     };
   },
   methods: {
