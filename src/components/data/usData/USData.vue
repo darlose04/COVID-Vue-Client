@@ -1,7 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="this.usCases.length < 3000 && this.usDeaths.length < 3000">
+    <div v-if="this.usCases.length < 3300 || this.usDeaths.length < 3300">
       <Spinner />
     </div>
     <div v-else>
@@ -68,20 +68,6 @@ export default {
         this.stateName = event.target.innerText;
       }
     },
-    // getCountyData(state) {
-    //   this.stateCountyCases = [];
-    //   this.stateCountyDeaths = [];
-    //   this.cases.map((obj) => {
-    //     if (obj.State === state) {
-    //       this.stateCountyCases.push(obj);
-    //     }
-    //   });
-    //   this.deaths.map((obj) => {
-    //     if (obj.State === state) {
-    //       this.stateCountyDeaths.push(obj);
-    //     }
-    //   });
-    // },
   },
   computed: {
     ...mapGetters({
@@ -91,13 +77,11 @@ export default {
     }),
   },
   created() {
+    this.fetchUSDailyReport();
     this.fetchUSCases();
     this.fetchUSDeaths();
-    this.fetchUSDailyReport();
   },
-  mounted() {
-    console.log(this.usDeaths);
-  },
+  mounted() {},
   beforeUpdate() {
     this.changeStateName(this.stateName);
   },
