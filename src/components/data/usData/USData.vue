@@ -57,7 +57,6 @@ export default {
       "changeStateName",
     ]),
     changeNameOfState(event) {
-      console.log(event.target.innerText);
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
       } else {
