@@ -49,10 +49,11 @@ export default {
     }),
   },
   mounted() {
-    this.createUSCountyCases();
+    this.createUSCountyCases(this.stateName);
     // this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {
+    this.createUSCountyCases(this.stateName);
     // this.createUSCountyCases(this.nameOfState);
     // this.addCountyData(this.cases, this.deaths);
   },
