@@ -29,7 +29,6 @@ const actions = {
         stateCounties.push(county);
       }
     });
-    console.log(stateCounties);
 
     commit("setUSCountyCases", stateCounties);
   },
