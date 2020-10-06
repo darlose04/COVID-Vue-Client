@@ -57,12 +57,13 @@ export default {
   },
   mounted() {
     this.createUSCountyCases(this.stateName);
-
+    this.createUSCountyDeaths(this.stateName);
     this.createUSCountyObjects();
     // this.addUSCountyCases();
   },
   beforeUpdate() {
     this.createUSCountyCases(this.stateName);
+    this.createUSCountyDeaths(this.stateName);
     this.createUSCountyObjects();
     // this.addUSCountyCases();
   },
