@@ -94,6 +94,7 @@ export default {
   },
   beforeUpdate() {
     // this.getCountyData(this.stateName);
+    this.changeStateName(this.stateName);
   },
   beforeDestroy() {
     // this.removeData();
