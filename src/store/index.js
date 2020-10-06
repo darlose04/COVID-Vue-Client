@@ -4,6 +4,7 @@ import cases from "./modules/globalCases";
 import deaths from "./modules/globalDeaths";
 import globalDailyReport from "./modules/globalDailyReport";
 import usDailyReport from "./modules/usDailyReport";
+import changeStateName from "./modules/changeStateName";
 
 Vue.use(Vuex);
 
@@ -13,5 +14,6 @@ export default new Vuex.Store({
     deaths,
     globalDailyReport,
     usDailyReport,
+    changeStateName,
   },
 });
