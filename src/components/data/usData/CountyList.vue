@@ -26,6 +26,7 @@ export default {
   methods: {
     ...mapActions([
       "createUSCountyCases",
+      "createUSCountyDeaths",
       "createUSCountyObjects" /* "addUSCountyCases" */,
     ]),
     // addCountyData(cases, deaths) {
@@ -49,17 +50,20 @@ export default {
   computed: {
     ...mapGetters({
       countyCases: "getUSCountyCases",
+      countyDeaths: "getUSCountyDeaths",
       countyCasesObjects: "getUSStateCountyObjects",
       // countyCaseTotals: "getUSStateCountyTotals",
     }),
   },
   mounted() {
     this.createUSCountyCases(this.stateName);
+
     this.createUSCountyObjects();
     // this.addUSCountyCases();
   },
   beforeUpdate() {
     this.createUSCountyCases(this.stateName);
+    this.createUSCountyObjects();
     // this.addUSCountyCases();
   },
 };
