@@ -20,13 +20,14 @@ const actions = {
 
   createUSCountyCases({ commit, state }, nameOfState) {
     let cases = [...state.usCases];
+    let stateCounties = [];
 
     cases.map((county) => {
-      let stateCounties = [];
       if (county.State === nameOfState) {
         stateCounties.push(county);
       }
     });
+    console.log(stateCounties);
 
     commit("usCountyCases", stateCounties);
   },
