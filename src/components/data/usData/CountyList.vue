@@ -1,7 +1,7 @@
 <template>
   <div class="county-list">
     <div>
-      <h1>State Name Goes Here</h1>
+      <h1>{{ this.stateName }}</h1>
       <!-- <ul v-for="county in stateObjects" v-bind:key="county.id">
         <li>
           <h3>{{ county.county }}</h3>
@@ -22,6 +22,7 @@ export default {
       stateObjects: [],
     };
   },
+  props: ["stateName"],
   methods: {
     ...mapActions(["createUSCountyCases"]),
     // addCountyData(cases, deaths) {
@@ -44,12 +45,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      nameOfState: "getStateName",
       countyCases: "getUSCountyCases",
     }),
   },
   mounted() {
-    // this.createUSCountyCases(this.nameOfState);
+    this.createUSCountyCases();
     // this.addCountyData(this.cases, this.deaths);
   },
   beforeUpdate() {

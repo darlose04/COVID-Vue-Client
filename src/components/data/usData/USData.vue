@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <div class="data">
-        <StateList v-bind:changeNameOfState="changeNameOfState" />
+        <StateList v-bind:stateName="stateName" />
         <!-- <div class="charts">
           <div v-if="cases.length > 3000 && deaths.length > 3000">
             <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
@@ -14,7 +14,7 @@
         </div>
         -->
         <div v-if="stateName !== ''">
-          <CountyList />
+          <CountyList v-bind:changeNameOfState="changeNameOfState" />
         </div>
         <div v-else>
           <h3>
@@ -78,7 +78,7 @@ export default {
   },
   mounted() {},
   beforeUpdate() {
-    this.changeStateName(this.stateName);
+    // this.changeStateName(this.stateName);
   },
   beforeDestroy() {
     // this.removeData();
