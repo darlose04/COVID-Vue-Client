@@ -1,6 +1,6 @@
 <template>
   <div class="totals">
-    <h2 v-on:click="changeStateName" class="US-Totals">
+    <h2 v-on:click="changeNameOfState" class="US-Totals">
       U.S. Totals
     </h2>
     <ul>
@@ -21,7 +21,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Totals",
-  props: ["changeStateName"],
+  props: ["changeNameOfState"],
   methods: {
     ...mapActions(["createUSTotals"]),
     numWithCommas(num) {
