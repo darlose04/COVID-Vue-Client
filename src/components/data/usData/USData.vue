@@ -77,13 +77,8 @@ export default {
     this.fetchUSDeaths();
   },
   mounted() {},
-  beforeUpdate() {
-    console.log(this.stateName);
-    // this.changeStateName(this.stateName);
-  },
-  beforeDestroy() {
-    // this.removeData();
-  },
+  beforeUpdate() {},
+  beforeDestroy() {},
 };
 </script>
 
