@@ -18,7 +18,7 @@
             <h3>{{ state.Province_State }}</h3>
           </div>
           <div v-else>
-            <h3 v-on:click="changeStateName()">
+            <h3 v-on:click="changeStateName">
               {{ state.Province_State }}
             </h3>
           </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import Totals from "./Totals";
 
 export default {
@@ -45,14 +45,13 @@ export default {
   components: {
     Totals,
   },
-  // props: ["changeStateName"],
+  props: ["changeStateName"],
   methods: {
-    ...mapActions(["changeStateName"]),
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
-  computed: mapGetters(["getUSDailyReport", "getStateName"]),
+  computed: mapGetters(["getUSDailyReport"]),
   created() {},
   mounted() {},
 };
