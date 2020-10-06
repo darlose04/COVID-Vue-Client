@@ -1,7 +1,7 @@
 <template>
   <div class="data-wrapper">
     <Disclaimer />
-    <div v-if="this.usDailyReport.length === 0">
+    <div v-if="this.usCases.length < 3000">
       <Spinner />
     </div>
     <div v-else>
@@ -79,13 +79,15 @@ export default {
     // },
   },
   computed: {
-    ...mapGetters({ usDailyReport: "getUSDailyReport" }),
+    ...mapGetters({ usDailyReport: "getUSDailyReport", usCases: "getUSCases" }),
   },
   created() {
     this.fetchUSCases();
     this.fetchUSDailyReport();
   },
-  mounted() {},
+  mounted() {
+    console.log(this.usCases);
+  },
   beforeUpdate() {
     this.changeStateName(this.stateName);
   },
