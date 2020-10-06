@@ -54,7 +54,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchUSDailyReport", "changeStateName"]),
+    ...mapActions(["fetchUSCases", "fetchUSDailyReport", "changeStateName"]),
     changeNameOfState(event) {
       console.log(event.target.innerText);
       if (event.target.innerText === "U.S. Totals") {
@@ -77,24 +77,16 @@ export default {
     //     }
     //   });
     // },
-    // removeData() {
-    //   this.cases = [];
-    //   this.deaths = [];
-    //   this.stateCountyCases = [];
-    //   this.stateCountyDeaths = [];
-    // },
   },
   computed: {
     ...mapGetters({ usDailyReport: "getUSDailyReport" }),
   },
   created() {
+    this.fetchUSCases();
     this.fetchUSDailyReport();
   },
-  mounted() {
-    // this.fetchData();
-  },
+  mounted() {},
   beforeUpdate() {
-    // this.getCountyData(this.stateName);
     this.changeStateName(this.stateName);
   },
   beforeDestroy() {
