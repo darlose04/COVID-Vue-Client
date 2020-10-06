@@ -18,7 +18,7 @@
             <h3>{{ state.Province_State }}</h3>
           </div>
           <div v-else>
-            <h3 v-on:click="changeStateName">
+            <h3 v-on:click="changeNameOfState">
               {{ state.Province_State }}
             </h3>
           </div>
@@ -45,7 +45,7 @@ export default {
   components: {
     Totals,
   },
-  props: ["changeStateName"],
+  props: ["changeNameOfState"],
   methods: {
     numWithCommas: function(num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
