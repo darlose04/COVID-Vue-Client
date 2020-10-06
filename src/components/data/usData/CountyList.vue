@@ -2,13 +2,13 @@
   <div class="county-list">
     <div>
       <h1>{{ this.stateName }}</h1>
-      <!-- <ul v-for="county in stateObjects" v-bind:key="county.id">
+      <ul v-for="county in this.countyCaseTotals" v-bind:key="county.id">
         <li>
           <h3>{{ county.county }}</h3>
           <p>Cases: {{ county.cases }}</p>
-          <p>Deaths: {{ county.deaths }}</p>
+          <!-- <p>Deaths: {{ county.deaths }}</p> -->
         </li>
-      </ul> -->
+      </ul>
     </div>
   </div>
 </template>
@@ -56,7 +56,6 @@ export default {
   beforeUpdate() {
     this.createUSCountyCases(this.stateName);
     this.addUSCountyCases();
-    console.log(this.countyCaseTotals);
   },
 };
 </script>
