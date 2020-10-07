@@ -1,22 +1,41 @@
 <template>
   <div class="line-chart">
     <div v-if="usChartLabel.length > 0">
-      <h1>{{ this.stateName }}</h1>
-      <div v-if="usChartCases.length > 0">
-        <ChartInfo
-          v-bind:chartLabel="usChartLabel"
-          v-bind:infoArray="usChartCases"
-          v-bind:color="casesColor"
-          v-bind:label="casesLabel"
-        />
+      <div v-if="stateName === ''">
+        <div v-if="usChartCases.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="'Total U.S. Cases'"
+          />
+        </div>
+        <div v-if="usChartDeaths.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="'Total U.S. Deaths'"
+          />
+        </div>
       </div>
-      <div v-if="usChartDeaths.length > 0">
-        <ChartInfo
-          v-bind:chartLabel="usChartLabel"
-          v-bind:infoArray="usChartDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="deathsLabel"
-        />
+      <div v-else>
+        <div v-if="usChartCases.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="stateName + ' Cases'"
+          />
+        </div>
+        <div v-if="usChartDeaths.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="stateName + ' Deaths'"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -36,8 +55,8 @@ export default {
     return {
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
-      casesLabel: "Total U.S. Cases",
-      deathsLabel: "Total U.S. Deaths",
+      // casesLabel: "Total U.S. Cases",
+      // deathsLabel: "Total U.S. Deaths",
     };
   },
   methods: {
@@ -57,13 +76,14 @@ export default {
   mounted() {
     console.log(this.stateName);
     this.createUSChartLabel();
-    this.createUSChartCases();
-    this.createUSChartDeaths();
+    this.createUSChartCases(this.stateName);
+    this.createUSChartDeaths(this.stateName);
   },
   beforeUpdate() {
     console.log(this.stateName);
-    // this.createUSChartCases(this.stateName);
-    // this.createUSChartDeaths(this.stateName);
+    this.createUSChartLabel();
+    this.createUSChartCases(this.stateName);
+    this.createUSChartDeaths(this.stateName);
     // console.log(this.stateName);
   },
 };
