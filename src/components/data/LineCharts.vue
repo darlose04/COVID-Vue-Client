@@ -30,7 +30,7 @@ export default {
   components: {
     ChartInfo,
   },
-  props: ["stateName"],
+  // props: ["stateName"],
   data() {
     return {
       casesColor: "rgba(16,30,229,1)",
@@ -54,14 +54,13 @@ export default {
     }),
   },
   created() {
-    this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths(this.stateName);
-    console.log(this.stateName);
+    this.createUSChartCases();
+    this.createUSChartDeaths();
   },
   beforeUpdate() {
-    this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths(this.stateName);
-    console.log(this.stateName);
+    // this.createUSChartCases(this.stateName);
+    // this.createUSChartDeaths(this.stateName);
+    // console.log(this.stateName);
   },
 };
 </script>

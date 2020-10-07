@@ -12,7 +12,7 @@
             <LineCharts v-bind:stateName="''" />
           </div>
           <div v-else>
-            <LineCharts v-bind:stateName="stateName" />
+            <LineCharts />
           </div>
         </div>
 
