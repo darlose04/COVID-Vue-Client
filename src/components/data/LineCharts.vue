@@ -9,14 +9,14 @@
           v-bind:label="casesLabel"
         />
       </div>
-      <div v-if="deathsArray.length > 0">
+      <!-- <div v-if="deathsArray.length > 0">
         <ChartInfo
           v-bind:chartLabel="chartLabel"
           v-bind:infoArray="deathsArray"
           v-bind:color="deathsColor"
           v-bind:label="deathsLabel"
         />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["createUSChartLabel"]),
+    ...mapActions(["createUSChartLabel", "createUSChartCases"]),
     // getChartLabels() {
     //   this.dateArray.push(Object.keys(this.cases[0]));
     //   this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
@@ -71,14 +71,15 @@ export default {
   computed: {
     ...mapGetters({
       usChartLabel: "getUSChartLabel",
+      usChartCases: "getUSChartCases",
     }),
   },
   mounted() {
     this.createUSChartLabel();
+    this.createUSChartCases();
     // this.getChartLabels();
     // this.getCasesData();
     // this.getDeathsData();
-    console.log(this.usChartLabel);
   },
 };
 </script>
