@@ -8,11 +8,11 @@
       <div class="data">
         <StateList v-bind:changeNameOfState="changeNameOfState" />
         <div class="charts">
-          <div v-if="this.stateName !== ''">
+          <div v-if="stateName !== ''">
             <LineCharts v-bind:stateName="stateName" />
           </div>
           <div v-else>
-            <LineCharts v-bind:stateName="''" />
+            <LineCharts />
           </div>
         </div>
 
