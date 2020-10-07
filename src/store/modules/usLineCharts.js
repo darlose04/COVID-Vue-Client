@@ -2,12 +2,16 @@ const state = {
   usChartLabel: [],
   usChartCases: [],
   usChartDeaths: [],
+  usStateChartCases: [],
+  usStateChartDeaths: [],
 };
 
 const getters = {
   getUSChartLabel: (state) => state.usChartLabel,
   getUSChartCases: (state) => state.usChartCases,
+  getUSStateChartCases: (state) => state.usStateChartCases,
   getUSChartDeaths: (state) => state.usChartDeaths,
+  getUSStateChartDeaths: (state) => state.usStateChartDeaths,
 };
 
 const actions = {
@@ -20,83 +24,93 @@ const actions = {
     commit("setUSChartLabel", labels);
   },
 
-  createUSChartCases({ commit, state, rootState }, stateName) {
+  createUSChartCases({ commit, state, rootState }) {
     let usCases = [...rootState.usCases.usCases];
     let labels = [...state.usChartLabel];
     let chartCases = [];
 
-    if (stateName === "") {
-      labels.map((date) => {
-        let numCases = 0;
-        usCases.map((county) => {
-          numCases += county[date];
-        });
-        chartCases.push(numCases);
-      });
-
-      commit("setUSChartCases", chartCases);
-    } else {
-      let stateCounties = [];
-
+    labels.map((date) => {
+      let numCases = 0;
       usCases.map((county) => {
-        if (county.State === stateName) {
-          stateCounties.push(county);
-        }
+        numCases += county[date];
       });
+      chartCases.push(numCases);
+    });
 
-      labels.map((date) => {
-        let numCases = 0;
-        stateCounties.map((county) => {
-          numCases += county[date];
-        });
-        chartCases.push(numCases);
-      });
-
-      commit("setUSChartCases", chartCases);
-    }
+    commit("setUSChartCases", chartCases);
   },
 
-  createUSChartDeaths({ commit, state, rootState }, stateName) {
+  createUSStateChartCases({ commit, state, rootState }, stateName) {
+    let usCases = [...rootState.usCases.usCases];
+    let labels = [...state.usChartLabel];
+    let chartCases = [];
+
+    let stateCounties = [];
+
+    usCases.map((county) => {
+      if (county.State === stateName) {
+        stateCounties.push(county);
+      }
+    });
+
+    labels.map((date) => {
+      let numCases = 0;
+      stateCounties.map((county) => {
+        numCases += county[date];
+      });
+      chartCases.push(numCases);
+    });
+
+    commit("setUSStateChartCases", chartCases);
+  },
+
+  createUSChartDeaths({ commit, state, rootState }) {
     let usDeaths = [...rootState.usDeaths.usDeaths];
     let labels = [...state.usChartLabel];
     let chartDeaths = [];
 
-    if (stateName === "") {
-      labels.map((date) => {
-        let numDeaths = 0;
-        usDeaths.map((county) => {
-          numDeaths += county[date];
-        });
-        chartDeaths.push(numDeaths);
-      });
-
-      commit("setUSChartDeaths", chartDeaths);
-    } else {
-      let stateCounties = [];
-
+    labels.map((date) => {
+      let numDeaths = 0;
       usDeaths.map((county) => {
-        if (county.State === stateName) {
-          stateCounties.push(county);
-        }
+        numDeaths += county[date];
       });
+      chartDeaths.push(numDeaths);
+    });
 
-      labels.map((date) => {
-        let numDeaths = 0;
-        stateCounties.map((county) => {
-          numDeaths += county[date];
-        });
-        chartDeaths.push(numDeaths);
+    commit("setUSChartDeaths", chartDeaths);
+  },
+
+  createUSStateChartDeaths({ commit, state, rootState }, stateName) {
+    let usDeaths = [...rootState.usDeaths.usDeaths];
+    let labels = [...state.usChartLabel];
+    let chartDeaths = [];
+
+    let stateCounties = [];
+
+    usDeaths.map((county) => {
+      if (county.State === stateName) {
+        stateCounties.push(county);
+      }
+    });
+
+    labels.map((date) => {
+      let numDeaths = 0;
+      stateCounties.map((county) => {
+        numDeaths += county[date];
       });
+      chartDeaths.push(numDeaths);
+    });
 
-      commit("setUSChartCases", chartDeaths);
-    }
+    commit("setUSStateChartDeaths", chartDeaths);
   },
 };
 
 const mutations = {
   setUSChartLabel: (state, label) => (state.usChartLabel = label),
   setUSChartCases: (state, cases) => (state.usChartCases = cases),
+  setUSStateChartCases: (state, cases) => (state.usStateChartCases = cases),
   setUSChartDeaths: (state, deaths) => (state.usChartDeaths = deaths),
+  setUSStateChartDeaths: (state, deaths) => (state.usStateChartDeaths = deaths),
 };
 
 export default {
