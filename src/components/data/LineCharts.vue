@@ -55,8 +55,12 @@ export default {
   },
   mounted() {
     this.createUSChartLabel();
-    this.createUSChartCases();
+    this.createUSChartCases(this.stateName);
     this.createUSChartDeaths();
+    // console.log(this.stateName);
+  },
+  beforeUpdate() {
+    this.createUSChartCases(this.stateName);
   },
 };
 </script>
