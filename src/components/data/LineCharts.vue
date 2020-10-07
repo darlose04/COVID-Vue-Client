@@ -1,14 +1,7 @@
 <template>
   <div class="line-chart">
     <div v-if="usChartLabel.length > 0">
-      <div
-        v-if="
-          usChartCases.length > 0 &&
-            usChartDeaths.length > 0 &&
-            usStateChartCases.length > 0 &&
-            usStateChartDeaths.length > 0
-        "
-      >
+      <div v-if="usChartCases.length > 0 && usChartDeaths.length > 0">
         <div v-if="stateName === ''">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
