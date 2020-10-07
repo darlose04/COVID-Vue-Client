@@ -20,75 +20,76 @@ const actions = {
     commit("setUSChartLabel", labels);
   },
 
-  createUSChartCases({ commit, state, rootState }) {
+  createUSChartCases({ commit, state, rootState }, stateName) {
     let usCases = [...rootState.usCases.usCases];
     let labels = [...state.usChartLabel];
     let chartCases = [];
 
-    // if (stateName === "") {
-    labels.map((date) => {
-      let numCases = 0;
-      usCases.map((county) => {
-        numCases += county[date];
+    if (stateName === "") {
+      labels.map((date) => {
+        let numCases = 0;
+        usCases.map((county) => {
+          numCases += county[date];
+        });
+        chartCases.push(numCases);
       });
-      chartCases.push(numCases);
-    });
 
-    commit("setUSChartCases", chartCases);
-    // } else {
-    //   let stateCounties = [];
+      commit("setUSChartCases", chartCases);
+    } else {
+      let stateCounties = [];
 
-    //   usCases.map((county) => {
-    //     if (county.State === stateName) {
-    //       stateCounties.push(county);
-    //     }
-    //   });
+      usCases.map((county) => {
+        if (county.State === stateName) {
+          stateCounties.push(county);
+        }
+      });
 
-    //   labels.map((date) => {
-    //     let numCases = 0;
-    //     stateCounties.map((county) => {
-    //       numCases += county[date];
-    //     });
-    //     chartCases.push(numCases);
-    //   });
+      labels.map((date) => {
+        let numCases = 0;
+        stateCounties.map((county) => {
+          numCases += county[date];
+        });
+        chartCases.push(numCases);
+      });
 
-    //   commit("setUSChartCases", chartCases);
+      commit("setUSChartCases", chartCases);
+    }
   },
 
-  createUSChartDeaths({ commit, state, rootState }) {
+  createUSChartDeaths({ commit, state, rootState }, stateName) {
     let usDeaths = [...rootState.usDeaths.usDeaths];
     let labels = [...state.usChartLabel];
     let chartDeaths = [];
 
-    // if (stateName === "") {
-    labels.map((date) => {
-      let numDeaths = 0;
-      usDeaths.map((county) => {
-        numDeaths += county[date];
+    if (stateName === "") {
+      labels.map((date) => {
+        let numDeaths = 0;
+        usDeaths.map((county) => {
+          numDeaths += county[date];
+        });
+        chartDeaths.push(numDeaths);
       });
-      chartDeaths.push(numDeaths);
-    });
 
-    commit("setUSChartDeaths", chartDeaths);
-    // } else {
-    //   let stateCounties = [];
+      commit("setUSChartDeaths", chartDeaths);
+    } else {
+      let stateCounties = [];
 
-    //   usDeaths.map((county) => {
-    //     if (county.State === stateName) {
-    //       stateCounties.push(county);
-    //     }
-    //   });
+      usDeaths.map((county) => {
+        if (county.State === stateName) {
+          stateCounties.push(county);
+        }
+      });
 
-    //   labels.map((date) => {
-    //     let numDeaths = 0;
-    //     stateCounties.map((county) => {
-    //       numDeaths += county[date];
-    //     });
-    //     chartDeaths.push(numDeaths);
-    //   });
+      labels.map((date) => {
+        let numDeaths = 0;
+        stateCounties.map((county) => {
+          numDeaths += county[date];
+        });
+        chartDeaths.push(numDeaths);
+      });
 
-    //   commit("setUSChartCases", chartDeaths);
-    // }
+      commit("setUSChartCases", chartDeaths);
+    }
   },
 };
 
