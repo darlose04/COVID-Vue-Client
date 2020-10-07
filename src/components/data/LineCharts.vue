@@ -1,10 +1,10 @@
 <template>
   <div class="line-chart">
-    <div v-if="chartLabel.length > 0">
-      <div v-if="casesArray.length > 0">
+    <div v-if="usChartLabel.length > 0">
+      <div v-if="usChartCases.length > 0">
         <ChartInfo
-          v-bind:chartLabel="chartLabel"
-          v-bind:infoArray="casesArray"
+          v-bind:chartLabel="usChartLabel"
+          v-bind:infoArray="usChartCases"
           v-bind:color="casesColor"
           v-bind:label="casesLabel"
         />
@@ -33,10 +33,6 @@ export default {
   props: ["stateName"],
   data() {
     return {
-      dateArray: [],
-      chartLabel: [],
-      casesArray: [],
-      deathsArray: [],
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
       casesLabel: "Total U.S. Cases",
