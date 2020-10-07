@@ -35,8 +35,8 @@ export default {
     return {
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
-      casesLabel: "",
-      deathsLabel: "",
+      casesLabel: "Total U.S. Cases",
+      deathsLabel: "Total U.S. Deaths",
     };
   },
   methods: {
