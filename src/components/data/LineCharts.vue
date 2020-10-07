@@ -62,13 +62,17 @@ export default {
       "createUSChartLabel",
       "createUSChartCases",
       "createUSChartDeaths",
+      "createUSStateChartCases",
+      "createUSStateChartDeaths",
     ]),
   },
   computed: {
     ...mapGetters({
       usChartLabel: "getUSChartLabel",
       usChartCases: "getUSChartCases",
+      usStateChartCases: "getUSStateChartCases",
       usChartDeaths: "getUSChartDeaths",
+      usStateChartDeaths: "getUSStateChartDeaths",
     }),
   },
   mounted() {
