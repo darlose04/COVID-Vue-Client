@@ -1,16 +1,21 @@
 <template>
   <div class="line-chart">
     <div v-if="usChartLabel.length > 0">
-      <div v-if="stateName === ''">
-        <div v-if="usChartCases.length > 0">
+      <div
+        v-if="
+          usChartCases.length > 0 &&
+            usChartDeaths.length > 0 &&
+            usStateChartCases.length > 0 &&
+            usStateChartDeaths.length > 0
+        "
+      >
+        <div v-if="stateName === ''">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usChartCases"
             v-bind:color="casesColor"
             v-bind:label="'Total U.S. Cases'"
           />
-        </div>
-        <div v-if="usChartDeaths.length > 0">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usChartDeaths"
@@ -19,16 +24,14 @@
           />
         </div>
       </div>
-      <div v-else>
-        <div v-if="usStateChartCases.length > 0">
+      <div v-if="usStateChartCases.length > 0 && usStateChartDeaths.length > 0">
+        <div v-if="stateName !== ''">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usStateChartCases"
             v-bind:color="casesColor"
             v-bind:label="stateName + ' Cases'"
           />
-        </div>
-        <div v-if="usStateChartDeaths.length > 0">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usStateChartDeaths"
