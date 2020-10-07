@@ -32,7 +32,7 @@ import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
-// import LineCharts from "../LineCharts";
+import LineCharts from "../LineCharts";
 import CountyList from "./CountyList";
 
 export default {
@@ -41,7 +41,7 @@ export default {
     Disclaimer,
     Spinner,
     StateList,
-    // LineCharts,
+    LineCharts,
     CountyList,
   },
   data() {
