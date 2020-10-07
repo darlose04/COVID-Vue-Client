@@ -53,7 +53,8 @@ export default {
       usChartDeaths: "getUSChartDeaths",
     }),
   },
-  created() {
+  mounted() {
+    this.createUSChartLabel();
     this.createUSChartCases();
     this.createUSChartDeaths();
   },
