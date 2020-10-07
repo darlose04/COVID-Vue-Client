@@ -20,20 +20,40 @@ const actions = {
     commit("setUSChartLabel", labels);
   },
 
-  createUSChartCases({ commit, state, rootState }) {
+  createUSChartCases({ commit, state, rootState }, stateName) {
     let usCases = [...rootState.usCases.usCases];
     let labels = [...state.usChartLabel];
     let chartCases = [];
 
-    labels.map((date) => {
-      let numCases = 0;
-      usCases.map((county) => {
-        numCases += county[date];
+    if (stateName === "") {
+      labels.map((date) => {
+        let numCases = 0;
+        usCases.map((county) => {
+          numCases += county[date];
+        });
+        chartCases.push(numCases);
       });
-      chartCases.push(numCases);
-    });
 
-    commit("setUSChartCases", chartCases);
+      commit("setUSChartCases", chartCases);
+    } else {
+      let stateCounties = [];
+
+      usCases.map((county) => {
+        if (county.State === stateName) {
+          stateCounties.push(county);
+        }
+      });
+
+      labels.map((date) => {
+        let numCases = 0;
+        stateCounties.map((county) => {
+          numCases += county[date];
+        });
+        chartCases.push(numCases);
+      });
+
+      commit("setUSChartCases", chartCases);
+    }
   },
 
   createUSChartDeaths({ commit, state, rootState }) {
