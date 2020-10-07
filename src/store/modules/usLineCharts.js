@@ -24,6 +24,7 @@ const actions = {
     let usCases = [...rootState.usCases.usCases];
     let labels = [...state.usChartLabel];
     let chartCases = [];
+    console.log(stateName);
 
     if (stateName === "") {
       labels.map((date) => {
@@ -60,6 +61,7 @@ const actions = {
     let usDeaths = [...rootState.usDeaths.usDeaths];
     let labels = [...state.usChartLabel];
     let chartDeaths = [];
+    console.log(stateName);
 
     if (stateName === "") {
       labels.map((date) => {

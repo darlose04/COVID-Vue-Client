@@ -45,15 +45,6 @@ export default {
       "createUSChartCases",
       "createUSChartDeaths",
     ]),
-    changeLabels() {
-      if (this.stateName === "") {
-        this.casesLabel = "Total U.S. Cases";
-        this.deathsLabel = "Total U.S. Deaths";
-      } else {
-        this.casesLabel = `${this.stateName} Cases`;
-        this.deathsLabel = `${this.stateName} Deaths`;
-      }
-    },
   },
   computed: {
     ...mapGetters({
@@ -62,14 +53,12 @@ export default {
       usChartDeaths: "getUSChartDeaths",
     }),
   },
-  mounted() {
-    this.createUSChartLabel();
+  created() {
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths(this.stateName);
     console.log(this.stateName);
   },
   beforeUpdate() {
-    this.createUSChartLabel();
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths(this.stateName);
     console.log(this.stateName);
