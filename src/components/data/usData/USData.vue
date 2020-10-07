@@ -7,12 +7,12 @@
     <div v-else>
       <div class="data">
         <StateList v-bind:changeNameOfState="changeNameOfState" />
-        <!-- <div class="charts">
-          <div v-if="cases.length > 3000 && deaths.length > 3000">
-            <LineCharts v-bind:cases="cases" v-bind:deaths="deaths" />
+        <div class="charts">
+          <div>
+            <LineCharts v-bind:stateName="stateName" />
           </div>
         </div>
-        -->
+
         <div v-if="stateName !== ''">
           <CountyList v-bind:stateName="stateName" />
         </div>
