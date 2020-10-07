@@ -1,7 +1,25 @@
 <template>
   <div class="line-chart">
     <div v-if="usChartLabel.length > 0">
-      <div v-if="stateName === ''">
+      <div v-if="stateName !== ''">
+        <div v-if="usStateChartCases.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usStateChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="stateName + ' Cases'"
+          />
+        </div>
+        <div v-if="usStateChartDeaths.length > 0">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usStateChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="stateName + ' Deaths'"
+          />
+        </div>
+      </div>
+      <div v-else>
         <div v-if="usChartCases.length > 0">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
@@ -16,24 +34,6 @@
             v-bind:infoArray="usChartDeaths"
             v-bind:color="deathsColor"
             v-bind:label="'Total U.S. Deaths'"
-          />
-        </div>
-      </div>
-      <div v-else>
-        <div v-if="usChartCases.length > 0">
-          <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usChartCases"
-            v-bind:color="casesColor"
-            v-bind:label="stateName + ' Cases'"
-          />
-        </div>
-        <div v-if="usChartDeaths.length > 0">
-          <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usChartDeaths"
-            v-bind:color="deathsColor"
-            v-bind:label="stateName + ' Deaths'"
           />
         </div>
       </div>
@@ -78,15 +78,15 @@ export default {
   mounted() {
     console.log(this.stateName);
     this.createUSChartLabel();
-    this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths(this.stateName);
+    this.createUSChartCases();
+    this.createUSChartDeaths();
   },
   beforeUpdate() {
     console.log(this.stateName);
     this.createUSChartLabel();
-    this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths(this.stateName);
-    // console.log(this.stateName);
+    this.createUSStateChartCases(this.stateName);
+    console.log(this.usStateChartCases);
+    this.createUSStateChartDeaths(this.stateName);
   },
 };
 </script>
