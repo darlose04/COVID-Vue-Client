@@ -35,8 +35,8 @@ export default {
     return {
       casesColor: "rgba(16,30,229,1)",
       deathsColor: "rgba(198,9,9,1)",
-      casesLabel: "Total U.S. Cases",
-      deathsLabel: "Total U.S. Deaths",
+      casesLabel: "",
+      deathsLabel: "",
     };
   },
   methods: {
@@ -45,6 +45,15 @@ export default {
       "createUSChartCases",
       "createUSChartDeaths",
     ]),
+    changeLabels() {
+      if (this.stateName === "") {
+        this.casesLabel = "Total U.S. Cases";
+        this.deathsLabel = "Total U.S. Deaths";
+      } else {
+        this.casesLabel = `${this.stateName} Cases`;
+        this.deathsLabel = `${this.stateName} Deaths`;
+      }
+    },
   },
   computed: {
     ...mapGetters({
@@ -57,10 +66,12 @@ export default {
     this.createUSChartLabel();
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths();
+    this.changeLabels();
     // console.log(this.stateName);
   },
   beforeUpdate() {
     this.createUSChartCases(this.stateName);
+    this.changeLabels();
   },
 };
 </script>
