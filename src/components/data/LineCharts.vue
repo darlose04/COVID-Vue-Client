@@ -65,13 +65,13 @@ export default {
   created() {
     this.createUSChartLabel();
     this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths();
+    this.createUSChartDeaths(this.stateName);
     this.changeLabels();
     console.log(this.stateName);
   },
   beforeUpdate() {
     this.createUSChartCases(this.stateName);
-    this.createUSChartDeaths();
+    this.createUSChartDeaths(this.stateName);
     this.changeLabels();
     console.log(this.stateName);
   },
