@@ -9,14 +9,14 @@
           v-bind:label="casesLabel"
         />
       </div>
-      <!-- <div v-if="deathsArray.length > 0">
+      <div v-if="usChartDeaths.length > 0">
         <ChartInfo
-          v-bind:chartLabel="chartLabel"
-          v-bind:infoArray="deathsArray"
+          v-bind:chartLabel="usChartLabel"
+          v-bind:infoArray="usChartDeaths"
           v-bind:color="deathsColor"
           v-bind:label="deathsLabel"
         />
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
