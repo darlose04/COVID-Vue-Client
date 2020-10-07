@@ -62,7 +62,7 @@ export default {
       usChartDeaths: "getUSChartDeaths",
     }),
   },
-  created() {
+  mounted() {
     this.createUSChartLabel();
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths(this.stateName);
@@ -70,6 +70,7 @@ export default {
     console.log(this.stateName);
   },
   beforeUpdate() {
+    this.createUSChartLabel();
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths(this.stateName);
     this.changeLabels();
