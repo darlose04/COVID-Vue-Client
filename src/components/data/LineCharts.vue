@@ -29,16 +29,7 @@ export default {
   components: {
     ChartInfo,
   },
-  props: {
-    cases: {
-      type: Array,
-      required: true,
-    },
-    deaths: {
-      type: Array,
-      required: true,
-    },
-  },
+  props: ["stateName"],
   data() {
     return {
       dateArray: [],
