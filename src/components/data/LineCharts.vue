@@ -41,28 +41,6 @@ export default {
   },
   methods: {
     ...mapActions(["createUSChartLabel", "createUSChartCases"]),
-    // getChartLabels() {
-    //   this.dateArray.push(Object.keys(this.cases[0]));
-    //   this.chartLabel = this.dateArray[0].slice(7, this.dateArray[0].length);
-    // },
-    // getCasesData() {
-    //   this.chartLabel.map((date) => {
-    //     let numInfo = 0;
-    //     this.cases.map((item) => {
-    //       numInfo += item[`${date}`];
-    //     });
-    //     this.casesArray.push(numInfo);
-    //   });
-    // },
-    // getDeathsData() {
-    //   this.chartLabel.map((date) => {
-    //     let numInfo = 0;
-    //     this.deaths.map((item) => {
-    //       numInfo += item[`${date}`];
-    //     });
-    //     this.deathsArray.push(numInfo);
-    //   });
-    // },
   },
   computed: {
     ...mapGetters({
@@ -73,9 +51,6 @@ export default {
   mounted() {
     this.createUSChartLabel();
     this.createUSChartCases();
-    // this.getChartLabels();
-    // this.getCasesData();
-    // this.getDeathsData();
   },
 };
 </script>
