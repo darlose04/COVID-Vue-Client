@@ -17,11 +17,6 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "CountyList",
-  data() {
-    return {
-      stateObjects: [],
-    };
-  },
   props: ["stateName"],
   methods: {
     ...mapActions([
