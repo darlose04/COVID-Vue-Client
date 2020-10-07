@@ -40,17 +40,23 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["createUSChartLabel", "createUSChartCases"]),
+    ...mapActions([
+      "createUSChartLabel",
+      "createUSChartCases",
+      "createUSChartDeaths",
+    ]),
   },
   computed: {
     ...mapGetters({
       usChartLabel: "getUSChartLabel",
       usChartCases: "getUSChartCases",
+      usChartDeaths: "getUSChartDeaths",
     }),
   },
   mounted() {
     this.createUSChartLabel();
     this.createUSChartCases();
+    this.createUSChartDeaths();
   },
 };
 </script>
