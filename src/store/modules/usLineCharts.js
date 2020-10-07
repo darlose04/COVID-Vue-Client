@@ -56,20 +56,40 @@ const actions = {
     }
   },
 
-  createUSChartDeaths({ commit, state, rootState }) {
+  createUSChartDeaths({ commit, state, rootState }, stateName) {
     let usDeaths = [...rootState.usDeaths.usDeaths];
     let labels = [...state.usChartLabel];
     let chartDeaths = [];
 
-    labels.map((date) => {
-      let numDeaths = 0;
-      usDeaths.map((county) => {
-        numDeaths += county[date];
+    if (stateName === "") {
+      labels.map((date) => {
+        let numDeaths = 0;
+        usDeaths.map((county) => {
+          numDeaths += county[date];
+        });
+        chartDeaths.push(numDeaths);
       });
-      chartDeaths.push(numDeaths);
-    });
 
-    commit("setUSChartDeaths", chartDeaths);
+      commit("setUSChartDeaths", chartDeaths);
+    } else {
+      let stateCounties = [];
+
+      usDeaths.map((county) => {
+        if (county.State === stateName) {
+          stateCounties.push(county);
+        }
+      });
+
+      labels.map((date) => {
+        let numDeaths = 0;
+        stateCounties.map((county) => {
+          numDeaths += county[date];
+        });
+        chartDeaths.push(numDeaths);
+      });
+
+      commit("setUSChartCases", chartDeaths);
+    }
   },
 };
 
