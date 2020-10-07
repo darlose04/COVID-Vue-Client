@@ -35,6 +35,22 @@ const actions = {
 
     commit("setUSChartCases", chartCases);
   },
+
+  createUSChartDeaths({ commit, state, rootState }) {
+    let usDeaths = [...rootState.usDeaths.usDeaths];
+    let labels = [...state.usChartLabel];
+    let chartDeaths = [];
+
+    labels.map((date) => {
+      let numDeaths = 0;
+      usDeaths.map((county) => {
+        numDeaths += county[date];
+      });
+      chartDeaths.push(numDeaths);
+    });
+
+    commit("setUSChartDeaths", chartDeaths);
+  },
 };
 
 const mutations = {
