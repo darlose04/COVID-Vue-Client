@@ -1,7 +1,7 @@
 <template>
   <div class="line-chart">
-    <h1>{{ this.stateName }}</h1>
     <div v-if="usChartLabel.length > 0">
+      <h1>{{ this.stateName }}</h1>
       <div v-if="usChartCases.length > 0">
         <ChartInfo
           v-bind:chartLabel="usChartLabel"
