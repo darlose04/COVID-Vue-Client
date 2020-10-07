@@ -12,7 +12,9 @@ const getters = {
 
 const actions = {
   createUSChartLabel({ commit, rootState }) {
-    let dateArray = Object.keys(rootState.usCases.usCases);
+    let cases = [...rootState.usCases.usCases];
+    let dateArray = [];
+    dateArray.push(Object.keys(cases[0]));
     let labels = dateArray[0].slice(7, dateArray[0].length);
 
     commit("setUSChartLabel", labels);
