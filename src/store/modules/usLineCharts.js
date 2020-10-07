@@ -12,7 +12,11 @@ const getters = {
 
 const actions = {};
 
-const mutations = {};
+const mutations = {
+  setUSChartLabel: (state, label) => (state.usChartLabel = label),
+  setUSChartCases: (state, cases) => (state.usChartCases = cases),
+  setUSChartDeaths: (state, deaths) => (state.usChartDeaths = deaths),
+};
 
 export default {
   state,
