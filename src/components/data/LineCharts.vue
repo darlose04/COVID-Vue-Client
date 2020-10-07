@@ -67,11 +67,12 @@ export default {
     this.createUSChartCases(this.stateName);
     this.createUSChartDeaths();
     this.changeLabels();
-    // console.log(this.stateName);
+    console.log(this.stateName);
   },
   beforeUpdate() {
     this.createUSChartCases(this.stateName);
     this.changeLabels();
+    console.log(this.stateName);
   },
 };
 </script>

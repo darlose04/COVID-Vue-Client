@@ -8,7 +8,10 @@
       <div class="data">
         <StateList v-bind:changeNameOfState="changeNameOfState" />
         <div class="charts">
-          <div>
+          <div v-if="stateName === ''">
+            <LineCharts v-bind:stateName="''" />
+          </div>
+          <div v-else>
             <LineCharts v-bind:stateName="stateName" />
           </div>
         </div>
