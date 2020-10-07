@@ -10,7 +10,14 @@ const getters = {
   getUSChartDeaths: (state) => state.usChartDeaths,
 };
 
-const actions = {};
+const actions = {
+  createUSChartLabel({ commit, rootState }) {
+    let dateArray = Object.keys(rootState.usCases.usCases);
+    let labels = dateArray[0].slice(7, dateArray[0].length);
+
+    commit("setUSChartLabel", labels);
+  },
+};
 
 const mutations = {
   setUSChartLabel: (state, label) => (state.usChartLabel = label),
