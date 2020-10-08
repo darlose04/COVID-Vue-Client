@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      "createglobalChartLabel",
+      "createGlobalChartLabel",
       "createGlobalChartCases",
       "createGlobalChartDeaths",
       "createCountryChartCases",
