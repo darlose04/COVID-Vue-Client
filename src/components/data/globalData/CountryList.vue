@@ -5,7 +5,7 @@
       <h2>Countries</h2>
       <ul v-for="country in getCountryTotals" v-bind:key="country.index">
         <li>
-          <h3>{{ country.Country_Region }}</h3>
+          <h3 v-on:click="changeNameOfCountry">{{ country.Country_Region }}</h3>
           <p>Cases: {{ numWithCommas(country.Confirmed) }}</p>
           <p>Deaths: {{ numWithCommas(country.Deaths) }}</p>
           <div v-if="country.Recovered">
