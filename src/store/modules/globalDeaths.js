@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-  allDeaths: (state) => state.deaths,
+  getGlobalDeaths: (state) => state.deaths,
 };
 
 const actions = {
@@ -13,12 +13,12 @@ const actions = {
     const response = await axios.get(
       "https://www.cov-api.com/api/global/coronadeaths/"
     );
-    commit("setDeaths", response.data);
+    commit("setGlobalDeaths", response.data);
   },
 };
 
 const mutations = {
-  setDeaths: (state, deaths) => (state.deaths = deaths),
+  setGlobalDeaths: (state, deaths) => (state.deaths = deaths),
 };
 
 export default {

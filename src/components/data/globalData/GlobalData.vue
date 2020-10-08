@@ -25,27 +25,23 @@ export default {
   },
   methods: {
     ...mapActions([
-      // "fetchGlobalCases",
-      // "fetchGlobalDeaths",
+      "fetchGlobalCases",
+      "fetchGlobalDeaths",
       "fetchGlobalDailyReport",
       "createCountryTotals",
     ]),
   },
   computed: mapGetters([
-    // "allCases",
-    // "allDeaths",
+    "getGlobalCases",
+    "getGlobalDeaths",
     "getGlobalDailyReport",
     "getCountryTotals",
   ]),
   created() {
-    // this.fetchGlobalCases();
-    // this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
     this.createCountryTotals();
   },
-  mounted() {
-    // console.log("GlobalData Component: ");
-  },
+  mounted() {},
 };
 </script>
 
