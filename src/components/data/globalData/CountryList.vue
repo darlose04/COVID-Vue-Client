@@ -1,6 +1,6 @@
 <template>
   <div class="list-data">
-    <GlobalTotals />
+    <GlobalTotals v-bind:changeNameOfCountry="changeNameOfCountry" />
     <div class="country-list">
       <h2>Countries</h2>
       <ul v-for="country in getCountryTotals" v-bind:key="country.index">
@@ -29,6 +29,7 @@ export default {
   components: {
     GlobalTotals,
   },
+  props: ["changeNameOfCountry"],
   methods: {
     ...mapActions(["createCountryTotals"]),
     numWithCommas: function(num) {
