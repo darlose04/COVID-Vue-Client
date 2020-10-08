@@ -1,35 +1,35 @@
 <template>
   <div class="line-chart">
-    <div v-if="usChartLabel.length > 0">
-      <div v-if="usChartCases.length > 0 && usChartDeaths.length > 0">
-        <div v-if="stateName === ''">
+    <div v-if="globalChartLabel.length > 0">
+      <div v-if="globalChartCases.length > 0 && globalChartDeaths.length > 0">
+        <div v-if="countryName === ''">
           <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usChartCases"
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalChartCases"
             v-bind:color="casesColor"
-            v-bind:label="'Total U.S. Cases'"
+            v-bind:label="'Total Global Cases'"
           />
           <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usChartDeaths"
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalChartDeaths"
             v-bind:color="deathsColor"
-            v-bind:label="'Total U.S. Deaths'"
+            v-bind:label="'Total Global Deaths'"
           />
         </div>
       </div>
       <div>
-        <div v-if="stateName !== ''" :key="stateName">
+        <div v-if="countryName !== ''" :key="countryName">
           <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usStateChartCases"
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryChartCases"
             v-bind:color="casesColor"
-            v-bind:label="stateName + ' Cases'"
+            v-bind:label="countryName + ' Cases'"
           />
           <ChartInfo
-            v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usStateChartDeaths"
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryChartDeaths"
             v-bind:color="deathsColor"
-            v-bind:label="stateName + ' Deaths'"
+            v-bind:label="countryName + ' Deaths'"
           />
         </div>
       </div>
@@ -42,11 +42,11 @@ import { mapActions, mapGetters } from "vuex";
 import ChartInfo from "../ChartInfo";
 
 export default {
-  name: "USLineCharts",
+  name: "GlobalLineCharts",
   components: {
     ChartInfo,
   },
-  props: ["stateName"],
+  props: ["countryName"],
   data() {
     return {
       casesColor: "rgba(16,30,229,1)",
