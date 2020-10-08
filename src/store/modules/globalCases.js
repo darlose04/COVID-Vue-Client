@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-  allCases: (state) => state.cases,
+  getGlobalCases: (state) => state.cases,
 };
 
 const actions = {
@@ -13,12 +13,12 @@ const actions = {
     const response = await axios.get(
       "https://www.cov-api.com/api/global/coronacases/"
     );
-    commit("setCases", response.data);
+    commit("setGlobalCases", response.data);
   },
 };
 
 const mutations = {
-  setCases: (state, cases) => (state.cases = cases),
+  setGlobalCases: (state, cases) => (state.cases = cases),
 };
 
 export default {
