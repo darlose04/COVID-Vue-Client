@@ -9,6 +9,7 @@ import usCases from "./modules/usCases";
 import usDeaths from "./modules/usDeaths";
 import usStateCounty from "./modules/usStateCounty";
 import usLineCharts from "./modules/usLineCharts";
+import globalLineCharts from "./modules/globalLineCharts";
 
 Vue.use(Vuex);
 
@@ -23,5 +24,6 @@ export default new Vuex.Store({
     usDeaths,
     usStateCounty,
     usLineCharts,
+    globalLineCharts,
   },
 });
