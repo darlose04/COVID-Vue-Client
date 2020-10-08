@@ -55,31 +55,31 @@ export default {
   },
   methods: {
     ...mapActions([
-      "createUSChartLabel",
-      "createUSChartCases",
-      "createUSChartDeaths",
-      "createUSStateChartCases",
-      "createUSStateChartDeaths",
+      "createglobalChartLabel",
+      "createGlobalChartCases",
+      "createGlobalChartDeaths",
+      "createCountryChartCases",
+      "createCountryChartDeaths",
     ]),
   },
   computed: {
     ...mapGetters({
-      usChartLabel: "getUSChartLabel",
-      usChartCases: "getUSChartCases",
-      usStateChartCases: "getUSStateChartCases",
-      usChartDeaths: "getUSChartDeaths",
-      usStateChartDeaths: "getUSStateChartDeaths",
+      globalChartLabel: "getGlobalChartLabel",
+      globalChartCases: "getGlobalChartCases",
+      countryChartCases: "getCountryChartCases",
+      globalChartDeaths: "getGlobalChartDeaths",
+      countryChartDeaths: "getCountryChartDeaths",
     }),
   },
   mounted() {
-    this.createUSChartLabel();
-    this.createUSChartCases();
-    this.createUSChartDeaths();
+    this.createGlobalChartLabel();
+    this.createGlobalChartCases();
+    this.createGlobalChartDeaths();
   },
   beforeUpdate() {
-    this.createUSChartLabel();
-    this.createUSStateChartCases(this.stateName);
-    this.createUSStateChartDeaths(this.stateName);
+    this.createGlobalChartLabel();
+    this.createCountryChartCases(this.stateName);
+    this.createCountryChartDeaths(this.stateName);
   },
 };
 </script>
