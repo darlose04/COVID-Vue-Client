@@ -5,7 +5,7 @@
       <Spinner />
     </div>
     <div class="data" v-else>
-      <CountryList v-bind:changeNameOfCountry="changeNameOfCountry" />
+      <CountryList />
     </div>
   </div>
 </template>
@@ -35,13 +35,6 @@ export default {
       "fetchGlobalDailyReport",
       "createCountryTotals",
     ]),
-    changeNameOfCountry(event) {
-      if (event.target.innerText === "Global Totals") {
-        this.countryName = "";
-      } else {
-        this.countryName = event.target.innerText;
-      }
-    },
   },
   computed: mapGetters([
     "getGlobalCases",

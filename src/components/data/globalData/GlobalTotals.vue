@@ -1,6 +1,6 @@
 <template>
   <div class="global-totals">
-    <h2 v-on:click="changeNameOfCountry">Global Totals</h2>
+    <h2>Global Totals</h2>
     <ul>
       <li>Confirmed: {{ numWithCommas(this.globalTotals.totalCases) }}</li>
       <li>Deaths: {{ numWithCommas(this.globalTotals.totalDeaths) }}</li>
@@ -15,7 +15,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "GlobalTotals",
-  props: ["changeNameOfCountry"],
+
   methods: {
     ...mapActions(["createGlobalTotals"]),
     numWithCommas: function(num) {
