@@ -5,7 +5,7 @@
       <Spinner />
     </div>
     <div class="data" v-else>
-      <CountryList />
+      <CountryList v-bind:changeNameOfCountry="changeNameOfCountry" />
     </div>
   </div>
 </template>
