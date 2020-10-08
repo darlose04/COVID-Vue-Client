@@ -78,6 +78,29 @@ const actions = {
 
     commit("setCountryChartCases", chartCases);
   },
+
+  createCountryChartDeaths({ commit, state, rootState }, countryName) {
+    let deaths = [...rootState.globalDeaths.deaths];
+    let labels = [...state.globalChartLabel];
+    let chartDeaths = [];
+    let countries = [];
+
+    deaths.map((country) => {
+      if (country.Country === countryName) {
+        countries.push(country);
+      }
+    });
+
+    labels.map((date) => {
+      let numDeaths = 0;
+      countries.map((country) => {
+        numDeaths += country[date];
+      });
+      chartDeaths.push(numDeaths);
+    });
+
+    commit("setCountryChartDeaths", chartDeaths);
+  },
 };
 
 const mutations = {
