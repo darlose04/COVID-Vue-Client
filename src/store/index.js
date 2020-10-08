@@ -4,7 +4,6 @@ import cases from "./modules/globalCases";
 import deaths from "./modules/globalDeaths";
 import globalDailyReport from "./modules/globalDailyReport";
 import usDailyReport from "./modules/usDailyReport";
-import changeStateName from "./modules/changeStateName";
 import usCases from "./modules/usCases";
 import usDeaths from "./modules/usDeaths";
 import usStateCounty from "./modules/usStateCounty";
@@ -19,7 +18,6 @@ export default new Vuex.Store({
     deaths,
     globalDailyReport,
     usDailyReport,
-    changeStateName,
     usCases,
     usDeaths,
     usStateCounty,
