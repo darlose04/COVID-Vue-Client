@@ -23,6 +23,11 @@ export default {
     Spinner,
     CountryList,
   },
+  date() {
+    return {
+      countryName: "",
+    };
+  },
   methods: {
     ...mapActions([
       "fetchGlobalCases",
@@ -30,6 +35,13 @@ export default {
       "fetchGlobalDailyReport",
       "createCountryTotals",
     ]),
+    changeNameOfCountry(event) {
+      if (event.target.innerText === "Global Totals") {
+        this.countryName = "";
+      } else {
+        this.countryName = event.target.innerText;
+      }
+    },
   },
   computed: mapGetters([
     "getGlobalCases",
