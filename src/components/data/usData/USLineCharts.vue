@@ -39,10 +39,10 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ChartInfo from "./ChartInfo";
+import ChartInfo from "../ChartInfo";
 
 export default {
-  name: "LineCharts",
+  name: "USLineCharts",
   components: {
     ChartInfo,
   },

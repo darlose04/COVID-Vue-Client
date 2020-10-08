@@ -8,7 +8,7 @@
       <div class="data">
         <StateList v-bind:changeNameOfState="changeNameOfState" />
         <div class="charts">
-          <LineCharts v-bind:stateName="stateName" />
+          <USLineCharts v-bind:stateName="stateName" />
         </div>
 
         <div v-if="stateName !== ''">
@@ -30,7 +30,7 @@ import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import StateList from "./StateList";
-import LineCharts from "../LineCharts";
+import USLineCharts from "./USLineCharts";
 import CountyList from "./CountyList";
 
 export default {
@@ -39,7 +39,7 @@ export default {
     Disclaimer,
     Spinner,
     StateList,
-    LineCharts,
+    USLineCharts,
     CountyList,
   },
   data() {
