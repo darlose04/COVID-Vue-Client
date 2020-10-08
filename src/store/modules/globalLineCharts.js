@@ -14,7 +14,16 @@ const getters = {
   getCountryChartDeaths: (state) => state.countryChartDeaths,
 };
 
-const actions = {};
+const actions = {
+  createGlobalChartLabel({ commit, rootState }) {
+    let cases = [...rootState.globalCases.cases];
+    let dateArray = [];
+    dateArray.push(Object.keys(cases[0]));
+    let labels = dateArray[0].slice(7, dateArray[0].length);
+
+    commit("setGlobalChartLabel", labels);
+  },
+};
 
 const mutations = {
   setGlobalChartLabel: (state, label) => (state.globalChartLabel = label),
@@ -22,4 +31,11 @@ const mutations = {
   setGlobalChartDeaths: (state, deaths) => (state.globalChartDeaths = deaths),
   setCountryChartCases: (state, cases) => (state.countryChartCases = cases),
   setCountryChartDeaths: (state, deaths) => (state.countryChartDeaths = deaths),
+};
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
 };
