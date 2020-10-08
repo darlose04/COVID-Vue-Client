@@ -18,7 +18,7 @@
         </div>
       </div>
       <div>
-        <div v-if="stateName !== ''">
+        <div v-if="stateName !== ''" :key="stateName">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usStateChartCases"
