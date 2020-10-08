@@ -6,9 +6,9 @@
     </div>
     <div class="data" v-else>
       <CountryList v-bind:changeNameOfCountry="changeNameOfCountry" />
-    </div>
-    <div class="charts">
-      <GlobalLineCharts v-bind:countryName="countryName" />
+      <div class="charts">
+        <GlobalLineCharts v-bind:countryName="countryName" />
+      </div>
     </div>
   </div>
 </template>
