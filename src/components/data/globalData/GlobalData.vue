@@ -7,6 +7,7 @@
     <div class="data" v-else>
       <CountryList v-bind:changeNameOfCountry="changeNameOfCountry" />
     </div>
+    <div>{{ this.countryName }}</div>
   </div>
 </template>
 
