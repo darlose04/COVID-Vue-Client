@@ -55,15 +55,13 @@ export default {
     "getCountryTotals",
   ]),
   created() {
+    this.fetchGlobalCases();
+    this.fetchGlobalDeaths();
     this.fetchGlobalDailyReport();
     this.createCountryTotals();
   },
-  mounted() {
-    console.log(this.countryName);
-  },
-  beforeUpdate() {
-    console.log(this.countryName);
-  },
+  mounted() {},
+  beforeUpdate() {},
 };
 </script>
 
