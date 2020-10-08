@@ -48,12 +48,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      "fetchUSCases",
-      "fetchUSDeaths",
-      "fetchUSDailyReport",
-      "changeStateName",
-    ]),
+    ...mapActions(["fetchUSCases", "fetchUSDeaths", "fetchUSDailyReport"]),
     changeNameOfState(event) {
       if (event.target.innerText === "U.S. Totals") {
         this.stateName = "";
