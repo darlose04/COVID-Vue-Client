@@ -29,7 +29,7 @@ export default {
   components: {
     GlobalTotals,
   },
-
+  props: ["changeNameOfCountry"],
   methods: {
     ...mapActions(["createCountryTotals"]),
     numWithCommas: function(num) {
