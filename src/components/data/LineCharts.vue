@@ -79,9 +79,6 @@ export default {
   beforeUpdate() {
     this.createUSChartLabel();
     this.createUSStateChartCases(this.stateName);
-    console.log("State chart cases in beforeUpdate hook");
-    console.log(this.stateName);
-    console.log(this.usStateChartCases);
     this.createUSStateChartDeaths(this.stateName);
   },
 };
