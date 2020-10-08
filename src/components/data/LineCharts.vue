@@ -17,7 +17,7 @@
           />
         </div>
       </div>
-      <div v-if="usStateChartCases.length > 0 && usStateChartDeaths.length > 0">
+      <div>
         <div v-if="stateName !== ''">
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
@@ -74,9 +74,6 @@ export default {
   mounted() {
     this.createUSChartLabel();
     this.createUSChartCases();
-    console.log("Chart cases in mounted hook");
-    console.log(this.stateName);
-    console.log(this.usChartCases);
     this.createUSChartDeaths();
   },
   beforeUpdate() {
