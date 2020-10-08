@@ -7,7 +7,9 @@
     <div class="data" v-else>
       <CountryList v-bind:changeNameOfCountry="changeNameOfCountry" />
     </div>
-    <div>{{ this.countryName }}</div>
+    <div class="charts">
+      <GlobalLineCharts v-bind:countryName="countryName" />
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import { mapGetters, mapActions } from "vuex";
 import Disclaimer from "../../layout/Disclaimer";
 import Spinner from "../../layout/Spinner";
 import CountryList from "./CountryList";
+import GlobalLineCharts from "./GlobalLineCharts";
 
 export default {
   name: "GlobalData",
@@ -23,6 +26,7 @@ export default {
     Disclaimer,
     Spinner,
     CountryList,
+    GlobalLineCharts,
   },
   data() {
     return {
