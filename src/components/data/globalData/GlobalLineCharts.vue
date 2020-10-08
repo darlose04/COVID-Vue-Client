@@ -78,8 +78,8 @@ export default {
   },
   beforeUpdate() {
     this.createGlobalChartLabel();
-    this.createCountryChartCases(this.stateName);
-    this.createCountryChartDeaths(this.stateName);
+    this.createCountryChartCases(this.countryName);
+    this.createCountryChartDeaths(this.countryName);
   },
 };
 </script>
