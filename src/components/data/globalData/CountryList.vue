@@ -40,9 +40,7 @@ export default {
   created() {
     this.createCountryTotals();
   },
-  mounted() {
-    // console.log(this.getCountryTotals);
-  },
+  mounted() {},
 };
 </script>
 
