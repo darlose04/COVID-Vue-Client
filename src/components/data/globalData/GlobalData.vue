@@ -23,7 +23,7 @@ export default {
     Spinner,
     CountryList,
   },
-  date() {
+  data() {
     return {
       countryName: "",
     };
@@ -53,7 +53,12 @@ export default {
     this.fetchGlobalDailyReport();
     this.createCountryTotals();
   },
-  mounted() {},
+  mounted() {
+    console.log(this.countryName);
+  },
+  beforeUpdate() {
+    console.log(this.countryName);
+  },
 };
 </script>
 
