@@ -23,6 +23,22 @@ const actions = {
 
     commit("setGlobalChartLabel", labels);
   },
+
+  createGlobalChartCases({ commit, state, rootState }) {
+    let cases = [...rootState.globalCases.cases];
+    let labels = [...state.globalChartLabel];
+    let chartCases = [];
+
+    labels.map((date) => {
+      let numCases = 0;
+      cases.map((country) => {
+        numCases += country[date];
+      });
+      chartCases.push(numCases);
+    });
+
+    commit("setGlobalChartCases", chartCases);
+  },
 };
 
 const mutations = {
