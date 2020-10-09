@@ -133,7 +133,7 @@ const actions = {
     let labels = [...state.globalChartLabel];
     let globalIncreases = [];
 
-    for (let i = 0; i < labels.length; i++) {
+    for (let i = labels.length; i >= 0; i--) {
       let todayDeaths = 0;
       let yesterdayDeaths = 0;
 
@@ -145,6 +145,7 @@ const actions = {
       let dailyIncrease = todayDeaths - yesterdayDeaths;
       globalIncreases.push(dailyIncrease);
     }
+    globalIncreases.reverse();
 
     commit("setGlobalDailyIncreaseDeaths", globalIncreases);
   },
