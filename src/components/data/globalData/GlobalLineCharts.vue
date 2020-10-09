@@ -43,7 +43,6 @@
           v-bind:label="'Daily Increase in Global Deaths'"
         />
       </div>
-
       <div v-if="countryName !== ''" :key="countryName">
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
@@ -85,6 +84,7 @@ export default {
       "createGlobalChartDeaths",
       "createCountryChartCases",
       "createCountryChartDeaths",
+      "createGlobalIncreaseCases",
     ]),
   },
   computed: {
@@ -94,12 +94,14 @@ export default {
       countryChartCases: "getCountryChartCases",
       globalChartDeaths: "getGlobalChartDeaths",
       countryChartDeaths: "getCountryChartDeaths",
+      globalDailyIncreaseCases: "getGlobalDailyIncreaseCases",
     }),
   },
   mounted() {
     this.createGlobalChartLabel();
     this.createGlobalChartCases();
     this.createGlobalChartDeaths();
+    this.createGlobalIncreaseCases();
   },
   beforeUpdate() {
     this.createGlobalChartLabel();
