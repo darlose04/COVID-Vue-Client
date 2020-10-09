@@ -45,9 +45,9 @@
           />
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
-            v-bind:infoArray="usStateChartCases"
+            v-bind:infoArray="usStateDailyIncreaseCases"
             v-bind:color="casesColor"
-            v-bind:label="stateName + ' Cases'"
+            v-bind:label="'Daily Increase in ' + stateName + ' Cases'"
           />
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
@@ -86,6 +86,7 @@ export default {
       "createUSStateChartDeaths",
       "createUSDailyIncreaseCases",
       "createUSDailyIncreaseDeaths",
+      "createUSStateDailyIncreaseCases",
     ]),
   },
   computed: {
@@ -97,6 +98,7 @@ export default {
       usStateChartDeaths: "getUSStateChartDeaths",
       usDailyIncreaseCases: "getUSDailyIncreaseCases",
       usDailyIncreaseDeaths: "getUSDailyIncreaseDeaths",
+      usStateDailyIncreaseCases: "getUSStateDailyIncreaseCases",
     }),
   },
   mounted() {
@@ -110,6 +112,7 @@ export default {
     this.createUSChartLabel();
     this.createUSStateChartCases(this.stateName);
     this.createUSStateChartDeaths(this.stateName);
+    this.createUSStateDailyIncreaseCases();
   },
 };
 </script>
