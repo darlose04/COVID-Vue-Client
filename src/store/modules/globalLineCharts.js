@@ -6,6 +6,8 @@ const state = {
   countryChartDeaths: [],
   globalDailyIncreaseCases: [],
   globalDailyIncreaseDeaths: [],
+  countryDailyIncreaseCases: [],
+  countryDailyIncreaseDeaths: [],
 };
 
 const getters = {
@@ -16,6 +18,8 @@ const getters = {
   getCountryChartDeaths: (state) => state.countryChartDeaths,
   getGlobalDailyIncreaseCases: (state) => state.globalDailyIncreaseCases,
   getGlobalDailyIncreaseDeaths: (state) => state.globalDailyIncreaseDeaths,
+  getCountryDailyIncreaseCases: (state) => state.countryDailyIncreaseCases,
+  getCountryDailyIncreaseDeaths: (state) => state.countryDailyIncreaseDeaths,
 };
 
 const actions = {
@@ -149,6 +153,28 @@ const actions = {
 
     commit("setGlobalDailyIncreaseDeaths", globalIncreases);
   },
+
+  createCountryDailyIncreaseCases({ commit, state }) {
+    let cases = [...state.countryChartCases];
+    let labels = [...state.globalChartLabel];
+    let countryIncreases = [];
+
+    for (let i = labels.length; i >= 0; i--) {
+      let todayCases = 0;
+      let yesterdayCases = 0;
+
+      for (let k = 0; k < cases.length; k++) {
+        todayCases += cases[k][`${labels[i]}`];
+        yesterdayCases += cases[k][`${labels[i - 1]}`];
+      }
+
+      let dailyIncrease = todayCases - yesterdayCases;
+      countryIncreases.push(dailyIncrease);
+    }
+    countryIncreases.reverse();
+
+    commit("setCountryDailyIncreaseCases", countryIncreases);
+  },
 };
 
 const mutations = {
@@ -161,6 +187,10 @@ const mutations = {
     (state.globalDailyIncreaseCases = cases),
   setGlobalDailyIncreaseDeaths: (state, deaths) =>
     (state.globalDailyIncreaseDeaths = deaths),
+  setCountryDailyIncreaseCases: (state, cases) =>
+    (state.countryDailyIncreaseCases = cases),
+  setCountryDailyIncreaseDeaths: (state, deaths) =>
+    (state.countryDailyIncreaseDeaths = deaths),
 };
 
 export default {
