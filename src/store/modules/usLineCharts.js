@@ -4,6 +4,10 @@ const state = {
   usChartDeaths: [],
   usStateChartCases: [],
   usStateChartDeaths: [],
+  usDailyIncreaseCases: [],
+  usDailyIncreaseDeaths: [],
+  usStateDailyIncreaseCases: [],
+  usStateDailyIncreaseDeaths: [],
 };
 
 const getters = {
@@ -12,6 +16,10 @@ const getters = {
   getUSStateChartCases: (state) => state.usStateChartCases,
   getUSChartDeaths: (state) => state.usChartDeaths,
   getUSStateChartDeaths: (state) => state.usStateChartDeaths,
+  getUSDailyIncreaseCases: (state) => state.usDailyIncreaseCases,
+  getUSDailyIncreaseDeaths: (state) => state.usDailyIncreaseDeaths,
+  getUSStateDailyIncreaseCases: (state) => state.usStateDailyIncreaseCases,
+  getUSStateDailyIncreaseDeaths: (state) => state.usStateDailyIncreaseDeaths,
 };
 
 const actions = {
@@ -111,6 +119,14 @@ const mutations = {
   setUSStateChartCases: (state, cases) => (state.usStateChartCases = cases),
   setUSChartDeaths: (state, deaths) => (state.usChartDeaths = deaths),
   setUSStateChartDeaths: (state, deaths) => (state.usStateChartDeaths = deaths),
+  setUSDailyIncreaseCases: (state, cases) =>
+    (state.usDailyIncreaseCases = cases),
+  setUSDailyIncreaseDeaths: (state, deaths) =>
+    (state.usDailyIncreaseDeaths = deaths),
+  setUSStateDailyIncreaseCases: (state, cases) =>
+    (state.usStateDailyIncreaseCases = cases),
+  setUSStateDailyIncreaseDeaths: (state, deaths) =>
+    (state.usStateDailyIncreaseDeaths = deaths),
 };
 
 export default {
