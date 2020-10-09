@@ -4,6 +4,8 @@ const state = {
   globalChartDeaths: [],
   countryChartCases: [],
   countryChartDeaths: [],
+  globalDailyIncreaseCases: [],
+  globalDailyIncreaseDeaths: [],
 };
 
 const getters = {
@@ -12,6 +14,8 @@ const getters = {
   getGlobalChartDeaths: (state) => state.globalChartDeaths,
   getCountryChartCases: (state) => state.countryChartCases,
   getCountryChartDeaths: (state) => state.countryChartDeaths,
+  getGlobalIncreaseCases: (state) => state.globalDailyIncreaseCases,
+  getGlobalIncreaseDeaths: (state) => state.globalDailyIncreaseDeaths,
 };
 
 const actions = {
@@ -109,6 +113,10 @@ const mutations = {
   setGlobalChartDeaths: (state, deaths) => (state.globalChartDeaths = deaths),
   setCountryChartCases: (state, cases) => (state.countryChartCases = cases),
   setCountryChartDeaths: (state, deaths) => (state.countryChartDeaths = deaths),
+  setGlobalDailyIncreaseCases: (state, cases) =>
+    (state.globalDailyIncreaseCases = cases),
+  setGlobalDailyIncreaseDeaths: (state, deaths) =>
+    (state.globalDailyIncreaseDeaths = deaths),
 };
 
 export default {
