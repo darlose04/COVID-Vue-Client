@@ -49,7 +49,7 @@ export default {
 .county-list {
   margin-right: 1rem;
   padding: 1rem;
-  height: 2035px;
+  height: 1614px;
   overflow: scroll;
 }
 
