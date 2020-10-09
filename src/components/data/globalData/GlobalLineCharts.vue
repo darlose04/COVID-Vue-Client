@@ -32,7 +32,7 @@
       <div v-if="countryName === ''">
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="globalChartCases"
+          v-bind:infoArray="globalDailyIncreaseCases"
           v-bind:color="casesColor"
           v-bind:label="'Daily Increase in Global Cases'"
         />
@@ -94,7 +94,7 @@ export default {
       countryChartCases: "getCountryChartCases",
       globalChartDeaths: "getGlobalChartDeaths",
       countryChartDeaths: "getCountryChartDeaths",
-      globalDailyIncreaseCases: "getGlobalDailyIncreaseCases",
+      globalDailyIncreaseCases: "getGlobalIncreaseCases",
     }),
   },
   mounted() {

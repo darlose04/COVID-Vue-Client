@@ -106,8 +106,8 @@ const actions = {
     commit("setCountryChartDeaths", chartDeaths);
   },
 
-  createGlobalIncreaseCases({ commit, state }) {
-    let cases = [...state.globalChartCases];
+  createGlobalIncreaseCases({ commit, state, rootState }) {
+    let cases = [...rootState.globalCases.cases];
     let labels = [...state.globalChartLabel];
     let globalIncreases = [];
 
@@ -116,13 +116,15 @@ const actions = {
       let yesterdayCases = 0;
 
       for (let k = 0; k < cases.length; k++) {
-        todayCases += cases[k][labels[i]];
-        yesterdayCases += cases[k][labels[i - 1]];
+        todayCases += cases[k][`${labels[i]}`];
+        yesterdayCases += cases[k][`${labels[i - 1]}`];
       }
 
       let dailyIncrease = todayCases - yesterdayCases;
       globalIncreases.push(dailyIncrease);
     }
+    globalIncreases.reverse();
+    // console.log(globalIncreases.reverse());
 
     commit("setGlobalDailyIncreaseCases", globalIncreases);
   },
