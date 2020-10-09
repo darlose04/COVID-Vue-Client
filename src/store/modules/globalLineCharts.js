@@ -156,19 +156,17 @@ const actions = {
 
   createCountryDailyIncreaseCases({ commit, state }) {
     let cases = [...state.countryChartCases];
-    let labels = [...state.globalChartLabel];
     let countryIncreases = [];
 
-    for (let i = labels.length; i >= 0; i--) {
-      let todayCases = 0;
-      let yesterdayCases = 0;
+    let todayCases = 0;
+    let yesterdayCases = 0;
 
-      for (let k = 0; k < cases.length; k++) {
-        todayCases += cases[k][`${labels[i]}`];
-        yesterdayCases += cases[k][`${labels[i - 1]}`];
-      }
+    for (let i = cases.length - 1; i >= 1; i--) {
+      todayCases = cases[i];
+      yesterdayCases = cases[i - 1];
 
       let dailyIncrease = todayCases - yesterdayCases;
+
       countryIncreases.push(dailyIncrease);
     }
     countryIncreases.reverse();
