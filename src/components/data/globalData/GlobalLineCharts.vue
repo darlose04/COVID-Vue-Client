@@ -49,7 +49,7 @@
           />
           <ChartInfo
             v-bind:chartLabel="globalChartLabel"
-            v-bind:infoArray="countryChartDeaths"
+            v-bind:infoArray="countryDailyIncreaseDeaths"
             v-bind:color="deathsColor"
             v-bind:label="'Daily Increase in ' + countryName + ' Deaths'"
           />
@@ -85,6 +85,7 @@ export default {
       "createGlobalDailyIncreaseCases",
       "createGlobalDailyIncreaseDeaths",
       "createCountryDailyIncreaseCases",
+      "createCountryDailyIncreaseDeaths",
     ]),
   },
   computed: {
@@ -97,6 +98,7 @@ export default {
       globalDailyIncreaseCases: "getGlobalDailyIncreaseCases",
       globalDailyIncreaseDeaths: "getGlobalDailyIncreaseDeaths",
       countryDailyIncreaseCases: "getCountryDailyIncreaseCases",
+      countryDailyIncreaseDeaths: "getCountryDailyIncreaseDeaths",
     }),
   },
   mounted() {
@@ -111,6 +113,7 @@ export default {
     this.createCountryChartCases(this.countryName);
     this.createCountryChartDeaths(this.countryName);
     this.createCountryDailyIncreaseCases();
+    this.createCountryDailyIncreaseDeaths();
   },
 };
 </script>
