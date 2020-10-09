@@ -52,7 +52,7 @@ export default {
 }
 
 .country-list {
-  height: 1863px;
+  height: 1450px;
   overflow: scroll;
 }
 
