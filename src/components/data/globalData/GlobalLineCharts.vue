@@ -84,7 +84,7 @@ export default {
       "createGlobalChartDeaths",
       "createCountryChartCases",
       "createCountryChartDeaths",
-      "createGlobalIncreaseCases",
+      "createGlobalDailyIncreaseCases",
     ]),
   },
   computed: {
@@ -94,14 +94,14 @@ export default {
       countryChartCases: "getCountryChartCases",
       globalChartDeaths: "getGlobalChartDeaths",
       countryChartDeaths: "getCountryChartDeaths",
-      globalDailyIncreaseCases: "getGlobalIncreaseCases",
+      globalDailyIncreaseCases: "getGlobalDailyIncreaseCases",
     }),
   },
   mounted() {
     this.createGlobalChartLabel();
     this.createGlobalChartCases();
     this.createGlobalChartDeaths();
-    this.createGlobalIncreaseCases();
+    this.createGlobalDailyIncreaseCases();
   },
   beforeUpdate() {
     this.createGlobalChartLabel();

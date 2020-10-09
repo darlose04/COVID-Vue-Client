@@ -14,8 +14,8 @@ const getters = {
   getGlobalChartDeaths: (state) => state.globalChartDeaths,
   getCountryChartCases: (state) => state.countryChartCases,
   getCountryChartDeaths: (state) => state.countryChartDeaths,
-  getGlobalIncreaseCases: (state) => state.globalDailyIncreaseCases,
-  getGlobalIncreaseDeaths: (state) => state.globalDailyIncreaseDeaths,
+  getGlobalDailyIncreaseCases: (state) => state.globalDailyIncreaseCases,
+  getGlobalDailyIncreaseDeaths: (state) => state.globalDailyIncreaseDeaths,
 };
 
 const actions = {
@@ -106,7 +106,7 @@ const actions = {
     commit("setCountryChartDeaths", chartDeaths);
   },
 
-  createGlobalIncreaseCases({ commit, state, rootState }) {
+  createGlobalDailyIncreaseCases({ commit, state, rootState }) {
     let cases = [...rootState.globalCases.cases];
     let labels = [...state.globalChartLabel];
     let globalIncreases = [];
