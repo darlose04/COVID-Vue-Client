@@ -81,7 +81,7 @@ export default {
 }
 
 .state-list {
-  height: 1823px;
+  height: 1410px;
   overflow: scroll;
 }
 
