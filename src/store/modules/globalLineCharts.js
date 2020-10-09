@@ -173,6 +173,26 @@ const actions = {
 
     commit("setCountryDailyIncreaseCases", countryIncreases);
   },
+
+  createCountryDailyIncreaseDeaths({ commit, state }) {
+    let deaths = [...state.countryChartDeaths];
+    let countryIncreases = [];
+
+    let todayDeaths = 0;
+    let yesterdayDeaths = 0;
+
+    for (let i = deaths.length - 1; i >= 1; i--) {
+      todayDeaths = deaths[i];
+      yesterdayDeaths = deaths[i - 1];
+
+      let dailyIncrease = todayDeaths - yesterdayDeaths;
+
+      countryIncreases.push(dailyIncrease);
+    }
+    countryIncreases.reverse();
+
+    commit("setCountryDailyIncreaseDeaths", countryIncreases);
+  },
 };
 
 const mutations = {
