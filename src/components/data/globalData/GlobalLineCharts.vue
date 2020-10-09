@@ -1,57 +1,59 @@
 <template>
   <div class="line-chart">
     <div v-if="globalChartLabel.length > 0">
-      <div v-if="countryName === ''">
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="globalChartCases"
-          v-bind:color="casesColor"
-          v-bind:label="'Total Global Cases'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="globalChartDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="'Total Global Deaths'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="globalDailyIncreaseCases"
-          v-bind:color="casesColor"
-          v-bind:label="'Daily Increase in Global Cases'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="globalDailyIncreaseDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="'Daily Increase in Global Deaths'"
-        />
-      </div>
-      <div v-if="countryName !== ''" :key="countryName">
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartCases"
-          v-bind:color="casesColor"
-          v-bind:label="countryName + ' Cases'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="countryName + ' Deaths'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartCases"
-          v-bind:color="casesColor"
-          v-bind:label="'Daily Increase in ' + countryName + ' Cases'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="'Daily Increase in ' + countryName + ' Deaths'"
-        />
+      <div v-if="globalChartCases.length > 0 && globalChartDeaths.length > 0">
+        <div v-if="countryName === ''">
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="'Total Global Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="'Total Global Deaths'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalDailyIncreaseCases"
+            v-bind:color="casesColor"
+            v-bind:label="'Daily Increase in Global Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="globalDailyIncreaseDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="'Daily Increase in Global Deaths'"
+          />
+        </div>
+        <div v-if="countryName !== ''" :key="countryName">
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="countryName + ' Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="countryName + ' Deaths'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryDailyIncreaseCases"
+            v-bind:color="casesColor"
+            v-bind:label="'Daily Increase in ' + countryName + ' Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="globalChartLabel"
+            v-bind:infoArray="countryChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="'Daily Increase in ' + countryName + ' Deaths'"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -82,6 +84,7 @@ export default {
       "createCountryChartDeaths",
       "createGlobalDailyIncreaseCases",
       "createGlobalDailyIncreaseDeaths",
+      "createCountryDailyIncreaseCases",
     ]),
   },
   computed: {
@@ -93,6 +96,7 @@ export default {
       countryChartDeaths: "getCountryChartDeaths",
       globalDailyIncreaseCases: "getGlobalDailyIncreaseCases",
       globalDailyIncreaseDeaths: "getGlobalDailyIncreaseDeaths",
+      countryDailyIncreaseCases: "getCountryDailyIncreaseCases",
     }),
   },
   mounted() {
@@ -106,6 +110,7 @@ export default {
     this.createGlobalChartLabel();
     this.createCountryChartCases(this.countryName);
     this.createCountryChartDeaths(this.countryName);
+    this.createCountryDailyIncreaseCases();
   },
 };
 </script>
