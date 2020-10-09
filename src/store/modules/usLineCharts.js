@@ -116,7 +116,7 @@ const actions = {
     let cases = [...state.usChartCases];
     let usIncreases = [];
 
-    for (let i = cases.length - 1; i >= 1; i--) {
+    for (let i = cases.length - 1; i >= 0; i--) {
       let todayCases = cases[i];
       let yesterdayCases = cases[i - 1];
 
@@ -132,7 +132,7 @@ const actions = {
     let deaths = [...state.usChartDeaths];
     let usIncreases = [];
 
-    for (let i = deaths.length - 1; i >= 1; i--) {
+    for (let i = deaths.length - 1; i >= 0; i--) {
       let todayDeaths = deaths[i];
       let yesterdayDeaths = deaths[i - 1];
 
