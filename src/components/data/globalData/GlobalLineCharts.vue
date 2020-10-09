@@ -34,13 +34,13 @@
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="globalChartCases"
           v-bind:color="casesColor"
-          v-bind:label="'Total Global Cases'"
+          v-bind:label="'Daily Increase in Global Cases'"
         />
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="globalChartDeaths"
           v-bind:color="deathsColor"
-          v-bind:label="'Total Global Deaths'"
+          v-bind:label="'Daily Increase in Global Deaths'"
         />
       </div>
 
@@ -49,13 +49,13 @@
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="countryChartCases"
           v-bind:color="casesColor"
-          v-bind:label="countryName + ' Cases'"
+          v-bind:label="'Daily Increase in ' + countryName + ' Cases'"
         />
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="countryChartDeaths"
           v-bind:color="deathsColor"
-          v-bind:label="countryName + ' Deaths'"
+          v-bind:label="'Daily Increase in ' + countryName + ' Deaths'"
         />
       </div>
     </div>
