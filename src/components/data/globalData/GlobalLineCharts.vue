@@ -14,22 +14,6 @@
           v-bind:color="deathsColor"
           v-bind:label="'Total Global Deaths'"
         />
-      </div>
-      <div v-if="countryName !== ''" :key="countryName">
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartCases"
-          v-bind:color="casesColor"
-          v-bind:label="countryName + ' Cases'"
-        />
-        <ChartInfo
-          v-bind:chartLabel="globalChartLabel"
-          v-bind:infoArray="countryChartDeaths"
-          v-bind:color="deathsColor"
-          v-bind:label="countryName + ' Deaths'"
-        />
-      </div>
-      <div v-if="countryName === ''">
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="globalDailyIncreaseCases"
@@ -44,6 +28,18 @@
         />
       </div>
       <div v-if="countryName !== ''" :key="countryName">
+        <ChartInfo
+          v-bind:chartLabel="globalChartLabel"
+          v-bind:infoArray="countryChartCases"
+          v-bind:color="casesColor"
+          v-bind:label="countryName + ' Cases'"
+        />
+        <ChartInfo
+          v-bind:chartLabel="globalChartLabel"
+          v-bind:infoArray="countryChartDeaths"
+          v-bind:color="deathsColor"
+          v-bind:label="countryName + ' Deaths'"
+        />
         <ChartInfo
           v-bind:chartLabel="globalChartLabel"
           v-bind:infoArray="countryChartCases"
