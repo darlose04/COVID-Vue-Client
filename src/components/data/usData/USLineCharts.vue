@@ -15,10 +15,34 @@
             v-bind:color="deathsColor"
             v-bind:label="'Total U.S. Deaths'"
           />
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="'Total U.S. Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="'Total U.S. Deaths'"
+          />
         </div>
       </div>
       <div>
         <div v-if="stateName !== ''" :key="stateName">
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usStateChartCases"
+            v-bind:color="casesColor"
+            v-bind:label="stateName + ' Cases'"
+          />
+          <ChartInfo
+            v-bind:chartLabel="usChartLabel"
+            v-bind:infoArray="usStateChartDeaths"
+            v-bind:color="deathsColor"
+            v-bind:label="stateName + ' Deaths'"
+          />
           <ChartInfo
             v-bind:chartLabel="usChartLabel"
             v-bind:infoArray="usStateChartCases"
