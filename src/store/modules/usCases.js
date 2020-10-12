@@ -44,7 +44,7 @@ const actions = {
     for (let i = 0; i < countyCases.length; i++) {
       let stateObj = {
         id: countyCases[i].UID,
-        county: countyCases[i].City,
+        county: countyCases[i].County,
         cases: countyCases[i][recentDate],
       };
       stateCountyTotalsObjects.push(stateObj);

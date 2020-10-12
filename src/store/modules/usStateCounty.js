@@ -20,7 +20,7 @@ const actions = {
     for (let i = 0; i < countyCases.length; i++) {
       let stateCountyObj = {
         id: countyCases[i].UID,
-        county: countyCases[i].City,
+        county: countyCases[i].County,
         cases: countyCases[i][recentDate],
         deaths: countyDeaths[i][recentDate],
       };
