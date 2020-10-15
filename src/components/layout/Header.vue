@@ -6,7 +6,6 @@
       </h1>
       <nav>
         <router-link to="/">United States</router-link>
-        <router-link to="/usmap">US Map</router-link>
         <router-link to="/global">Global</router-link>
         <router-link to="/about">About</router-link>
       </nav>

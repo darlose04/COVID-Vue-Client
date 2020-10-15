@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import USData from "../components/data/usData/USData";
 import GlobalData from "../components/data/globalData/GlobalData";
-import USMap from "../components/data/usData/USMap";
 
 Vue.use(VueRouter);
 
@@ -11,11 +10,6 @@ const routes = [
     path: "/",
     name: "USData",
     component: USData,
-  },
-  {
-    path: "/usmap",
-    name: "USMap",
-    component: USMap,
   },
   {
     path: "/global",
