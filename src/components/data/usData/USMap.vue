@@ -1,6 +1,7 @@
 <template>
   <div class="data-wrapper">
-    <svg-map class="map" :map="USA" />
+    <svg-map class="map" :map="USA" :location-class="getLocationClass" @mouseover="pointLocation" @mouseout="unpointLocation" @mousemove="moveOnLocation" />
+    <div></div>
   </div>
 </template>
 
@@ -15,13 +16,20 @@ export default {
   },
   data() {
     return {
-      USA
+      USA,
+      pointedLocation: null,
+      tooltipStyle: null,
+    }
+  },
+  methods: {
+    pointLocation(event) {
+      this.pointedLocation = 
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped >
   .data-wrapper {
     width: 1400px;
     margin: auto;
