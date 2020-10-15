@@ -10,16 +10,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@svg-maps/usa": "^1.1.1",
     "axios": "^0.20.0",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.3",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
     "vue-router": "^3.2.0",
-    "vue-svg-map": "^1.2.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
