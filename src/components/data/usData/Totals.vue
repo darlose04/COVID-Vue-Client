@@ -8,7 +8,7 @@
       <li>Deaths: {{ numWithCommas(this.usTotals.totalDeaths) }}</li>
       <li>Active: {{ numWithCommas(this.usTotals.totalActive) }}</li>
       <li>
-        Hospitalized: {{ numWithCommas(this.usTotals.totalHospitalized) }}
+        Hospitalized: <!-- {{ numWithCommas(this.usTotals.totalHospitalized) }} --> Data unavailable
       </li>
       <li>Tested: {{ numWithCommas(this.usTotals.totalTested) }}</li>
       <li>Recovered: {{ numWithCommas(this.usTotals.totalRecovered) }}</li>
