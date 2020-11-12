@@ -35,7 +35,7 @@ const actions = {
         (usTotals.totalDeaths += state.Deaths),
         (usTotals.totalActive += state.Active),
         (usTotals.totalHospitalized += state.People_Hospitalized),
-        (usTotals.totalTested += state.People_Tested),
+        (usTotals.totalTested += state.Total_Test_Results),
         (usTotals.totalRecovered += state.Recovered);
     });
 
